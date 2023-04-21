@@ -9,20 +9,96 @@
                         placeholder="Search...">
                 </div>
                 <div class="col-sm-4"> <button class="btn btn-primary" type="submit">
-                    <span nz-icon nzType="plus" class="card-action-icon"></span>
-                </button>
+                        <span nz-icon nzType="plus" class="card-action-icon"></span>
+                    </button>
                 </div>
             </div>
         </div>
 
-
     </div>
 
 
-    <nz-tabset *ngFor="let tab from espaciosPadre">
-        <nz-tab nzTitle="Tab 1">Content of Tab Pane 1</nz-tab>
-        <nz-tab nzTitle="Tab 2">Content of Tab Pane 2</nz-tab>
-        <nz-tab nzTitle="Tab 3">Content of Tab Pane 3</nz-tab>
-        <nz-tab nzTitle="+ Agregar instalacion Padre"> </nz-tab>
-    </nz-tabset>
+
+    <div class="row">
+        <nz-tabset>
+            <div class="col" *ngFor="let espacioPadre of newData">
+
+                <nz-tab nzTitle={{espacioPadre.code}}>
+                    <!-- <div class="row row-cols-auto" >
+                        <div class="col" *ngFor="let tab of newData">
+                            <app-cardEspacio
+                                [name]="tab.name"
+                                [code]="tab.code"
+                            ></app-cardEspacio>
+                        </div>
+                    </div> -->
+                    <app-tabEspacios [espacio_padre_id]="espacioPadre.espacio_padre_id"></app-tabEspacios>
+                </nz-tab>
+
+            </div>
+            <nz-tab nzTitle="+ Agregar instalacion Padre">
+                <div class="row">
+                    <div class="col-sm-6"> <input class="form-control" id="addEspacioPadre" placeholder="Nombre">
+                    </div>
+                    <div class="col-sm-3"> <input class="form-control" id="addEspacioPadre" placeholder="Codigo">
+                    </div>
+                    <div class="col-sm-3"> <button class="btn btn-primary" type="submit">
+                            Agregar
+                        </button>
+                    </div>
+                </div>
+            </nz-tab>
+        </nz-tabset>
+    </div>
+
+
+
+
+
+    <!-- <nz-tabset>
+        <nz-tab nzTitle="WC">
+            <div class="row row-cols-auto">
+                <div class="col">
+                    <app-cardEspacio></app-cardEspacio>
+                </div>
+                <div class="col">
+                    <app-cardEspacio></app-cardEspacio>
+                </div>
+                <div class="col">
+                    <app-cardEspacio></app-cardEspacio>
+                </div>
+                <div class="col">
+                    <app-cardEspacio></app-cardEspacio>
+                </div>
+                <div class="col">
+                    <app-cardEspacio></app-cardEspacio>
+                </div>
+                <div class="col">
+                    <app-cardEspacio></app-cardEspacio>
+                </div>
+                <div class="col">
+                    <app-cardEspacio></app-cardEspacio>
+                </div>
+                <div class="col">
+                    <app-cardEspacio></app-cardEspacio>
+                </div>
+
+            </div>
+
+        </nz-tab>
+        <nz-tab nzTitle="CDBII">Content of Tab Pane 2</nz-tab>
+        <nz-tab nzTitle="CDBI">Content of Tab Pane 3</nz-tab>
+        <nz-tab nzTitle="+ Agregar instalacion Padre">
+            <div class="row">
+                <div class="col-sm-6"> <input class="form-control" id="addEspacioPadre" placeholder="Nombre">
+                </div>
+                <div class="col-sm-3"> <input class="form-control" id="addEspacioPadre" placeholder="Codigo">
+                </div>
+                <div class="col-sm-3"> <button class="btn btn-primary" type="submit">
+                        Agregar
+                    </button>
+                </div>
+            </div>
+        </nz-tab>
+    </nz-tabset> -->
 </div>

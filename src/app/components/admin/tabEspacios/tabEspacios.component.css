@@ -1,0 +1,21 @@
+.container{
+    margin: 5%;
+    position: relative;
+}
+
+
+.card-image{
+    border-radius: 40px;
+    filter: brightness(50%);
+    width: 150px;
+    height: 150px;
+}
+
+.text{
+    position: absolute;
+    color: white;
+    text-align: center;
+    /* top: 30%; */
+    left: 0;
+    right:0;
+}

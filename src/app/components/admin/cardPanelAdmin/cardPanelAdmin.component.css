@@ -40,7 +40,7 @@
     height: 5rem;
     align-self: center ;
     transform: translateY(-30px);
-    border-image-width: 10px;
+    border-width: 5%;
     border-color: white;
     /* position: fixed; */
 }

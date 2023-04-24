@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row">
+        <div class="col-2 p-0">
+            <a>
+                <img class="logo-tec" (click)="open()" src="assets/logo-borregos.png" alt="hey">
+            </a>
+        </div>
+        <div class="col">
+            <!-- <h1>Bienvenido</h1> -->
+            <ng-content [titulo]></ng-content>
+            
+        </div>
+    </div>
+    
+    <!-- <a class="btn">
+        <img class="logo-tec" (click)="open()" src="assets/logo-borregos.png" alt="hey">
+    </a> -->
+    <nz-drawer
+      [nzClosable]="false"
+      [nzVisible]="visible"
+      [nzWidth]=250
+      nzPlacement="left"
+      nzTitle="Menu"
+      (nzOnClose)="close()"
+    >
+      <ng-container *nzDrawerContent>
+        <!-- <img class="logo-tec" src="assets/logo-borregos.png" alt="hey"> -->
+        <ul nz-menu nzTheme="light" nzMode="inline">
+
+            <li nz-menu-item nzMatchRouter routerLink="/" >
+              <span nz-icon nzType="home" nzTheme="outline"></span>
+              <span>Home</span>
+            </li>
+            <li nz-menu-item nzMatchRouter routerLink="/welcome" >
+              <span nz-icon nzType="build"></span>
+              <span>Espacios</span>
+            </li>
+            <li nz-menu-item nzMatchRouter routerLink="/torneos" (click)="close()">
+              <span nz-icon nzType="trophy"></span>
+              <span>Reserva</span>
+            </li>
+            <li nz-menu-item nzMatchRouter routerLink="/torneos" (click)="close()">
+                <span nz-icon nzType="trophy"></span>
+                <span>Mis reservaciones</span>
+              </li>
+            <li nz-menu-item nzMatchRouter routerLink="/anuncios" (click)="close()">
+              <span nz-icon nzType="notification"></span>
+              <span>Anuncios</span>
+            </li>
+      
+          </ul>
+      </ng-container>
+      
+    </nz-drawer>
+    
+</div>

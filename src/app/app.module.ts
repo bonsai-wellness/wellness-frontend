@@ -15,6 +15,9 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { DemoNgZorroAntdModule } from './ng-zorro-antd.module';
 
+import { HeaderModule } from './components/user/header/header.module';
+import { HomeUserRoutingModule } from './pages/user/home-user/home-user-routing.module';
+
 registerLocaleData(en);
 
 @NgModule({
@@ -30,7 +33,9 @@ registerLocaleData(en);
     IconsProviderModule,
     NzLayoutModule,
     NzMenuModule,
-    DemoNgZorroAntdModule
+    HeaderModule,
+    HomeUserRoutingModule,
+    DemoNgZorroAntdModule,
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }

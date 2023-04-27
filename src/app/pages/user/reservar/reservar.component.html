@@ -1,0 +1,21 @@
+
+<div class="container mt-3">
+    <nz-input-group [nzSuffix]="suffixIconSearch" class="rounded-3 text-center p-2">
+        <input type="text" nz-input placeholder="¿Buscas algo?" />
+    </nz-input-group>
+    <ng-template #suffixIconSearch>
+        <span nz-icon nzType="search"></span>
+    </ng-template>
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-6">
+                <app-card-deporte></app-card-deporte>
+            </div>
+            <div class="col-6">
+                <app-card-deporte></app-card-deporte>
+            </div>
+        </div>
+    </div>
+    <!-- <app-card-deporte></app-card-deporte> -->
+      
+</div>

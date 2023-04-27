@@ -1,20 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { HomeUserRoutingModule } from './home-user-routing.module';
-import { HomeUserComponent } from './home-user.component';
+import { UserAppRoutingModule } from './user-app-routing.module';
+import { UserAppComponent } from './user-app.component';
 import { HeaderModule } from 'src/app/components/user/header/header.module';
-
 import { UserComponentsModule } from '../../../components/user/user-components.module';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+
+
+
 @NgModule({
   declarations: [
-    HomeUserComponent,
+    UserAppComponent
   ],
   imports: [
     CommonModule,
-    HomeUserRoutingModule,
+    UserAppRoutingModule,
     HeaderModule,
-    UserComponentsModule
+    UserComponentsModule,
+    NzLayoutModule
   ]
 })
-export class HomeUserModule { }
+export class UserAppModule { }

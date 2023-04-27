@@ -1,6 +1,27 @@
 <div class="row">
     <div class="col-12 my-2 rounded-3 p-0 anuncios">
-        <img src="assets/wellness.jpeg" alt="e" class="anuncio img-fluid rounded-3 w-100">
+        
         <!-- <img src="assets/anunciod.png" alt="e" class="anuncio img-fluid rounded-3 w-100"> -->
+        <carousel  class="h-100 d-block" [interval]="0">
+          <slide *ngFor="let anuncio of arrAnuncios" class="text-center w-80 mx-auto">
+            <img src={{anuncio.image}} alt="" class="anuncio img-fluid rounded-3 w-100">
+          </slide>
+            <!-- <slide >
+              <div class="text-center py-3 w-80 mx-auto">
+                <img src="assets/wellness.jpeg" alt="e" class="anuncio img-fluid rounded-3 w-100">
+              </div>
+            </slide>
+            <slide class="h-100">
+              <div class="text-center py-3 w-80 mx-auto">
+                <img src="assets/wellness.jpeg" alt="e" class="anuncio img-fluid rounded-3 w-100">
+              </div>
+            </slide>
+            <slide>
+              <div class="text-center py-3 w-80 mx-auto">
+                <img src="assets/wellness.jpeg" alt="e" class="anuncio img-fluid rounded-3 w-100">
+              </div>
+            </slide> -->
+          </carousel>
     </div>
+    
 </div>

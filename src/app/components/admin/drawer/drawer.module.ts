@@ -12,7 +12,7 @@ import { NzLayoutModule } from "ng-zorro-antd/layout";
 import { NzMenuModule } from "ng-zorro-antd/menu";
 import { DemoNgZorroAntdModule } from "src/app/ng-zorro-antd.module";
 import { HeaderModule } from "../../user/header/header.module";
-import { HomeUserRoutingModule } from "src/app/pages/user/home-user/home-user-routing.module";
+// import { HomeUserRoutingModule } from "src/app/pages/user/home-user/home-user-routing.module";
 import { CommonModule } from "@angular/common";
 @NgModule({
   imports: [
@@ -22,7 +22,7 @@ import { CommonModule } from "@angular/common";
     NzLayoutModule,
     NzMenuModule,
     HeaderModule,
-    HomeUserRoutingModule,
+    // HomeUserRoutingModule,
     DemoNgZorroAntdModule,
     CommonModule,
   ],

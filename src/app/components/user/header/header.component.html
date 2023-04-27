@@ -12,9 +12,6 @@
         </div>
     </div>
     
-    <!-- <a class="btn">
-        <img class="logo-tec" (click)="open()" src="assets/logo-borregos.png" alt="hey">
-    </a> -->
     <nz-drawer
       [nzClosable]="false"
       [nzVisible]="visible"
@@ -23,27 +20,24 @@
       nzTitle="Menu"
       (nzOnClose)="close()"
     >
+
       <ng-container *nzDrawerContent>
         <!-- <img class="logo-tec" src="assets/logo-borregos.png" alt="hey"> -->
         <ul nz-menu nzTheme="light" nzMode="inline">
 
-            <li nz-menu-item nzMatchRouter routerLink="/" >
+            <li nz-menu-item nzMatchRouterExact routerLink="./" (click)="close()">
               <span nz-icon nzType="home" nzTheme="outline"></span>
               <span>Home</span>
             </li>
-            <li nz-menu-item nzMatchRouter routerLink="/welcome" >
-              <span nz-icon nzType="build"></span>
-              <span>Espacios</span>
-            </li>
-            <li nz-menu-item nzMatchRouter routerLink="/torneos" (click)="close()">
-              <span nz-icon nzType="trophy"></span>
+            <li nz-menu-item nzMatchRouterExact routerLink="./reservar" (click)="close()" >
+              <span nz-icon nzType="schedule" nzTheme="outline"></span>
               <span>Reserva</span>
             </li>
-            <li nz-menu-item nzMatchRouter routerLink="/torneos" (click)="close()">
-                <span nz-icon nzType="trophy"></span>
+            <li nz-menu-item nzMatchRouterExact routerLink="/torneos" (click)="close()">
+                <span nz-icon nzType="calendar"></span>
                 <span>Mis reservaciones</span>
               </li>
-            <li nz-menu-item nzMatchRouter routerLink="/anuncios" (click)="close()">
+            <li nz-menu-item nzMatchRouterExact routerLink="/anuncios" (click)="close()">
               <span nz-icon nzType="notification"></span>
               <span>Anuncios</span>
             </li>

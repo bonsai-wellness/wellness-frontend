@@ -5,6 +5,7 @@ import { ReservacionesComponent } from './home/reservaciones/reservaciones.compo
 import { AnunciosComponent } from './home/anuncios/anuncios.component';
 
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { CardDeporteComponent } from './reservar/card-deporte/card-deporte.component';
 
 
 
@@ -12,7 +13,8 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
   declarations: [
     StatsComponent,
     ReservacionesComponent,
-    AnunciosComponent
+    AnunciosComponent,
+    CardDeporteComponent
   ],
   imports: [
     CommonModule,
@@ -22,6 +24,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     StatsComponent,
     ReservacionesComponent,
     AnunciosComponent,
+    CardDeporteComponent
     ]
 })
 export class UserComponentsModule { }

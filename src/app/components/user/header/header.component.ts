@@ -10,9 +10,11 @@ export class HeaderComponent {
 
   open(): void {
     this.visible = true;
+    console.log("open");
   }
 
   close(): void {
     this.visible = false;
+    console.log("close")
   }
 }

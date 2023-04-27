@@ -10,7 +10,7 @@ import { IconsProviderModule } from "src/app/icons-provider.module";
 import { NzLayoutModule } from "ng-zorro-antd/layout";
 import { NzMenuModule } from "ng-zorro-antd/menu";
 import { DemoNgZorroAntdModule } from "src/app/ng-zorro-antd.module";
-import { HomeUserRoutingModule } from "src/app/pages/user/home-user/home-user-routing.module";
+// import { HomeUserRoutingModule } from "src/app/pages/user/home-user/home-user-routing.module";
 import { CommonModule } from "@angular/common";
 @NgModule({
   imports: [
@@ -19,7 +19,7 @@ import { CommonModule } from "@angular/common";
     IconsProviderModule,
     NzLayoutModule,
     NzMenuModule,
-    HomeUserRoutingModule,
+    // HomeUserRoutingModule,
     DemoNgZorroAntdModule,
     CommonModule,
   ],

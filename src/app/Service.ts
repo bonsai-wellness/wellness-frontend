@@ -10,4 +10,9 @@ export class ApiserviceService{
 
     getEspaciosByIdPadre(id:number){return this._http.get(`http://localhost:8000/api/espacio/espacio-padre/${id}`)}
 
+    // createEspacioPadre(body:any){return this._http.post(
+    //     URL: `http://localhost:8000/api/espacio-padre`,
+    //     body: body,
+    //     )}
+
 }

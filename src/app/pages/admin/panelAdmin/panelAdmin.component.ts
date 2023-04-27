@@ -18,6 +18,7 @@ export class PanelAdminComponent {
       active: 5,
       inactive: 2,
       lastEdit: '20 de abril',
+      path: '/espacios',
     },
     {
       name: 'Torneos y Actividades',
@@ -26,6 +27,7 @@ export class PanelAdminComponent {
       active: 15,
       inactive: 2,
       lastEdit: '20 de abril',
+      path: '/espacios',
     },
     {
       name: 'Anuncios',
@@ -34,6 +36,7 @@ export class PanelAdminComponent {
       active: 15,
       inactive: 2,
       lastEdit: '20 de abril',
+      path: '/espacios',
     },
     {
       name: 'Servicios',
@@ -42,6 +45,7 @@ export class PanelAdminComponent {
       active: 15,
       inactive: 2,
       lastEdit: '20 de abril',
+      path: '/espacios',
     }
   ];
 

@@ -8,9 +8,9 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 // import { CardPanelAdminComponent } from 'src/app/components/admin/cardPanelAdmin/cardPanelAdmin.component';
 import { CardPanelAdminModule } from 'src/app/components/admin/cardPanelAdmin/cardPanelAdmin.module';
-
+import { DrawerModule } from 'src/app/components/admin/drawer/drawer.module';
 @NgModule({
-  imports: [PanelAdminRoutingModule, DemoNgZorroAntdModule, FormsModule, CardPanelAdminModule, CommonModule ],
+  imports: [PanelAdminRoutingModule, DemoNgZorroAntdModule, FormsModule, CardPanelAdminModule, CommonModule, DrawerModule ],
   declarations: [PanelAdminComponent],
   exports: [PanelAdminComponent],
 })

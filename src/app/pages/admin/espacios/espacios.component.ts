@@ -22,10 +22,15 @@ export class EspaciosComponent implements OnInit {
       console.log(res);
       this.newData = res; 
     })
-
-    
   }
 
+  addEspacioPadre(){
+    // if(this.seleEspacio.id===0){
+    //   this.seleEspacio.id=this.espaciosArray.length+1;
+    //   this.espaciosArray.push(this.seleEspacio);
+    // }
+    // this.seleEspacio = new Espacio();
+  }
   
 
 }

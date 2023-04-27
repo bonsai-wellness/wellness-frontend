@@ -5,4 +5,5 @@ export class ModuleAdmin {
     active!: number;
     inactive!: number;
     lastEdit!: string;
+    path!:string;
 }

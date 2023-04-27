@@ -14,10 +14,10 @@ import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { DemoNgZorroAntdModule } from './ng-zorro-antd.module';
-
+import { CommonModule } from '@angular/common';
 import { HeaderModule } from './components/user/header/header.module';
 import { HomeUserRoutingModule } from './pages/user/home-user/home-user-routing.module';
-
+import { PanelAdminRoutingModule } from './pages/admin/panelAdmin/panelAdmin-routing.module';
 registerLocaleData(en);
 
 @NgModule({
@@ -36,6 +36,8 @@ registerLocaleData(en);
     HeaderModule,
     HomeUserRoutingModule,
     DemoNgZorroAntdModule,
+    PanelAdminRoutingModule,
+    CommonModule,
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }

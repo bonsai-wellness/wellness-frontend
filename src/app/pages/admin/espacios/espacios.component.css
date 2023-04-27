@@ -15,8 +15,8 @@
 }
 
 .container{
-    width: 100%;
-    background-color: #F4F4F4;
+    width: 100vw;
+    /* background-color: #F4F4F4; */
     align-content: center;
     align-items: center;
     
@@ -66,4 +66,8 @@
 }
 .card-action-icon{
     size-adjust: 1vw;
+}
+
+.btn-primary{
+    background-color: #0092ff;
 }

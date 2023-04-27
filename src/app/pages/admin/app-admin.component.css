@@ -4,7 +4,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.container{
+width: 100vw;
+}
 
 .menu-sidebar {
   position: relative;
@@ -73,7 +75,7 @@ nz-header {
 }
 
 nz-content {
-  /* margin: 24px; */
+  margin: 24px;
 }
 
 .inner-content {

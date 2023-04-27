@@ -19,3 +19,13 @@
     left: 0;
     right:0;
 }
+
+.title{
+    font-size: 1rem;
+    top: 40%;
+    left: 20;
+    right: 20;
+    position: absolute;
+    color: white;
+    text-align: center;   
+}

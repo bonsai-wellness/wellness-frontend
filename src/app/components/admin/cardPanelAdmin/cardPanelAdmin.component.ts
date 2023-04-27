@@ -14,5 +14,6 @@ export class CardPanelAdminComponent  {
   @Input() active = 0;
   @Input() inactive = 0;
   @Input() lastEdit = '';
+  @Input() path = '';
 
 }

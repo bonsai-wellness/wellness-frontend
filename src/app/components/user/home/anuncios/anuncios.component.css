@@ -5,5 +5,6 @@
     /* translate: 100px; */
 }
 .anuncios{
-    height: 100px;
+    height: 180px;
+    object-fit:cover;
 }

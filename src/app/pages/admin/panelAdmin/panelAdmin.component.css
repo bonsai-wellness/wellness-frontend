@@ -19,8 +19,7 @@
     /* display: flex; */
     /* background-color: #F4F4F4; */
     align-content: center;
-    align-items: center;
-    
+    align-items: center;    
 }
 
 .card-title {
@@ -45,14 +44,15 @@
 }
 
 .card {
-    border-radius: 40px;
+    border-radius: 0px;
     align-content: center;
     align-items: center;
-    width: 100%;
-    height: auto;
+    width: 100vh;
+    height: 100vh;
     box-shadow: 2px 2px 5px 1px #CFCFCF;
     border-color: white;
     text-align: center;
+    margin: -24px;
 }
 
 .card-image-container{

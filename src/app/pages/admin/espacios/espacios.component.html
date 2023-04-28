@@ -5,13 +5,17 @@
             <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">Agregar Espacio Padre</p>
             <form (ngSubmit)="handleAddEspacioPadre()" [formGroup]="formEspacioPadre">
                 <div class="row">
-                    <div class="col-sm-9">
+                    <div class="col col-sm-9">
                         <input formControlName="name" type="text" class="form-control" aria-describedby="helpId"
                             placeholder="Nombre" />
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col col-sm-3">
                         <input formControlName="code" type="text" class="form-control" aria-describedby="helpId"
                             placeholder="Codigo" />
+                    </div>
+                    <div class="col col-sm-12">
+                        <input formControlName="map_url" type="text" class="form-control" aria-describedby="helpId"
+                            placeholder="Map Url" />
                     </div>
                 </div>
             </form>

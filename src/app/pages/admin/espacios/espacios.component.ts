@@ -28,6 +28,8 @@ export class EspaciosComponent implements OnInit {
     this.formEspacioPadre = this.formularioEspacioPadre.group({
       name:[''],
       code:[''],
+      map_url:[''],
+      is_active: ['T'],
     })
    }
 
@@ -50,7 +52,9 @@ export class EspaciosComponent implements OnInit {
   handleAddEspacioPadre(): void {
     console.log('Button ok clicked!');
     console.log(this.formEspacioPadre.value);
-    this._apiservice.addEspacioPadre(this.formEspacioPadre.value);
+    this._apiservice.addEspacioPadre(this.formEspacioPadre.value).subscribe(respuesta=>{
+      console.log('Post espacio padre');
+    });
     this.isVisibleEspacioPadreModal = false;
   }
 

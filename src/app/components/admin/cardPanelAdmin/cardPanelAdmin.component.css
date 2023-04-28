@@ -10,7 +10,7 @@
     height: 120px;
     font-size: 14px;
     line-height: 120px;
-    background: #0092ff;
+    background: #004892;
     border-radius: 4px;
 }
 
@@ -68,4 +68,8 @@
 }
 .card-action-icon{
     size-adjust: 1vw;
+}
+
+.badge{
+    background-color: #004892;
 }

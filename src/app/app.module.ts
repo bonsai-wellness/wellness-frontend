@@ -19,6 +19,7 @@ import { HeaderModule } from './components/user/header/header.module';
 import { UserAppRoutingModule } from './pages/user/user-app/user-app-routing.module';
 
 import { PanelAdminRoutingModule } from './pages/admin/panelAdmin/panelAdmin-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 registerLocaleData(en);
 
 @NgModule({
@@ -39,6 +40,9 @@ registerLocaleData(en);
     HeaderModule,
     DemoNgZorroAntdModule,
     PanelAdminRoutingModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     CommonModule,
   ],
   providers: [

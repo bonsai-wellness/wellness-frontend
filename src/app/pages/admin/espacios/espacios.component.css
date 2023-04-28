@@ -10,7 +10,7 @@
     height: 120px;
     font-size: 14px;
     line-height: 120px;
-    background: #0092ff;
+    background: #004892;
     border-radius: 4px;
 }
 
@@ -69,5 +69,11 @@
 }
 
 .btn-primary{
-    background-color: #0092ff;
+    background-color: #004892;
+}
+
+.col{
+    margin-top: 2%;
+    margin-bottom: 2%;
+
 }

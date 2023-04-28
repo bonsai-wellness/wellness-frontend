@@ -1,0 +1,41 @@
+
+
+.container{
+    width: 100vw;
+    /* background-color: #F4F4F4; */
+    align-content: center;
+    align-items: center;  
+}
+
+.card-title {
+    margin-bottom: 1%;
+    color: black;
+    margin: 5px;
+}
+
+.card {
+    border-radius: 40px;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    box-shadow: 2px 2px 5px 1px #CFCFCF;
+    border-color: white;
+    text-align: center;
+}
+
+.btn-primary{
+    background-color: #004892;
+}
+
+.btn-icon{
+    align-self: center;
+    vertical-align:middle;
+}
+
+.col{
+    margin-top: 2%;
+    margin-bottom: 2%;
+
+}
+

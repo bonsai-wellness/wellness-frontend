@@ -1,0 +1,41 @@
+.container {
+  margin: 1%;
+  margin-top: 5%;
+  /* position: relative; */
+}
+
+.card-image {
+  border-radius: 40px;
+  filter: brightness(50%);
+  width: 150px;
+  height: 150px;
+}
+.card{
+    width: 250px;
+    height: 250px;
+    /* align-items: center; */
+    /* vertical-align: center; */
+    background-color: #004892;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.text {
+  color: white;
+  text-align: left;
+}
+
+.title {
+  font-size: 1rem;
+  /* top: 40%;
+  left: 20;
+  right: 20; */
+  /* position: absolute; */
+  margin-top: 5%;
+  margin-bottom: 5%;
+  color: white;
+  text-align: center;
+}

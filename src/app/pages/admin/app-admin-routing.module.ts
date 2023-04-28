@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { PanelAdminComponent } from "src/app/pages/admin/panelAdmin/panelAdmin.component";
-import { WelcomeComponent } from "../welcome/welcome.component";
 import { AppAdminComponent } from "./app-admin.component";
+import { TorneosModule } from "./torneos/torneos.module";
 const routes: Routes = [
   {
     path: "",
@@ -32,8 +32,8 @@ const routes: Routes = [
       {
         path: "torneos",
         loadChildren: () =>
-          import("../../pages/welcome/welcome.module").then(
-            (m) => m.WelcomeModule
+          import("./torneos/torneos.module").then(
+            (m) => m.TorneosModule
           ),
       },
       {

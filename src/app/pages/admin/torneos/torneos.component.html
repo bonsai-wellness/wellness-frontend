@@ -1,27 +1,9 @@
 <div class="container">
-    <nz-modal [(nzVisible)]="isVisibleEspacioPadreModal"  (nzOnCancel)="handleCancel()"
-        (nzOnOk)="handleAddEspacioPadre()">
-        <ng-container *nzModalContent>
-            <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">Agregar Espacio Padre</p>
-            <form (ngSubmit)="handleAddEspacioPadre()" [formGroup]="formEspacioPadre">
-                <div class="row">
-                    <div class="col-sm-9">
-                        <input formControlName="name" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Nombre" />
-                    </div>
-                    <div class="col-sm-3">
-                        <input formControlName="code" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Codigo" />
-                    </div>
-                </div>
-            </form>
-        </ng-container>
-    </nz-modal>
 
-    <nz-modal [(nzVisible)]="isVisibleEspacioModal" (nzOnCancel)="handleCancel()" (nzOnOk)="handleAddEspacioPadre()">
+    <nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
         <ng-container *nzModalContent>
-            <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">Agregar Espacio</p>
-            <form (ngSubmit)="handleAddEspacioPadre()" [formGroup]="formEspacioPadre">
+            <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">Agregar Torneo</p>
+            <form (ngSubmit)="handleOk()" [formGroup]="formTorneo">
                 <div class="row">
                     <div class="col col-sm-9">
                         <input formControlName="name" type="text" class="form-control" aria-describedby="helpId"
@@ -66,33 +48,28 @@
 
     <div class="row">
         <div class="col-sm-6">
-            <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">Espacios</p>
+            <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">Torneos y actividades</p>
         </div>
         <div class="col-sm-6">
             <div class="row">
-                <div class="col-sm-8">
-                    <input type="search" class="form-control" id="searchQuery" placeholder="Search..." />
+                <div class="col-sm-8"> <input type="search" class="form-control" id="searchQuery"
+                        placeholder="Search...">
                 </div>
-                <div class="col-sm-4">
-                    <button class="btn btn-primary" type="button" (click)="showEspacioModal()">
+                <div class="col-sm-4"> 
+                    <button class="btn btn-primary" type="button" (click)="showModal()">
                         <span nz-icon nzType="plus" class="btn-icon"></span>
                     </button>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="row">
-        <nz-tabset [nzCanDeactivate]="openEspacioPadreModal">
-            <div class="col" *ngFor="let espacioPadre of newData">
-                <nz-tab nzTitle="{{ espacioPadre.code }}">
-                    <app-tabEspacios [espacio_padre_id]="espacioPadre.espacio_padre_id"></app-tabEspacios>
-                </nz-tab>
-            </div>
-            <nz-tab nzTitle="+ Agregar instalacion Padre">
-
-            </nz-tab>
-        </nz-tabset>
 
     </div>
+
+    <div class="row row-cols-auto">
+        <div class="col" *ngFor="let torneo of arrTorneos">
+            <app-cardTorneo [torneo_id]="torneo.torneo_id" [name]="torneo.name" [evento]="torneo.evento"
+                [description]="torneo.description"></app-cardTorneo>
+        </div>
+    </div>
+
 </div>

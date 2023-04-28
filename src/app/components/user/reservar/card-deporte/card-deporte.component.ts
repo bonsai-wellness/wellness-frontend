@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-card-deporte',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./card-deporte.component.css']
 })
 export class CardDeporteComponent {
-
+  @Input() deporte_id = '';
+  @Input() created_at = '';
+  @Input() updated_at = 0;
+  @Input() nombre = '';
+  @Input() imagen = '';
 }

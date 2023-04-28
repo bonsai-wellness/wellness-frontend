@@ -24,7 +24,7 @@ export class AnunciosComponent {
       updated_at: "",
       name: "Torneo Tochito",
       description: "Canchas Escamilla",
-      image: '../../../../assets/wellness.jpeg',
+      image: '../../../../assets/tecfoto.jpeg',
       is_active: true,
     } 
   ];

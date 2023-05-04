@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ReservarRoutingModule } from './reservar-routing.module';
-import { ReservarComponent } from './reservar.component';
+import { ReservarMenuRoutingModule } from './reservar-menu-routing.module';
+import { ReservarMenuComponent } from './reservar-menu.component';
 import { UserComponentsModule } from 'src/app/components/user/user-components.module';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzIconModule } from 'ng-zorro-antd/icon';
@@ -11,14 +11,14 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 
 @NgModule({
   declarations: [
-    ReservarComponent
+    ReservarMenuComponent
   ],
   imports: [
     CommonModule,
-    ReservarRoutingModule,
+    ReservarMenuRoutingModule,
     NzInputModule,
     NzIconModule,
     UserComponentsModule,
   ]
 })
-export class ReservarModule { }
+export class ReservarMenuModule { }

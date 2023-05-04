@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ReservarComponent } from './reservar.component';
+import { ReservarMenuComponent } from './reservar-menu.component';
 
-const routes: Routes = [{ path: '', component: ReservarComponent }];
+const routes: Routes = [{ path: '', component: ReservarMenuComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ReservarRoutingModule { }
+export class ReservarMenuRoutingModule { }

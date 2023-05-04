@@ -17,7 +17,7 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
     UserAppRoutingModule,
     HeaderModule,
     UserComponentsModule,
-    NzLayoutModule
+    NzLayoutModule,
   ]
 })
 export class UserAppModule { }

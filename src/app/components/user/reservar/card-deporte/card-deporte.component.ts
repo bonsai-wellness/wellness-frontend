@@ -9,6 +9,6 @@ export class CardDeporteComponent {
   @Input() deporte_id = '';
   @Input() created_at = '';
   @Input() updated_at = 0;
-  @Input() nombre = '';
+  @Input() name = '';
   @Input() imagen = '';
 }

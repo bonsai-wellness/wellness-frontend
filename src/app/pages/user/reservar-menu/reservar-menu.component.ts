@@ -1,17 +1,30 @@
 import { Component } from '@angular/core';
 import { Deporte } from 'src/app/models/deporte/deporte';
+import { ApiserviceService } from 'src/app/Service';
+import { AppConstants } from 'src/app/app-constants';
 
 @Component({
   selector: 'app-reservar',
-  templateUrl: './reservar.component.html',
-  styleUrls: ['./reservar.component.css']
+  templateUrl: './reservar-menu.component.html',
+  styleUrls: ['./reservar-menu.component.css']
 })
-export class ReservarComponent {
+export class ReservarMenuComponent {
   public title:string = "Reserva";
+  newData:any;
+  baseURL = AppConstants.baseURL;
+  
+  constructor(private _apiservice: ApiserviceService){}
 
   ngOnInit() {
     document.title = this.title;
     console.log("Reserva")
+
+    this._apiservice.getAllDeportes().subscribe(res => { 
+      // this.espaciosPadre=res;
+      console.log(res);
+      this.newData = res; 
+    })
+  
   }
 
   deportes: Deporte[]=[

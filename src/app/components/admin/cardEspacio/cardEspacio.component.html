@@ -1,0 +1,16 @@
+<div class="container" routerLink="./{{espacio_id}}/espacio-details" [state]="{ espacio_id:espacio_id , name: name, created_at : created_at,
+updated_at : updated_at,
+code : code,
+capacity : capacity,
+time_max : time_max,
+details : details,
+open_at : open_at,
+close_at : close_at,
+espacio_padre_id : espacio_padre_id,
+imagen : imagen,
+is_active : is_active, }">
+    <img class="card-image" alt="espacio" src="../../../../assets/login-image.jpeg" />
+    <p class="text" style="font-size: 0.8rem;top: 20%;">{{code}}</p>
+    <h2 nz-typography class="title">{{name}}</h2>
+    <p class="text" style="font-size: 0.8rem;top: 70%;">Horario: 8:00 - 20:00</p>
+</div>

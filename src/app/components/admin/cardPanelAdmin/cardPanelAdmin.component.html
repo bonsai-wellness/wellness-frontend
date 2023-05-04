@@ -1,0 +1,24 @@
+<div class="container" nzRouter routerLink="{{path}}">
+    <div class="card" style="width: 15rem;">
+        <img class="card-image" alt="example" src="../../../assets/login-image.jpeg" />
+        <h2 nz-typography class="card-title" style="font-size: 1rem;">{{name}}</h2>
+        <div class="badge text-wrap" style="width: 6rem;">
+            {{total}} totales
+          </div>
+        <div class="row">
+            <div class="col-sm">
+                <h4 nz-typography class="card-title" style="font-size: 0.5rem;">{{active}}</h4>
+                <p class="text-center"  style="font-size: 0.5rem;">Activas</p>
+                <span nz-icon nzType="check" class="card-action-icon"></span>
+            </div>
+            <div class="col-sm">
+                <h4 nz-typography class="card-title" style="font-size: 0.5rem;">{{inactive}}</h4>
+                <p class="text-center"  style="font-size: 0.5rem;">Inactivas</p>
+                <span nz-icon nzType="stop" class="card-action-icon"></span>
+            </div>
+        </div>
+        <p class="text-center"  style="font-size: 0.5rem;">Ultima edicion</p>
+        <p class="text-center"  style="font-size: 0.5rem;">{{lastEdit}}</p>
+
+    </div>
+</div>

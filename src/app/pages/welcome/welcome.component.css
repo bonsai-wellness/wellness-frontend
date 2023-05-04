@@ -1,0 +1,43 @@
+.aforo-simbolo{
+    width: 75%;
+    margin:auto;
+}
+
+
+/* menu-home */
+ 
+/* .menu-btn{
+    background-color:#fff;
+    border-radius: 3px;
+} */
+
+.logo-btn{
+    width: 20%;
+}
+
+.espacio-fondo{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("/assets/espaciosfondo.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.reserva-fondo{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("/assets/reservafondo.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.mis-reservas{
+    background-color:#fff;
+    text-align: left;
+}
+
+.anuncio{
+    width: 100%;
+    object-fit:cover;
+    /* height: 100px; */
+    /* translate: 100px; */
+}
+.anuncios{
+    height: 100px;
+}

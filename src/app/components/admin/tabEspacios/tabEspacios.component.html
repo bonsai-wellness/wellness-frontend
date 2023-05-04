@@ -1,0 +1,9 @@
+<div class="row row-cols-auto">
+    <div class="col" *ngFor="let espacio of espaciosArray">
+        <app-cardEspacio 
+        [espacio_id]="espacio.espacio_id" 
+        [name]="espacio.name"
+        [code]="espacio.code">
+        </app-cardEspacio>
+    </div>
+</div>

@@ -1,0 +1,100 @@
+<div class="container">
+
+    <nz-modal [(nzVisible)]="isVisibleEspacioPadreModal" (nzOnCancel)="handleCancel()"
+        (nzOnOk)="handleEdit()">
+        <ng-container *nzModalContent>
+            <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">Editar Espacio</p>
+            <form (ngSubmit)="handleEdit()" [formGroup]="formEspacio">
+                <div class="row">
+                    <div class="col col-sm-9">
+                        <input formControlName="name" type="text" class="form-control" aria-describedby="helpId"
+                            placeholder="Nombre" />
+                    </div>
+                    <div class="col col-sm-3">
+                        <input formControlName="code" type="text" class="form-control" aria-describedby="helpId"
+                            placeholder="Codigo" />
+                    </div>
+                    <div class="col col-sm-6">
+                        <select class= 'form-select' (change)='onSelectEspacio(val.id)' #val>
+                            <option selected disabled value="null">Deporte</option>
+                            <option *ngFor="let item of arrEspacioPadre" [value]="item.name">
+                               {{ item.name }}
+                            </option>
+                          </select>
+                    </div>
+                    
+                    <div class="col col-sm-6">
+                        <select class= 'form-select' (change)='onSelectEspacio(val.id)' #val>
+                            <option selected disabled value="null">Espacio Padre</option>
+                            <option *ngFor="let item of arrEspacioPadre" [value]="item.name">
+                               {{ item.name }}
+                            </option>
+                          </select>
+                    </div>
+
+                    <div class="col col-sm-9">
+                        <input formControlName="details" type="text" class="form-control form-control-detalles" aria-describedby="helpId"
+                            placeholder="Detalles" />
+                    </div>
+                    <div class="col col-sm-3">
+                        <app-file-upload></app-file-upload>
+                    </div>
+                    <div class="col col-sm-6">
+                        <input formControlName="time_max" type="text" class="form-control" aria-describedby="helpId"
+                            placeholder="Tiempo Maximo de reserva" />
+                    </div>
+                    <div class="col col-sm-6">
+                        <input formControlName="capacity" type="text" class="form-control" aria-describedby="helpId"
+                            placeholder="Capacidad" />
+                    </div>
+                    <div class="col col-sm-6">
+                        <input formControlName="open_at" type="text" class="form-control" aria-describedby="helpId"
+                            placeholder="Horario Entrada" />
+                    </div>
+                    <div class="col col-sm-6">
+                        <input formControlName="close_at" type="text" class="form-control"
+                            aria-describedby="helpId" placeholder="Horario Salida" />
+                    </div>
+
+
+                </div>
+            </form>
+        </ng-container>
+    </nz-modal>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">{{espacio.name}}</p>
+        </div>
+        <div class="col-sm-3">
+            <button class="btn" type="button" (click)="showEspacioModal()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                    class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+                </svg>
+            </button>
+        </div>
+
+    </div>
+    <div class="row">
+        <nz-tabset >
+            <nz-tab nzTitle="Proximos">
+                <p class="text" style="font-size: 2rem;top: 1%;">Proximamente reservaciones</p>
+            </nz-tab>
+            <nz-tab nzTitle="Por Confirmar">
+                <p class="text" style="font-size: 2rem;top: 1%;">Proximamente reservaciones</p>
+            </nz-tab>
+            <nz-tab nzTitle="Actuales">
+                <p class="text" style="font-size: 2rem;top: 1%;">Proximamente reservaciones</p>
+            </nz-tab>
+            <nz-tab nzTitle="Pasados">
+                <p class="text" style="font-size: 2rem;top: 1%;">Proximamente reservaciones</p>
+            </nz-tab>
+            <nz-tab nzTitle="Cancelados">
+                <p class="text" style="font-size: 2rem;top: 1%;">Proximamente reservaciones</p>
+            </nz-tab>
+        </nz-tabset>
+
+    </div>
+</div>

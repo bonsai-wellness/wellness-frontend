@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+        <div class="col-2 p-0">
+            <a>
+                <img class="logo-tec" (click)="open()" src="assets/logo-borregos.png" alt="hey">
+            </a>
+        </div>
+        <div class="col">
+            <!-- <h1>Bienvenido</h1> -->
+            <ng-content [titulo]></ng-content>
+            
+        </div>
+    </div>
+    
+    <nz-drawer
+      [nzClosable]="false"
+      [nzVisible]="visible"
+      [nzWidth]=250
+      nzPlacement="left"
+      nzTitle="Menu"
+      (nzOnClose)="close()"
+    >
+
+      <ng-container *nzDrawerContent>
+        <!-- <img class="logo-tec" src="assets/logo-borregos.png" alt="hey"> -->
+        <ul nz-menu nzTheme="light" nzMode="inline">
+
+            <li nz-menu-item nzMatchRouterExact routerLink="./" (click)="close()">
+              <span nz-icon nzType="home" nzTheme="outline"></span>
+              <span>Home</span>
+            </li>
+            <li nz-menu-item nzMatchRouterExact routerLink="./reservar" (click)="close()" >
+              <span nz-icon nzType="schedule" nzTheme="outline"></span>
+              <span>Reserva</span>
+            </li>
+            <li nz-menu-item nzMatchRouterExact routerLink="/torneos" (click)="close()">
+                <span nz-icon nzType="calendar"></span>
+                <span>Mis reservaciones</span>
+              </li>
+            <li nz-menu-item nzMatchRouterExact routerLink="/anuncios" (click)="close()">
+              <span nz-icon nzType="notification"></span>
+              <span>Anuncios</span>
+            </li>
+      
+          </ul>
+      </ng-container>
+      
+    </nz-drawer>
+    
+</div>

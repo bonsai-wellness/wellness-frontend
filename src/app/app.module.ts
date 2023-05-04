@@ -13,7 +13,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { DemoNgZorroAntdModule } from './ng-zorro-antd.module';
+import { CommonModule } from '@angular/common';
+import { HeaderModule } from './components/user/header/header.module';
+import { UserAppRoutingModule } from './pages/user/user-app/user-app-routing.module';
 
+import { PanelAdminRoutingModule } from './pages/admin/panelAdmin/panelAdmin-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 registerLocaleData(en);
 
 @NgModule({
@@ -22,13 +28,22 @@ registerLocaleData(en);
   ],
   imports: [
     BrowserModule,
+    // HomeUserRoutingModule,
+    UserAppRoutingModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     IconsProviderModule,
     NzLayoutModule,
-    NzMenuModule
+    NzMenuModule,
+    HeaderModule,
+    DemoNgZorroAntdModule,
+    PanelAdminRoutingModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }

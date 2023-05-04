@@ -1,0 +1,21 @@
+
+<div class="container mt-3">
+    <nz-input-group [nzSuffix]="suffixIconSearch" class="rounded-3 text-center p-2">
+        <input type="text" nz-input placeholder="¿Buscas algo?" />
+    </nz-input-group>
+    <ng-template #suffixIconSearch>
+        <span nz-icon nzType="search"></span>
+    </ng-template>
+    <div class="container px-0">
+        <div class="row justify-content-between mt-3">
+            <div class="col-6" *ngFor="let deporte of newData" >
+                <a [routerLink]="['./', deporte.deporte_id]">
+                    <app-card-deporte [name]='deporte.name' [imagen]="deporte.imagen"></app-card-deporte>
+                </a>
+            </div>
+        </div>
+    </div>
+      
+</div>
+
+<!-- "{{'../../../../assets/'+imagen}} -->

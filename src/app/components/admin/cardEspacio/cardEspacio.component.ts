@@ -1,12 +1,15 @@
-import { Component, Input, NgIterable } from '@angular/core';
+import { Component, Input, NgIterable, OnInit } from '@angular/core';
 import { ModuleAdmin } from 'src/app/models/admin/moduleAdmin/moduleAdmin';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cardEspacio',
   templateUrl: './cardEspacio.component.html',
   styleUrls: ['./cardEspacio.component.css']
 })
-export class CardEspacioComponent  {
+export class CardEspacioComponent implements OnInit  {
+ 
 
   @Input() espacio_id = 0;
   @Input() created_at = '';
@@ -21,4 +24,13 @@ export class CardEspacioComponent  {
   @Input() espacio_padre_id = '';
   @Input() imagen = '';
   @Input() is_active = '';
+
+  constructor(private router:Router){
+
+  }
+
+  ngOnInit(): void {
+    // this.router.navigateByUrl('./espacios', { state: { id:1 , name:'Angular' } });
+  }
+
 }

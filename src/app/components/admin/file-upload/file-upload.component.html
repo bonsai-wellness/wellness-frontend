@@ -1,0 +1,22 @@
+<input type="file" class="file-input" accept="image/png, image/jpeg" (change)="($event)" #fileUpload>
+<div class="container">
+    <div class="file-upload">
+
+        {{fileName || "No file uploaded yet."}}
+
+        <button mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">
+            <span nz-icon nzType="upload"></span>
+        </button>
+
+    </div>
+
+    <!-- <div class="progress">
+
+        <button class="progress-bar" mode="determinate" [value]="uploadProgress" *ngIf="uploadProgress"><span nz-icon
+                nzType="upload"></span></button>
+
+        <button class="cancel-upload" (click)="cancelUpload()" *ngIf="uploadProgress"><span nz-icon
+                nzType="upload"></span></button>
+
+    </div> -->
+</div>

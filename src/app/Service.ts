@@ -4,29 +4,52 @@ import { Observable } from "rxjs";
 //Models
 import { EspacioPadre } from "./models/espacioPadre/espacioPadre";
 
-@Injectable({providedIn:'root'})
+@Injectable({ providedIn: "root" })
+export class ApiserviceService {
+  API: string = "https://bonsai-rest.azurewebsites.net/api";
+  // API: string = "http://localhost:8000/api";
 
-export class ApiserviceService{
-    API: string = 'http://localhost:8000/api';
-    constructor(private _http:HttpClient){}
+  constructor(private _http: HttpClient) {}
 
-    getAllActiveEspacioPadre(){return this._http.get('https://bonsai-rest.azurewebsites.net/api/espacio-padre')}
+  //GETS
+  getAllActiveEspacioPadre() {
+    return this._http.get(this.API+"/espacio-padre");
+  }
 
-    getEspaciosByIdPadre(id:number){return this._http.get(`https://bonsai-rest.azurewebsites.net/api/espacio/espacio-padre/${id}`)}
-
-    getAllActiveTorneos(){return this._http.get('https://bonsai-rest.azurewebsites.net/api/torneo/')}
-
-    getAllDeportes(){return this._http.get('https://bonsai-rest.azurewebsites.net/api/deporte')}
-
-    getDeporteById(id:number){ return this._http.get(`https://bonsai-rest.azurewebsites.net/api/espacio-deporte/${id}`)}
+  getDeporteById(id:number){ return this._http.get(this.API+`/espacio-deporte/${id}`)}
     
-    // createEspacioPadre(body:any){return this._http.post(
-    //     URL: `http://localhost:8000/api/espacio-padre`,
-    //     body: body,
-    //     )}
+  getEspaciosByIdPadre(id: number) {
+    return this._http.get(
+      this.API+`/espacio/espacio-padre/${id}`
+    );
+  }
 
-    addEspacioPadre(espacioPadre: EspacioPadre): Observable<any> {
-        return this._http.post(this.API + '/espacio-padre/', espacioPadre);
-      }
+  getAllActiveTorneos() {
+    return this._http.get(this.API+"/torneo/");
+  }
+
+  getAllDeportes(): Observable<any> {
+    return this._http.get(this.API+"/deporte/");
+  }
+  getAllPuntosImportantes(): Observable<any> {
+    return this._http.get(this.API+"/punto-importante/");
+  }
+
+  //POST
+  addEspacioPadre(espacioPadre: EspacioPadre): Observable<any> {
+    return this._http.post(this.API + "/espacio-padre/", espacioPadre);
+  }
+
+  addEspacio(file: any): Observable<any> {
+    // Create form data
+    const formData = new FormData();
+
+    // Store form name as "file" with file data
+    formData.append("file", file, file.name);
+
+    // Make http post request over api
+    // with formData as req
+    return this._http.post(this.API, formData);
+  }
 
 }

@@ -14,7 +14,6 @@ export class TabEspaciosComponent  {
   espaciosArray: any;
 
   ngOnInit() {
-    console.log(this.espacio_padre_id);
     this._apiservice.getEspaciosByIdPadre(this.espacio_padre_id).subscribe(res => { 
       this.espaciosArray = res; 
     })

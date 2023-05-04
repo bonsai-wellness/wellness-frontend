@@ -1,0 +1,10 @@
+.file-input {
+    display: none;
+  }
+
+.container{
+  border-radius: 5%;
+  border: 1px dotted gray;
+  height: 100px;
+  width: 100px;
+}

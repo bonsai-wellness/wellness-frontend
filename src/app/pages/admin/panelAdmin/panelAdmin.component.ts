@@ -13,12 +13,12 @@ export class PanelAdminComponent {
   modulesAdmin: ModuleAdmin[] = [
     {
       name: 'Espacios',
-      image: "../../../../assets/login-image.jpeg",
+      image: "../../../../assets/login-image.png",
       total: 7,
       active: 5,
       inactive: 2,
       lastEdit: '20 de abril',
-      path: '/espacios',
+      path: '../espacios',
     },
     {
       name: 'Torneos y Actividades',
@@ -27,7 +27,7 @@ export class PanelAdminComponent {
       active: 15,
       inactive: 2,
       lastEdit: '20 de abril',
-      path: '/espacios',
+      path: '../torneos',
     },
     {
       name: 'Anuncios',
@@ -36,7 +36,7 @@ export class PanelAdminComponent {
       active: 15,
       inactive: 2,
       lastEdit: '20 de abril',
-      path: '/espacios',
+      path: '../anuncios',
     },
     {
       name: 'Servicios',
@@ -45,7 +45,7 @@ export class PanelAdminComponent {
       active: 15,
       inactive: 2,
       lastEdit: '20 de abril',
-      path: '/espacios',
+      path: '../anuncios',
     }
   ];
 

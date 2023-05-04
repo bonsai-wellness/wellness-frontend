@@ -1,79 +1,99 @@
 .slider {
-    width: 50%;
+  width: 50%;
 }
 
 .slider-container {
-    margin-bottom: 16px;
+  margin-bottom: 16px;
 }
 
 .grid-config {
-    height: 120px;
-    font-size: 14px;
-    line-height: 120px;
-    background: #004892;
-    border-radius: 4px;
+  height: 120px;
+  font-size: 14px;
+  line-height: 120px;
+  background: #004892;
+  border-radius: 4px;
 }
 
-.container{
-    width: 100vw;
-    /* background-color: #F4F4F4; */
-    align-content: center;
-    align-items: center;
-    
+.container {
+  width: 100vw;
+  /* background-color: #F4F4F4; */
+  align-content: center;
+  align-items: center;
 }
 
 .card-title {
-    margin-bottom: 1%;
-    color: black;
-    margin: 5px;
-    
+  margin-bottom: 1%;
+  color: black;
+  margin: 5px;
 }
 .card-subtitle {
-    color: gray;
-    margin: 5px;
-
-
+  color: gray;
+  margin: 5px;
 }
 .card-image {
-    border-radius: 50%;
-    width: 15vw;
-    height: 15vw;
-    align-self: center ;
-    /* transform: translateY(-100px); */
-    /* position: fixed; */
+  border-radius: 50%;
+  width: 15vw;
+  height: 15vw;
+  align-self: center;
+  /* transform: translateY(-100px); */
+  /* position: fixed; */
 }
 
 .card {
-    border-radius: 40px;
-    align-content: center;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    box-shadow: 2px 2px 5px 1px #CFCFCF;
-    border-color: white;
-    text-align: center;
+  border-radius: 40px;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  box-shadow: 2px 2px 5px 1px #cfcfcf;
+  border-color: white;
+  text-align: center;
 }
 
-.card-image-container{
-    width: 100%;
+.card-image-container {
+  width: 100%;
 }
 
 .card-actions {
-    border-bottom-left-radius: 100px;
-    border-bottom-right-radius: 100px;
-    text-align: center;
-    margin: 5px;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  text-align: center;
+  margin: 5px;
 }
-.card-action-icon{
-    size-adjust: 1vw;
-}
-
-.btn-primary{
-    background-color: #004892;
+.card-action-icon {
+  size-adjust: 1vw;
 }
 
-.col{
-    margin-top: 2%;
-    margin-bottom: 2%;
+.btn-primary {
+  background-color: #004892;
+}
 
+.col {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.form-control-detalles {
+  min-height: 100px;
+}
+
+nz-select {
+  width: 100%;
+}
+nz-divider {
+  /* margin: 4px 0; */
+}
+.container-select {
+  display: flex;
+  /* flex-wrap: nowrap; */
+  padding: 1px;
+  width: 100%;
+
+}
+input {
+}
+.add-item {
+  flex: 0 0 auto;
+  padding: 8px;
+  display: block;
 }

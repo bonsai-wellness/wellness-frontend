@@ -9,6 +9,9 @@ import { CardEspacioModule } from "src/app/components/admin/cardEspacio/cardEspa
 import { TabEspaciosModule } from "src/app/components/admin/tabEspacios/tabEspacios.module";
 import { FormControl } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
+import { FileUploadModule } from "src/app/components/admin/file-upload/file-upload.module";
+import { NzModalModule } from 'ng-zorro-antd/modal';
+
 @NgModule({
   imports: [
     EspaciosRoutingModule,
@@ -18,6 +21,8 @@ import { ReactiveFormsModule } from "@angular/forms";
     CommonModule,
     TabEspaciosModule,
     ReactiveFormsModule,
+    FileUploadModule,
+    NzModalModule
   ],
   declarations: [EspaciosComponent],
   exports: [EspaciosComponent],

@@ -1,68 +1,99 @@
 <div class="container">
-    <nz-modal [(nzVisible)]="isVisibleEspacioPadreModal"  (nzOnCancel)="handleCancel()"
+    <nz-modal nzCentered [(nzVisible)]="isVisibleEspacioPadreModal" (nzOnCancel)="handleCancel()"
         (nzOnOk)="handleAddEspacioPadre()">
         <ng-container *nzModalContent>
             <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">Agregar Espacio Padre</p>
             <form (ngSubmit)="handleAddEspacioPadre()" [formGroup]="formEspacioPadre">
                 <div class="row">
                     <div class="col col-sm-9">
-                        <input formControlName="name" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Nombre" />
+                        <input formControlName="name" type="text" class="form-control" placeholder="Nombre" />
                     </div>
                     <div class="col col-sm-3">
-                        <input formControlName="code" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Codigo" />
+                        <input formControlName="code" type="text" class="form-control" placeholder="Codigo" />
                     </div>
                     <div class="col col-sm-12">
-                        <input formControlName="map_url" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Map Url" />
+                        <input formControlName="map_url" type="text" class="form-control" placeholder="Map Url" />
                     </div>
                 </div>
             </form>
         </ng-container>
     </nz-modal>
 
-    <nz-modal [(nzVisible)]="isVisibleEspacioModal" (nzOnCancel)="handleCancel()" (nzOnOk)="handleAddEspacioPadre()">
+    <nz-modal nzCentered [(nzVisible)]="isVisibleEspacioModal" (nzOnCancel)="handleCancel()" (nzOnOk)="handleAddEspacio()">
         <ng-container *nzModalContent>
             <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">Agregar Espacio</p>
-            <form (ngSubmit)="handleAddEspacioPadre()" [formGroup]="formEspacioPadre">
+            <form (ngSubmit)="handleAddEspacio()" [formGroup]="formEspacio">
                 <div class="row">
                     <div class="col col-sm-9">
-                        <input formControlName="name" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Nombre" />
+                        <input formControlName="name" type="text" class="form-control" placeholder="Nombre" />
                     </div>
                     <div class="col col-sm-3">
-                        <input formControlName="code" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Codigo" />
+                        <input formControlName="code" type="text" class="form-control" placeholder="Codigo" />
                     </div>
                     <div class="col col-sm-6">
-                        <input formControlName="deporte" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Deporte" />
+                        <nz-select formControlName="deporte_id" nzShowSearch nzAllowClear
+                            [nzDropdownRender]="renderTemplate" nzPlaceHolder="Deporte" nzSize='large'
+                            (ngModelChange)="onSelectDeporte($event)">
+                            <nz-option *ngFor="let item of arrDeportes" [nzLabel]="item.name"
+                                [nzValue]="item.deporte_id"></nz-option>
+                        </nz-select>
+                        <ng-template #renderTemplate>
+                            <div class="container container-select">
+                                <input type="text" nz-input #inputElement />
+                                <a class="add-item" (click)="handleAddDeporte(inputElement)">
+                                    <span nz-icon nzType="plus"></span> </a>
+                            </div>
+                        </ng-template>
                     </div>
+
                     <div class="col col-sm-6">
-                        <input formControlName="instalacion" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Instalacion" />
+                        <nz-select formControlName="espacio_padre_id" nzShowSearch nzAllowClear
+                            nzPlaceHolder="Espacio Padre" nzSize='large' (ngModelChange)="onSelectEspacio($event)">
+                            <nz-option *ngFor="let item of arrEspacioPadre" [nzLabel]="item.name"
+                                [nzValue]="item.espacio_padre_id"></nz-option>
+                        </nz-select>
                     </div>
+
+                    <div class="col col-sm-12">
+                        <nz-select nzShowSearch nzAllowClear [nzDropdownRender]="renderTemplate" nzPlaceHolder="Deporte"
+                            nzSize='large' nzMode="multiple" nzPlaceHolder="Puntos importantes"
+                            [(ngModel)]="listOfSelectedValue">
+                            <nz-option *ngFor="let item of arrPuntosImportantes" [nzLabel]="item.name"
+                                [nzValue]="item"></nz-option>
+                        </nz-select>
+                        <ng-template #renderTemplate>
+                            <div class="container container-select">
+                                <input type="text" nz-input #inputElement />
+                                <a class="add-item" (click)="handleAddPuntoImportante(inputElement)">
+                                    <span nz-icon nzType="plus"></span> </a>
+                            </div>
+                        </ng-template>
+                    </div>
+
                     <div class="col col-sm-9">
-                        <input formControlName="link" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Link" />
+                        <input formControlName="details" type="text" class="form-control form-control-detalles"
+                            placeholder="Detalles" />
+                    </div>
+                    <div class="col col-sm-3">
+                        <app-file-upload (newItemEvent)="addFile($event)"></app-file-upload>
                     </div>
                     <div class="col col-sm-6">
-                        <input formControlName="fechaInicial" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Fecha Inicial" />
+                        <input formControlName="time_max" type="text" class="form-control"
+                            placeholder="Tiempo Maximo de reserva" />
                     </div>
                     <div class="col col-sm-6">
-                        <input formControlName="horarioInicial" type="text" class="form-control"
-                            aria-describedby="helpId" placeholder="Horario Inicial" />
+                        <input formControlName="capacity" type="text" class="form-control" placeholder="Capacidad" />
                     </div>
                     <div class="col col-sm-6">
-                        <input formControlName="fechaFinal" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Fecha Final" />
+                        <input formControlName="open_at" type="text" class="form-control"
+                            placeholder="Horario Entrada" />
                     </div>
                     <div class="col col-sm-6">
-                        <input formControlName="horarioFinal" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Horario Final" />
+                        <input formControlName="close_at" type="text" class="form-control"
+                            placeholder="Horario Salida" />
                     </div>
+
+
                 </div>
             </form>
         </ng-container>
@@ -88,7 +119,7 @@
 
     <div class="row">
         <nz-tabset [nzCanDeactivate]="openEspacioPadreModal">
-            <div class="col" *ngFor="let espacioPadre of newData">
+            <div class="col" *ngFor="let espacioPadre of arrEspacioPadre">
                 <nz-tab nzTitle="{{ espacioPadre.code }}">
                     <app-tabEspacios [espacio_padre_id]="espacioPadre.espacio_padre_id"></app-tabEspacios>
                 </nz-tab>

@@ -2,23 +2,14 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { PanelAdminComponent } from "src/app/pages/admin/panelAdmin/panelAdmin.component";
 import { AppAdminComponent } from "./app-admin.component";
-import { TorneosModule } from "./torneos/torneos.module";
 const routes: Routes = [
   {
     path: "",
     component: AppAdminComponent,
     children: [
-      { path: '', pathMatch: 'full', redirectTo: 'panelAdmin' },
+      { path: "", pathMatch: "full", redirectTo: "panel-admin" },
       {
-        path: "welcome",
-        loadChildren: () =>
-          import("../../pages/welcome/welcome.module").then(
-            (m) => m.WelcomeModule
-          ),
-      },
-      // { path: 'home-user', loadChildren: () => import('./pages/user/home-user/home-user.module').then(m => m.HomeUserModule) },
-      {
-        path: "panelAdmin",
+        path: "panel-admin",
         loadChildren: () =>
           import("./panelAdmin/panelAdmin.module").then(
             (m) => m.PanelAdminModule
@@ -32,16 +23,12 @@ const routes: Routes = [
       {
         path: "torneos",
         loadChildren: () =>
-          import("./torneos/torneos.module").then(
-            (m) => m.TorneosModule
-          ),
+          import("./torneos/torneos.module").then((m) => m.TorneosModule),
       },
       {
         path: "anuncios",
         loadChildren: () =>
-          import("../../pages/welcome/welcome.module").then(
-            (m) => m.WelcomeModule
-          ),
+          import("./anuncios/anuncios.module").then((m) => m.AnunciosModule),
       },
       { path: "**", redirectTo: "" },
     ],

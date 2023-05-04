@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReservarComponent } from './reservar.component';
+import { ReservarMenuComponent } from './reservar-menu.component';
 
 describe('ReservarComponent', () => {
-  let component: ReservarComponent;
-  let fixture: ComponentFixture<ReservarComponent>;
+  let component: ReservarMenuComponent;
+  let fixture: ComponentFixture<ReservarMenuComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReservarComponent ]
+      declarations: [ ReservarMenuComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ReservarComponent);
+    fixture = TestBed.createComponent(ReservarMenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

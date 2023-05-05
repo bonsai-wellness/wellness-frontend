@@ -150,6 +150,9 @@ export class EspaciosComponent implements OnInit {
       console.log(res);
       this.refresh();
     });
+    //TODO: add deporttes y puntos importantes relaciona
+    this.isVisibleEspacioModal = false;
+    this.resetVars();
   }
 
   handleCancel(): void {

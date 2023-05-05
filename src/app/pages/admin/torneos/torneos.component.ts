@@ -3,6 +3,8 @@ import { NzMarks } from "ng-zorro-antd/slider";
 // import { EspacioPadre } from 'src/app/models/espacioPadre/espacioPadre';
 import { ApiserviceService } from "src/app/Service";
 import { FormBuilder, FormGroup } from "@angular/forms";
+import { endOfMonth } from 'date-fns';
+
 declare var window: any;
 
 @Component({
@@ -20,6 +22,8 @@ export class TorneosComponent implements OnInit {
   padre: any;
   formDeporte: FormGroup;
   listOfSelectedDeportes = [];
+  openAt = new Date();
+  closeAt = new Date();
 
   constructor(
     private _apiservice: ApiserviceService,
@@ -28,7 +32,14 @@ export class TorneosComponent implements OnInit {
   ) {
     this.formTorneo = this.formularioTorneo.group({
       name: [""],
-      code: [""],
+      evento: [""],
+      description: [""],
+      deporte_id: [""],
+      location: [''],
+      url: [""],
+      imagen: [""],
+      dates: [""],
+      is_active: ["T"],
     });
     this.formDeporte = this.formularioDeporte.group({
       name: [""],
@@ -61,12 +72,36 @@ export class TorneosComponent implements OnInit {
       this.arrDeportes = res;
     });
   }
+
+  resetVars() {
+    this.formTorneo = this.formularioTorneo.group({
+      name: [""],
+      evento: [""],
+      description: [""],
+      deporte_id: [""],
+      location: [''],
+      url: [""],
+      imagen: [""],
+      dates: [""],
+      is_active: ["T"],
+    });
+    this.formDeporte = this.formularioDeporte.group({
+      name: [""],
+      imagen: [File],
+    });
+  }
   showModal(): void {
     this.isVisible = true;
   }
 
-  handleOk(): void {
-    console.log("Button ok clicked!");
+  handleAddTorneo(): void {
+    console.log(this.formTorneo.value);
+    this._apiservice.addTorneo(this.formTorneo.value).subscribe((res) => {
+      console.log("handleAddTorneo");
+      console.log(res);
+      this.refresh();
+      this.resetVars();
+    });
     this.isVisible = false;
   }
 
@@ -113,5 +148,11 @@ export class TorneosComponent implements OnInit {
     let file: any;
     file = files.item(0);
     this.formDeporte.get("imagen")?.setValue(file);
+  }
+
+  ranges = { Today: [new Date(), new Date()], 'This Month': [new Date(), endOfMonth(new Date())] };
+
+  onChange(result: Date[]): void {
+    console.log('From: ', result[0], ', to: ', result[1]);
   }
 }

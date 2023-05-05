@@ -5,8 +5,8 @@ export class Espacio {
     capacity!: number;
     time_max!: number;
     details!:string;
-    open_at!: string;
-    close_at!:string;
+    open_at!: Date;
+    close_at!:Date;
     espacio_padre_id!: number;
     is_active!: string;
     imagen!: string;

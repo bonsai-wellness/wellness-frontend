@@ -1,46 +1,77 @@
 <div class="container">
 
-    <nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+    <nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleAddTorneo()">
         <ng-container *nzModalContent>
             <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">Agregar Torneo</p>
-            <form (ngSubmit)="handleOk()" [formGroup]="formTorneo">
+            <form (ngSubmit)="handleAddTorneo()" [formGroup]="formTorneo">
                 <div class="row">
                     <div class="col col-sm-9">
                         <input formControlName="name" type="text" class="form-control" aria-describedby="helpId"
                             placeholder="Nombre" />
                     </div>
                     <div class="col col-sm-3">
-                        <input formControlName="code" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Codigo" />
+                        <input formControlName="evento" type="text" class="form-control" aria-describedby="helpId"
+                            placeholder="Evento" />
                     </div>
                     <div class="col col-sm-6">
-                        <input formControlName="deporte" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Deporte" />
+                        <input formControlName="location" type="text" class="form-control" aria-describedby="helpId"
+                            placeholder="Location" />
                     </div>
                     <div class="col col-sm-6">
-                        <input formControlName="instalacion" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Instalacion" />
+                        <input formControlName="description" type="text" class="form-control" aria-describedby="helpId"
+                            placeholder="Description" />
+                    </div>
+                    <div class="col col-sm-12">
+                        <nz-select formControlName="deporte_id" nzShowSearch nzAllowClear
+                            [nzDropdownRender]="renderTemplateDeportes" nzPlaceHolder="Deporte" nzSize='large'
+                            (ngModelChange)="onSelectDeporte($event)" nzMode="multiple"
+                            [(ngModel)]="listOfSelectedDeportes">
+                            <nz-option *ngFor="let item of arrDeportes" [nzLabel]="item.name"
+                                [nzValue]="item.deporte_id"></nz-option>
+                        </nz-select>
+                        <ng-template #renderTemplateDeportes>
+                            <div class="container container-select">
+                                <form class='form-list' (ngSubmit)="handleAddDeporte()" [formGroup]="formDeporte">
+                                    <input class="form-control" formControlName="name" type="text" nz-input
+                                        #inputElement placeholder="Añadir nuevo deporte" />
+                                    <a class="upload-btn" (click)="fileUpload.click()">
+                                        <span nz-icon nzType="upload"></span>
+                                    </a>
+                                    <input type="file" class="file-input" accept="image/png, image/jpeg"
+                                        (change)="addFileDeporte($event)" #fileUpload>
+                                    <a type='submit' class="add-item" (click)="handleAddDeporte()">
+                                        <span nz-icon nzType="plus"></span> </a>
+                                </form>
+                            </div>
+                        </ng-template>
                     </div>
                     <div class="col col-sm-9">
-                        <input formControlName="link" type="text" class="form-control" aria-describedby="helpId"
+                        <input formControlName="url" type="text" class="form-control" aria-describedby="helpId"
                             placeholder="Link" />
                     </div>
-                    <div class="col col-sm-6">
-                        <input formControlName="fechaInicial" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Fecha Inicial" />
+                    <div class="col col-sm-3">
+                        <app-file-upload (newItemEvent)="addFileTorneo($event)"></app-file-upload>
                     </div>
-                    <div class="col col-sm-6">
-                        <input formControlName="horarioInicial" type="text" class="form-control"
-                            aria-describedby="helpId" placeholder="Horario Inicial" />
+                    <div class="col col-sm-12">
+                        <nz-select formControlName="espacio_padre_id" nzShowSearch nzAllowClear
+                            nzPlaceHolder="Espacio Padre" nzSize='large' (ngModelChange)="onSelectEspacio($event)">
+                            <nz-option *ngFor="let item of arrEspacioPadre" [nzLabel]="item.name"
+                                [nzValue]="item.espacio_padre_id"></nz-option>
+                        </nz-select>
                     </div>
-                    <div class="col col-sm-6">
-                        <input formControlName="fechaFinal" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Fecha Final" />
+                    <div class="col col-sm-12">
+                        <nz-range-picker
+                        [nzRanges]="ranges"
+                        nzShowTime
+                        nzFormat="yyyy/MM/dd HH:mm:ss"
+                        ngModel
+                        nzSize="large"
+                        (ngModelChange)="onChange($event)"
+                        formControlName="dates"
+                      ></nz-range-picker>
                     </div>
-                    <div class="col col-sm-6">
-                        <input formControlName="horarioFinal" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Horario Final" />
-                    </div>
+
+                    
                 </div>
             </form>
         </ng-container>

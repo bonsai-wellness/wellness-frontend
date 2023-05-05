@@ -19,7 +19,8 @@
         </ng-container>
     </nz-modal>
 
-    <nz-modal nzCentered [(nzVisible)]="isVisibleEspacioModal" (nzOnCancel)="handleCancel()" (nzOnOk)="handleAddEspacio()">
+    <nz-modal nzCentered [(nzVisible)]="isVisibleEspacioModal" (nzOnCancel)="handleCancel()"
+        (nzOnOk)="handleAddEspacio()">
         <ng-container *nzModalContent>
             <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">Agregar Espacio</p>
             <form (ngSubmit)="handleAddEspacio()" [formGroup]="formEspacio">
@@ -30,23 +31,32 @@
                     <div class="col col-sm-3">
                         <input formControlName="code" type="text" class="form-control" placeholder="Codigo" />
                     </div>
-                    <div class="col col-sm-6">
+                    <div class="col col-sm-12">
                         <nz-select formControlName="deporte_id" nzShowSearch nzAllowClear
-                            [nzDropdownRender]="renderTemplate" nzPlaceHolder="Deporte" nzSize='large'
-                            (ngModelChange)="onSelectDeporte($event)">
+                            [nzDropdownRender]="renderTemplateDeportes" nzPlaceHolder="Deporte" nzSize='large'
+                            (ngModelChange)="onSelectDeporte($event)" nzMode="multiple"
+                            [(ngModel)]="listOfSelectedDeportes">
                             <nz-option *ngFor="let item of arrDeportes" [nzLabel]="item.name"
                                 [nzValue]="item.deporte_id"></nz-option>
                         </nz-select>
-                        <ng-template #renderTemplate>
+                        <ng-template #renderTemplateDeportes>
                             <div class="container container-select">
-                                <input type="text" nz-input #inputElement />
-                                <a class="add-item" (click)="handleAddDeporte(inputElement)">
-                                    <span nz-icon nzType="plus"></span> </a>
+                                <form class='form-list' (ngSubmit)="handleAddDeporte()" [formGroup]="formDeporte">
+                                    <input class="form-control" formControlName="name" type="text" nz-input
+                                        #inputElement placeholder="Añadir nuevo deporte" />
+                                    <a class="upload-btn" (click)="fileUpload.click()">
+                                        <span nz-icon nzType="upload"></span>
+                                    </a>
+                                    <input type="file" class="file-input" accept="image/png, image/jpeg"
+                                        (change)="addFileDeporte($event)" #fileUpload>
+                                    <a type='submit' class="add-item" (click)="handleAddDeporte()">
+                                        <span nz-icon nzType="plus"></span> </a>
+                                </form>
                             </div>
                         </ng-template>
                     </div>
 
-                    <div class="col col-sm-6">
+                    <div class="col col-sm-12">
                         <nz-select formControlName="espacio_padre_id" nzShowSearch nzAllowClear
                             nzPlaceHolder="Espacio Padre" nzSize='large' (ngModelChange)="onSelectEspacio($event)">
                             <nz-option *ngFor="let item of arrEspacioPadre" [nzLabel]="item.name"
@@ -57,16 +67,20 @@
                     <div class="col col-sm-12">
                         <nz-select nzShowSearch nzAllowClear [nzDropdownRender]="renderTemplate" nzPlaceHolder="Deporte"
                             nzSize='large' nzMode="multiple" nzPlaceHolder="Puntos importantes"
-                            [(ngModel)]="listOfSelectedValue">
+                            [(ngModel)]="listOfSelectedPuntos">
                             <nz-option *ngFor="let item of arrPuntosImportantes" [nzLabel]="item.name"
                                 [nzValue]="item"></nz-option>
                         </nz-select>
                         <ng-template #renderTemplate>
-                            <div class="container container-select">
-                                <input type="text" nz-input #inputElement />
-                                <a class="add-item" (click)="handleAddPuntoImportante(inputElement)">
-                                    <span nz-icon nzType="plus"></span> </a>
-                            </div>
+                            <form class='form-list' (ngSubmit)="handleAddPuntoImportante()"
+                                [formGroup]="formPuntoImportante">
+                                <div class="container container-select">
+                                    <input type="text" formControlName="name" nz-input #inputElement
+                                        placeholder="Añadir nuevo punto importante" />
+                                    <a type='submit' class="add-item" (click)="handleAddPuntoImportante()">
+                                        <span nz-icon nzType="plus"></span> </a>
+                                </div>
+                            </form>
                         </ng-template>
                     </div>
 
@@ -75,23 +89,36 @@
                             placeholder="Detalles" />
                     </div>
                     <div class="col col-sm-3">
-                        <app-file-upload (newItemEvent)="addFile($event)"></app-file-upload>
+                        <app-file-upload (newItemEvent)="addFileEspacio($event)"></app-file-upload>
                     </div>
                     <div class="col col-sm-6">
-                        <input formControlName="time_max" type="text" class="form-control"
-                            placeholder="Tiempo Maximo de reserva" />
+                        <input formControlName="time_max" type="number" class="form-control"
+                            placeholder="Tiempo max de reserva" />
                     </div>
                     <div class="col col-sm-6">
-                        <input formControlName="capacity" type="text" class="form-control" placeholder="Capacidad" />
+                        <input formControlName="capacity" type="number" class="form-control"
+                            placeholder="Capacidad max" />
                     </div>
-                    <div class="col col-sm-6">
-                        <input formControlName="open_at" type="text" class="form-control"
-                            placeholder="Horario Entrada" />
+                    <div class="col col-sm-6" style="display: flex;vertical-align: middle;">
+                        <div class="col col-sm-6">
+                            <p class="text">Horario Entrada</p>
+                        </div>
+                        <div class="col col-sm-6">
+                            <nz-time-picker class="form-control" nzPlaceHolder="Horario Entrada"
+                                formControlName="open_at" [(ngModel)]="openAt" nzSize="large"
+                                nzFormat="HH:mm"></nz-time-picker>
+                        </div>
                     </div>
-                    <div class="col col-sm-6">
-                        <input formControlName="close_at" type="text" class="form-control"
-                            placeholder="Horario Salida" />
+                    <div class="col col-sm-6" style="display: flex;">
+                        <div class="col col-sm-6">
+                            <p class="text">Horario Salida</p>
+                        </div>
+                        <div class="col col-sm-6">
+                            <nz-time-picker class="form-control" formControlName="close_at" nzSize="large"
+                                [(ngModel)]="closeAt" nzFormat="HH:mm" nzPlaceHolder="Horario Salida"></nz-time-picker>
+                        </div>
                     </div>
+
 
 
                 </div>

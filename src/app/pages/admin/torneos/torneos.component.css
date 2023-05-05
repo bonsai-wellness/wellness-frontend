@@ -1,41 +1,67 @@
-
-
-.container{
-    width: 100vw;
-    /* background-color: #F4F4F4; */
-    align-content: center;
-    align-items: center;  
+.container {
+  width: 100%;
+  /* background-color: #F4F4F4; */
+  align-content: center;
+  align-items: center;
+  margin: 0;
 }
 
 .card-title {
-    margin-bottom: 1%;
-    color: black;
-    margin: 5px;
+  margin-bottom: 1%;
+  color: black;
+  margin: 5px;
 }
 
 .card {
-    border-radius: 40px;
-    align-content: center;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    box-shadow: 2px 2px 5px 1px #CFCFCF;
-    border-color: white;
-    text-align: center;
+  border-radius: 40px;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  box-shadow: 2px 2px 5px 1px #cfcfcf;
+  border-color: white;
+  text-align: center;
 }
 
-.btn-primary{
-    background-color: #004892;
+.btn-primary {
+  background-color: #004892;
 }
 
-.btn-icon{
-    align-self: center;
-    vertical-align:middle;
+.btn-icon {
+  align-self: center;
+  vertical-align: middle;
 }
 
-.col{
-    margin-top: 2%;
-    margin-bottom: 2%;
-
+.col {
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 
+nz-select {
+  width: 100%;
+}
+nz-divider {
+  /* margin: 4px 0; */
+}
+.container-select {
+  display: flex;
+  /* flex-wrap: nowrap; */
+  padding: 1px;
+  width: 100%;
+}
+.form-list {
+  display: flex;
+  width: 100%;
+  align-content: center;
+  vertical-align: middle;
+  justify-content: center;
+}
+.add-item {
+  flex: 0 0 auto;
+  padding: 8px;
+  display: block;
+}
+
+.file-input {
+    display: none;
+  }

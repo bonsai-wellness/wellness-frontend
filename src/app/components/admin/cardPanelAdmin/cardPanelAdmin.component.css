@@ -1,29 +1,13 @@
-.slider {
-    width: 50%;
-}
 
-.slider-container {
-    margin-bottom: 16px;
-}
-
-.grid-config {
-    height: 120px;
-    font-size: 14px;
-    line-height: 120px;
-    background: #004892;
-    border-radius: 4px;
-}
 
 .container{
     width: 100%;
     display: flex;
-    margin: 5%;
-    margin-top: 20%;
     align-self: center;
-    align-items: center;  
-    padding: 0;
+    align-items: center;
+    margin: 0;
+    margin-top: 20%;
 }
-
 .card-title {
     margin-bottom: 1%;
     color: black;
@@ -49,6 +33,7 @@
     border-radius: 20px;
     align-content: center;
     align-items: center;
+    align-self: center;
     width: 100%;
     /* height: auto; */
     box-shadow: 2px 2px 5px 1px #CFCFCF;

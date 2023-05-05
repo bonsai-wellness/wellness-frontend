@@ -1,8 +1,8 @@
 .container {
-  width: 100vw;
-  /* background-color: #F4F4F4; */
+  width: 100%;
   align-content: center;
   align-items: center;
+  margin: 0;
 }
 
 .form-control-detalles {

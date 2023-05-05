@@ -74,6 +74,7 @@ nz-header {
 
 nz-content {
   /* margin: 24px; */
+  width: 100vw;
 }
 
 .inner-content {

@@ -1,26 +1,14 @@
-.slider {
-  width: 50%;
-}
-
-.slider-container {
-  margin-bottom: 16px;
-}
-
-.grid-config {
-  height: 120px;
-  font-size: 14px;
-  line-height: 120px;
-  background: #004892;
-  border-radius: 4px;
-}
 
 .container {
-  width: 100vw;
+  width: 100%;
   /* background-color: #F4F4F4; */
   align-content: center;
   align-items: center;
+  margin: 0;
 }
-
+.file-input {
+  display: none;
+}
 .card-title {
   margin-bottom: 1%;
   color: black;
@@ -90,7 +78,12 @@ nz-divider {
   width: 100%;
 
 }
-input {
+.form-list {
+  display: flex; 
+  width: 100%; 
+  align-content: center;
+  vertical-align: middle;
+  justify-content: center;
 }
 .add-item {
   flex: 0 0 auto;

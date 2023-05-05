@@ -7,6 +7,7 @@ import { NzTabsCanDeactivateFn } from "ng-zorro-antd/tabs";
 import { Observable } from "rxjs";
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { AnyCatcher } from "rxjs/internal/AnyCatcher";
+// import DeporteImage from  '../../../../assets/login_image-jpeg';
 
 @Component({
   selector: "app-espacios",
@@ -18,21 +19,27 @@ export class EspaciosComponent implements OnInit {
   isVisibleEspacioPadreModal = false;
   isVisibleEspacioModal = false;
   arrEspacioPadre: any;
-  arrDeportes:any;
-  arrPuntosImportantes:any;
+  arrDeportes: any;
+  arrPuntosImportantes: any;
   espaciosPadre: EspacioPadre[] = [];
   users: any;
   padre: any;
   formEspacioPadre: FormGroup;
   formEspacio: FormGroup;
-  listOfSelectedValue = [];
+  formDeporte: FormGroup;
+  formPuntoImportante: FormGroup;
+  listOfSelectedDeportes = [];
+  listOfSelectedPuntos = [];
+  openAt = new Date();
+  closeAt = new Date();
 
   constructor(
     private _apiservice: ApiserviceService,
     private modal: NzModalService,
     public formularioEspacioPadre: FormBuilder,
-    public formularioEspacio : FormBuilder,
-
+    public formularioEspacio: FormBuilder,
+    public formularioDeporte: FormBuilder,
+    public formularioPuntoImportante: FormBuilder
   ) {
     this.formEspacioPadre = this.formularioEspacioPadre.group({
       name: [""],
@@ -43,16 +50,23 @@ export class EspaciosComponent implements OnInit {
     this.formEspacio = this.formularioEspacio.group({
       name: [""],
       code: [""],
-      capacity: [0],
-      time_max: [0],
-      details:[""],
-      open_at: [""],
-      close_at:[""],
+      capacity: [""],
+      time_max: [""],
+      details: [""],
+      open_at: [new Date()],
+      close_at: [new Date()],
       espacio_padre_id: [0],
-      is_active: [""],
-      imagen: [''],
-      deporte_id:[0],
-      puntos_importantes_ids:[0],
+      is_active: ["T"],
+      imagen: [""],
+      deporte_id: [0],
+      puntos_importantes_ids: [0],
+    });
+    this.formDeporte = this.formularioDeporte.group({
+      name: [""],
+      imagen: [File],
+    });
+    this.formPuntoImportante = this.formularioPuntoImportante.group({
+      name: [""],
     });
   }
 
@@ -91,37 +105,90 @@ export class EspaciosComponent implements OnInit {
   }
 
   handleAddEspacioPadre(): void {
-    console.log("Button ok clicked!");
-    console.log(this.formEspacioPadre.value);
     this._apiservice
       .addEspacioPadre(this.formEspacioPadre.value)
-      .subscribe((respuesta) => {
-        console.log("Post espacio padre");
+      .subscribe((res) => {
+        console.log("handleAddEspacioPadre");
+        console.log(res);
+        this.refresh();
       });
     this.isVisibleEspacioPadreModal = false;
+    this.resetVars();
   }
 
-  handleAddDeporte(input: HTMLInputElement): void {
-    const value = input.value;
-    console.log(value);
-    if (this.arrDeportes.indexOf(value) === -1) {
-      this.arrDeportes = [...this.arrDeportes, input.value || `New item ${this.arrDeportes++}`];
-    }
+  handleAddDeporte(): void {
+    this._apiservice.addDeporte(this.formDeporte.value).subscribe((res) => {
+      console.log("handleAddDeporte");
+      console.log(res);
+      this.refresh();
+    });
+    this.formDeporte = this.formularioDeporte.group({
+      name: [""],
+      imagen: [File],
+    });
   }
 
-  handleAddPuntoImportante(input: HTMLInputElement):void{
-    const value = input.value;
-    console.log(value);
+  handleAddPuntoImportante(): void {
+    this._apiservice
+      .addPuntoImportante(this.formPuntoImportante.value)
+      .subscribe((res) => {
+        console.log("handleAddPuntoImportante");
+        console.log(res);
+        this.refresh();
+      });
+    this.formPuntoImportante = this.formularioPuntoImportante.group({
+      name: [""],
+    });
   }
 
-  handleAddEspacio(){
+  handleAddEspacio() {
     console.log(this.formEspacio.value);
+    console.log(this.listOfSelectedDeportes);
+    console.log(this.listOfSelectedPuntos);
+    this._apiservice.addEspacio(this.formEspacio.value).subscribe((res) => {
+      console.log("handleAddEspacio");
+      console.log(res);
+      this.refresh();
+    });
   }
 
   handleCancel(): void {
     console.log("Button cancel clicked!");
     this.isVisibleEspacioPadreModal = false;
     this.isVisibleEspacioModal = false;
+    this.resetVars();
+  }
+
+  resetVars(): void {
+    this.listOfSelectedDeportes = [];
+    this.listOfSelectedPuntos = [];
+    this.formEspacioPadre = this.formularioEspacioPadre.group({
+      name: [""],
+      code: [""],
+      map_url: [""],
+      is_active: ["T"],
+    });
+    this.formEspacio = this.formularioEspacio.group({
+      name: [""],
+      code: [""],
+      capacity: [""],
+      time_max: [""],
+      details: [""],
+      open_at: [new Date()],
+      close_at: [new Date()],
+      espacio_padre_id: [0],
+      is_active: ["T"],
+      imagen: [""],
+      deporte_id: [0],
+      puntos_importantes_ids: [0],
+    });
+    this.formDeporte = this.formularioDeporte.group({
+      name: [""],
+      imagen: [File],
+    });
+    this.formPuntoImportante = this.formularioPuntoImportante.group({
+      name: [""],
+    });
   }
 
   //Espacio Padre modal
@@ -156,7 +223,7 @@ export class EspaciosComponent implements OnInit {
   }
 
   onSelectDeporte(event: any) {
-    console.log(this.listOfSelectedValue);
+    console.log(this.listOfSelectedDeportes);
     console.log(event);
     // if (val) {
     //   this.espacioOptions = [];
@@ -168,9 +235,14 @@ export class EspaciosComponent implements OnInit {
     // }
   }
 
-  addFile(newItem: string) {
-    // this.items.push(newItem);
-    console.log(newItem);
-    this.formEspacio.get('imagen')?.setValue(newItem);
+  addFileEspacio(newItem: string) {
+    this.formEspacio.get("imagen")?.setValue(newItem);
+  }
+
+  addFileDeporte(event: any) {
+    let files = event.target.files as FileList;
+    let file: any;
+    file = files.item(0);
+    this.formDeporte.get("imagen")?.setValue(file);
   }
 }

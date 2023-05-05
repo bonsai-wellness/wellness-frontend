@@ -1,4 +1,4 @@
-<input type="file" class="file-input" accept="image/png, image/jpeg" (change)="($event)" #fileUpload>
+<input type="file" class="file-input" accept="image/png image/jpeg" (change)="onFileSelected($event)" #fileUpload>
 <div class="container">
     <div class="file-upload">
 
@@ -9,14 +9,4 @@
         </button>
 
     </div>
-
-    <!-- <div class="progress">
-
-        <button class="progress-bar" mode="determinate" [value]="uploadProgress" *ngIf="uploadProgress"><span nz-icon
-                nzType="upload"></span></button>
-
-        <button class="cancel-upload" (click)="cancelUpload()" *ngIf="uploadProgress"><span nz-icon
-                nzType="upload"></span></button>
-
-    </div> -->
 </div>

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AnunciosComponent } from './anuncios.component';
+import { CarouselComponent } from 'ngx-bootstrap/carousel';
 
 describe('AnunciosComponent', () => {
   let component: AnunciosComponent;
@@ -8,7 +9,7 @@ describe('AnunciosComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AnunciosComponent ]
+      declarations: [ AnunciosComponent, CarouselComponent ]
     })
     .compileComponents();
 
@@ -17,7 +18,7 @@ describe('AnunciosComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should render all Anuncios screen components', () => {
     expect(component).toBeTruthy();
   });
 });

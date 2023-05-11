@@ -17,9 +17,10 @@ import { DemoNgZorroAntdModule } from './ng-zorro-antd.module';
 import { CommonModule } from '@angular/common';
 import { HeaderModule } from './components/user/header/header.module';
 import { UserAppRoutingModule } from './pages/user/user-app/user-app-routing.module';
-
 import { PanelAdminRoutingModule } from './pages/admin/panelAdmin/panelAdmin-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PanelAdminModule } from './pages/admin/panelAdmin/panelAdmin.module';
+
 registerLocaleData(en);
 
 @NgModule({
@@ -44,6 +45,7 @@ registerLocaleData(en);
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
+    PanelAdminModule,
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }

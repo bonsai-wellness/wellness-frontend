@@ -11,6 +11,7 @@ import { FormControl } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
 import { FileUploadModule } from "src/app/components/admin/file-upload/file-upload.module";
 import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzTabsModule } from "ng-zorro-antd/tabs";
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
     TabEspaciosModule,
     ReactiveFormsModule,
     FileUploadModule,
-    NzModalModule
+    NzModalModule,
+    NzTabsModule,
   ],
   declarations: [EspaciosComponent],
   exports: [EspaciosComponent],

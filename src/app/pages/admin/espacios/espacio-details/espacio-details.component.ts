@@ -31,16 +31,16 @@ export class EspacioDetailsComponent implements OnInit {
         let params:any = this.location.getState();
   console.log(params);
         this.formEspacio = this.formularioEspacio.group({
-          name: [params.name],
-          code: [params.code],
-          capacity: [params.capacity],
-          time_max: [params.time_max],
-          details:[params.details],
-          open_at: [params.open_at],
-          close_at:[params.close_at],
-          espacio_padre_id: [params.espacio_padre_id],
-          is_active: [params.is_active],
-          imagen: [params.imagen],
+          name: [params?.name],
+          code: [params?.code],
+          capacity: [params?.capacity],
+          time_max: [params?.time_max],
+          details:[params?.details],
+          open_at: [params?.open_at],
+          close_at:[params?.close_at],
+          espacio_padre_id: [params?.espacio_padre_id],
+          is_active: [params?.is_active],
+          imagen: [params?.imagen],
         });
       
   }
@@ -80,8 +80,8 @@ export class EspacioDetailsComponent implements OnInit {
     if (val) {
       this.espacioOptions = [];
       this.arrEspacioPadre.map((res:any) => {
-        if(res.name == val){
-          this.espacioOptions = res.name;
+        if(res?.name == val){
+          this.espacioOptions = res?.name;
         }
       });
     }

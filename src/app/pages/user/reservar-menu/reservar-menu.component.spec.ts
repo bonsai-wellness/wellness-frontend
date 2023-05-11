@@ -1,14 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed, inject } from '@angular/core/testing';
+import {
+  HttpClientTestingModule,
+  HttpTestingController
+} from '@angular/common/http/testing';
+import { NzModalService } from 'ng-zorro-antd/modal';
 import { ReservarMenuComponent } from './reservar-menu.component';
-
-describe('ReservarComponent', () => {
+import { NzInputGroupComponent } from 'ng-zorro-antd/input';
+import { NzInputModule } from 'ng-zorro-antd/input';
+describe('ReservarMenuComponent', () => {
   let component: ReservarMenuComponent;
   let fixture: ComponentFixture<ReservarMenuComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReservarMenuComponent ]
+      imports: [HttpClientTestingModule, NzInputModule],
+      declarations: [ ReservarMenuComponent ],
+      providers: [NzModalService]
     })
     .compileComponents();
 
@@ -17,7 +24,9 @@ describe('ReservarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should render all Reervar menu screen components', inject(
+    [HttpTestingController],
+    () => {
     expect(component).toBeTruthy();
-  });
+  }));
 });

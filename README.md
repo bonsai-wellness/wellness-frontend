@@ -14,3 +14,13 @@ Run `ng test` to perform the testing.
 
 
 https://github.com/bonsai-wellness/wellness-frontend/assets/69658875/165f625e-8d35-4a90-b7a8-148366eba058
+
+## Demo
+
+### Mobile client for Students
+https://github.com/bonsai-wellness/wellness-frontend/assets/69658875/36cb4e36-51f8-439b-9ce6-ec93eb9132c6
+
+
+### Desktop client for Admins
+https://github.com/bonsai-wellness/wellness-frontend/assets/69658875/c29662e8-b620-46d7-bfcb-7e5d49750b4c
+

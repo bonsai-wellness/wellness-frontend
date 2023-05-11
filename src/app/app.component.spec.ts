@@ -1,15 +1,18 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { PanelAdminComponent } from './pages/admin/panelAdmin/panelAdmin.component';
+import { NzContentComponent } from 'ng-zorro-antd/layout';
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientTestingModule,
       ],
       declarations: [
-        AppComponent
+        AppComponent, NzContentComponent
       ],
     }).compileComponents();
   });
@@ -26,10 +29,11 @@ describe('AppComponent', () => {
     // expect(app.title).toEqual('my-dream-app');
   });
 
-  it('should render title', () => {
+  it('should render content of App Component', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('my-dream-app app is running!');
+    expect(compiled.innerHTML).toContain('div');
+    expect(compiled.innerHTML).toContain('router-outlet');
   });
 });

@@ -10,7 +10,6 @@ import { IconsProviderModule } from "src/app/icons-provider.module";
 import { NzLayoutModule } from "ng-zorro-antd/layout";
 import { NzMenuModule } from "ng-zorro-antd/menu";
 import { DemoNgZorroAntdModule } from "src/app/ng-zorro-antd.module";
-// import { HomeUserRoutingModule } from "src/app/pages/user/home-user/home-user-routing.module";
 import { CommonModule } from "@angular/common";
 import { ReactiveFormsModule } from "@angular/forms";
 @NgModule({
@@ -20,7 +19,6 @@ import { ReactiveFormsModule } from "@angular/forms";
     IconsProviderModule,
     NzLayoutModule,
     NzMenuModule,
-    // HomeUserRoutingModule,
     DemoNgZorroAntdModule,
     CommonModule,
     ReactiveFormsModule,

@@ -6,7 +6,7 @@ import { PanelAdminComponent } from './panelAdmin.component';
 import { DemoNgZorroAntdModule } from '../../../ng-zorro-antd.module';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-// import { CardPanelAdminComponent } from 'src/app/components/admin/cardPanelAdmin/cardPanelAdmin.component';
+import { CardPanelAdminComponent } from 'src/app/components/admin/cardPanelAdmin/cardPanelAdmin.component';
 import { CardPanelAdminModule } from 'src/app/components/admin/cardPanelAdmin/cardPanelAdmin.module';
 import { DrawerModule } from 'src/app/components/admin/drawer/drawer.module';
 @NgModule({

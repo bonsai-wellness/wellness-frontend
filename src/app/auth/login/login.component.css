@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.flex-conainter {
+  display: flex;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  height: 100vh; /* Set the container height to full viewport height */
+  width: 100vw;
+}
+
+.left-container {
+  background-image: url(../../../assets/login-image.jpeg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 65%;
+  /* height: 100vh; Set the container height to full viewport height */
+  border-end-end-radius: 60px;
+  border-top-right-radius: 60px;
+}
+
+.login-image {
+  display: block;
+}
+
+.login-image img {
+  margin: 0;
+}
+
+.right-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 35%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
+  padding: 0;
+}
+
+.container img {
+  margin-bottom: 20px;
+  width: 130px;
+}
+
+.container p {
+  margin: 0;
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 14px;
+}
+
+.container h1 {
+  margin: 0;
+  margin-bottom: 6px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.form {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+}
+
+.logo-borregos {
+  width: 100px;
+}
+
+.form input {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: solid;
+  border-radius: 8px;
+  border-width: 1px;
+  height: 48px;
+  padding-left: 20px;
+}
+
+.form button {
+  border: none;
+  color: white;
+  background-color: black;
+  height: 50px;
+  border-radius: 10px;
+  margin-top: 40px;
+  margin-bottom: 160px;
+  font-weight: bold;
+}

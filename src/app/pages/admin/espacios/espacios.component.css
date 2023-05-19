@@ -76,6 +76,7 @@ nz-divider {
   /* flex-wrap: nowrap; */
   padding: 1px;
   width: 100%;
+  vertical-align: middle;
 
 }
 .form-list {
@@ -89,4 +90,9 @@ nz-divider {
   flex: 0 0 auto;
   padding: 8px;
   display: block;
+}
+
+.form-control-add-list{
+  width: 70%;
+  margin-right: 5px;
 }

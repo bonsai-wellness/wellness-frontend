@@ -10,6 +10,7 @@ import { NzTabComponent } from 'ng-zorro-antd/tabs';
 import { NzTabSetComponent } from 'ng-zorro-antd/tabs';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { NzModalModule } from 'ng-zorro-antd/modal';
+
 describe('EspaciosComponent', () => {
   let component: EspaciosComponent;
   let fixture: ComponentFixture<EspaciosComponent>;

@@ -1,10 +1,35 @@
-.file-input {
-    display: none;
-  }
-
-.container{
+.file-upload {
+  margin-top: 8px;
   border-radius: 5%;
   border: 1px dotted gray;
-  height: 100px;
   width: 100px;
+  height: auto;
+}
+
+span {
+  margin-top: 2px;
+  display: table;
+  margin: 0 auto;
+  justify-self: center;
+}
+
+.text{
+  margin-top: 8px;
+  /* margin: 0 auto; */
+  text-align: center;
+  justify-self: center;
+}
+
+.input-file {
+  display: none;
+}
+
+.container {
+  align-items: center;
+}
+
+.image {
+  width: 100px;
+  height: auto;
+  object-fit: cover;
 }

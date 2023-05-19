@@ -14,3 +14,85 @@
   margin-bottom: 2%;
 }
 
+.file-input {
+  display: none;
+}
+.card-title {
+  margin-bottom: 1%;
+  color: black;
+  margin: 5px;
+}
+.card-subtitle {
+  color: gray;
+  margin: 5px;
+}
+.card-image {
+  border-radius: 50%;
+  width: 15vw;
+  height: 15vw;
+  align-self: center;
+  /* transform: translateY(-100px); */
+  /* position: fixed; */
+}
+
+.card {
+  border-radius: 40px;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  box-shadow: 2px 2px 5px 1px #cfcfcf;
+  border-color: white;
+  text-align: center;
+}
+
+.card-image-container {
+  width: 100%;
+}
+
+.card-actions {
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  text-align: center;
+  margin: 5px;
+}
+.card-action-icon {
+  size-adjust: 1vw;
+}
+
+.btn-primary {
+  background-color: #004892;
+}
+
+nz-select {
+  width: 100%;
+}
+nz-divider {
+  /* margin: 4px 0; */
+}
+.container-select {
+  display: flex;
+  /* flex-wrap: nowrap; */
+  padding: 1px;
+  width: 100%;
+  vertical-align: middle;
+
+}
+.form-list {
+  display: flex; 
+  width: 100%; 
+  align-content: center;
+  vertical-align: middle;
+  justify-content: center;
+}
+.add-item {
+  flex: 0 0 auto;
+  padding: 8px;
+  display: block;
+}
+
+.form-control-add-list{
+  width: 70%;
+  margin-right: 5px;
+}
+

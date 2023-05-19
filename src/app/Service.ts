@@ -39,6 +39,10 @@ export class ApiserviceService {
     return this._http.get(this.API+"/punto-importante/");
   }
 
+  getAllActiveAnuncios() {
+    return this._http.get(this.API+"/anuncio/");
+  }
+
   //POST
   addEspacioPadre(espacioPadre: EspacioPadre): Observable<any> {
     return this._http.post(this.API + "/espacio-padre/", espacioPadre);
@@ -90,5 +94,21 @@ export class ApiserviceService {
     formData.append("is_active", torneo.is_active);
     return this._http.post(this.API + "/torneo/", formData);
   }
+
+
+  // addAnuncio(torneo: Torneo):  Observable<any> {
+  //   const formData = new FormData();
+  //   formData.append("name", torneo.name);
+  //   formData.append("evento", torneo.evento);
+  //   formData.append("description", torneo.description);
+  //   formData.append("url", torneo.url);
+  //   formData.append("location", torneo.location);
+  //   formData.append("date_start", torneo.dates[0].toISOString());
+  //   formData.append("date_end", torneo.dates[1].toISOString());
+  //   formData.append("deporte_id", torneo.deporte_id as any);
+  //   formData.append("imagen", torneo.imagen, `${torneo.name}.jpeg`);
+  //   formData.append("is_active", torneo.is_active);
+  //   return this._http.post(this.API + "/torneo/", formData);
+  // }
 
 }

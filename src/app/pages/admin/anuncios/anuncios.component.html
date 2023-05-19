@@ -1,3 +1,56 @@
 <div class="container">
-    <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">Proximamente...</p>
+    <nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleAddAnuncio()">
+        <ng-container *nzModalContent>
+            <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">Agregar anuncio</p>
+            <form (ngSubmit)="handleAddAnuncio()" [formGroup]="formAnuncio">
+                <div class="row">
+                    <div class="col col-sm-6">
+                        <input formControlName="name" type="text" class="form-control" aria-describedby="helpId"
+                            placeholder="Nombre" />
+                    </div>
+                    <div class="col col-sm-6">
+                        <input formControlName="url" type="text" class="form-control" aria-describedby="helpId"
+                            placeholder="Link" />
+                    </div>
+                    <div class="col col-sm-9">
+                        <input formControlName="description" type="text" class="form-control" aria-describedby="helpId"
+                            placeholder="Description" />
+                    </div>
+                    <div class="col col-sm-3">
+                        <app-file-upload size="big"></app-file-upload>
+                        <!-- <app-file-upload (newItemEvent)="addFileAnuncio($event)"></app-file-upload> -->
+                    </div>
+                </div>
+            </form>
+        </ng-container>
+    </nz-modal>
+    <div class="row">
+        <div class="col-sm-6">
+            <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">Anuncios</p>
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-8"> <input type="search" class="form-control" id="searchQuery"
+                        placeholder="Search...">
+                </div>
+                <div class="col-sm-4"> 
+                    <button class="btn btn-primary" type="button" (click)="showModal()">
+                        <span nz-icon nzType="plus" class="btn-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row row-cols-auto overflow-x-scroll">
+        <div class="col" *ngFor="let anuncio of arrAnuncios">
+            <!-- <app-cardAnuncio [Anuncio_id]="Anuncio.Anuncio_id" [name]="Anuncio.name" [evento]="Anuncio.evento"
+                [description]="Anuncio.description"></app-cardAnuncio> -->
+                <app-card-anuncio
+                [name]="anuncio.name"
+                [imagen]="anuncio.imagen"
+                [description]="anuncio.description"
+                ></app-card-anuncio>
+        </div>
+    </div>
 </div>

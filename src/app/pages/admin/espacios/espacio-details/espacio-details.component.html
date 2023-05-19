@@ -7,55 +7,102 @@
             <form (ngSubmit)="handleEdit()" [formGroup]="formEspacio">
                 <div class="row">
                     <div class="col col-sm-9">
-                        <input formControlName="name" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Nombre" />
+                        <input formControlName="name" type="text" class="form-control" placeholder="Nombre" />
                     </div>
                     <div class="col col-sm-3">
-                        <input formControlName="code" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Codigo" />
+                        <input formControlName="code" type="text" class="form-control" placeholder="Codigo" />
                     </div>
-                    <div class="col col-sm-6">
-                        <select class= 'form-select' (change)='onSelectEspacio(val.id)' #val>
-                            <option selected disabled value="null">Deporte</option>
-                            <option *ngFor="let item of arrEspacioPadre" [value]="item?.name">
-                               {{ item?.name }}
-                            </option>
-                          </select>
+                    <div class="col col-sm-12">
+                        <nz-select formControlName="deporte_id" nzShowSearch nzAllowClear
+                            [nzDropdownRender]="renderTemplateDeportes" nzPlaceHolder="Deporte" nzSize='large'
+                            (ngModelChange)="onSelectDeporte($event)" nzMode="multiple"
+                            [(ngModel)]="listOfSelectedDeportes">
+                            <nz-option *ngFor="let item of arrDeportes" [nzLabel]="item.name"
+                                [nzValue]="item.deporte_id"></nz-option>
+                        </nz-select>
+                        <ng-template #renderTemplateDeportes>
+                            <div class="container container-select">
+                                <form class='form-list' (ngSubmit)="handleAddDeporte()" [formGroup]="formDeporte">
+                                    <input class="form-control form-control-add-list" formControlName="name" type="text"
+                                        nz-input #inputElement placeholder="Añadir nuevo deporte" />
+                                    <!-- <a class="upload-btn" (click)="fileUpload.click()">
+                                        <span nz-icon nzType="upload"></span>
+                                    </a>
+                                    <input type="file" class="file-input" accept="image/png, image/jpeg"
+                                        (change)="addFileDeporte($event)" #fileUpload> -->
+                                    <app-file-upload (newItemEvent)="addFileDeporte($event)" type="small"></app-file-upload>
+
+                                    <a type='submit' class="add-item" (click)="handleAddDeporte()">
+                                        <span nz-icon nzType="plus"></span> </a>
+                                </form>
+                            </div>
+                        </ng-template>
                     </div>
-                    
-                    <div class="col col-sm-6">
-                        <select class= 'form-select' (change)='onSelectEspacio(val.id)' #val>
-                            <option selected disabled value="null">Espacio Padre</option>
-                            <option *ngFor="let item of arrEspacioPadre" [value]="item?.name">
-                               {{ item?.name }}
-                            </option>
-                          </select>
+
+                    <div class="col col-sm-12">
+                        <nz-select formControlName="espacio_padre_id" nzShowSearch nzAllowClear
+                            nzPlaceHolder="Espacio Padre" nzSize='large' (ngModelChange)="onSelectEspacio($event)">
+                            <nz-option *ngFor="let item of arrEspacioPadre" [nzLabel]="item.name"
+                                [nzValue]="item.espacio_padre_id"></nz-option>
+                        </nz-select>
+                    </div>
+
+                    <div class="col col-sm-12">
+                        <nz-select nzShowSearch nzAllowClear [nzDropdownRender]="renderTemplate" nzPlaceHolder="Deporte"
+                            nzSize='large' nzMode="multiple" nzPlaceHolder="Puntos importantes"
+                            [(ngModel)]="listOfSelectedPuntos">
+                            <nz-option *ngFor="let item of arrPuntosImportantes" [nzLabel]="item.name"
+                                [nzValue]="item"></nz-option>
+                        </nz-select>
+                        <ng-template #renderTemplate>
+                            <form class='form-list' (ngSubmit)="handleAddPuntoImportante()"
+                                [formGroup]="formPuntoImportante">
+                                <div class="container container-select">
+                                    <input type="text" formControlName="name" nz-input #inputElement
+                                        placeholder="Añadir nuevo punto importante" />
+                                    <a type='submit' class="add-item" (click)="handleAddPuntoImportante()">
+                                        <span nz-icon nzType="plus"></span> </a>
+                                </div>
+                            </form>
+                        </ng-template>
                     </div>
 
                     <div class="col col-sm-9">
-                        <input formControlName="details" type="text" class="form-control form-control-detalles" aria-describedby="helpId"
+                        <input formControlName="details" type="text" class="form-control form-control-detalles"
                             placeholder="Detalles" />
                     </div>
                     <div class="col col-sm-3">
-                        <app-file-upload></app-file-upload>
-                    </div>
-                    <div class="col col-sm-6">
-                        <input formControlName="time_max" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Tiempo Maximo de reserva" />
-                    </div>
-                    <div class="col col-sm-6">
-                        <input formControlName="capacity" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Capacidad" />
-                    </div>
-                    <div class="col col-sm-6">
-                        <input formControlName="open_at" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Horario Entrada" />
-                    </div>
-                    <div class="col col-sm-6">
-                        <input formControlName="close_at" type="text" class="form-control"
-                            aria-describedby="helpId" placeholder="Horario Salida" />
-                    </div>
+                        <app-file-upload (newItemEvent)="addFileEspacio($event)" size="big"></app-file-upload>
+                        <!-- <app-file-upload ></app-file-upload> -->
 
+                    </div>
+                    <div class="col col-sm-6">
+                        <input formControlName="time_max" type="number" min="0" class="form-control"
+                            placeholder="Tiempo max de reserva" />
+                    </div>
+                    <div class="col col-sm-6">
+                        <input formControlName="capacity" type="number" min="0" class="form-control"
+                            placeholder="Capacidad max" />
+                    </div>
+                    <div class="col col-sm-6" style="display: flex;vertical-align: middle;">
+                        <div class="col col-sm-6">
+                            <p class="text">Horario Entrada</p>
+                        </div>
+                        <div class="col col-sm-6">
+                            <nz-time-picker class="form-control" nzPlaceHolder="Horario Entrada"
+                                formControlName="open_at" [(ngModel)]="openAt" nzSize="large"
+                                nzFormat="HH:mm"></nz-time-picker>
+                        </div>
+                    </div>
+                    <div class="col col-sm-6" style="display: flex;">
+                        <div class="col col-sm-6">
+                            <p class="text">Horario Salida</p>
+                        </div>
+                        <div class="col col-sm-6">
+                            <nz-time-picker class="form-control" formControlName="close_at" nzSize="large"
+                                [(ngModel)]="closeAt" nzFormat="HH:mm" nzPlaceHolder="Horario Salida"></nz-time-picker>
+                        </div>
+                    </div>
 
                 </div>
             </form>
@@ -80,19 +127,22 @@
     <div class="row">
         <nz-tabset >
             <nz-tab nzTitle="Proximos">
-                <p class="text" style="font-size: 2rem;top: 1%;">Proximamente reservaciones</p>
+               <app-card-reservacion></app-card-reservacion>
+               <app-card-reservacion></app-card-reservacion>
+               <app-card-reservacion></app-card-reservacion>
+
             </nz-tab>
             <nz-tab nzTitle="Por Confirmar">
-                <p class="text" style="font-size: 2rem;top: 1%;">Proximamente reservaciones</p>
+                <app-card-reservacion></app-card-reservacion>
             </nz-tab>
             <nz-tab nzTitle="Actuales">
-                <p class="text" style="font-size: 2rem;top: 1%;">Proximamente reservaciones</p>
+                <app-card-reservacion></app-card-reservacion>
             </nz-tab>
             <nz-tab nzTitle="Pasados">
-                <p class="text" style="font-size: 2rem;top: 1%;">Proximamente reservaciones</p>
+                <app-card-reservacion></app-card-reservacion>
             </nz-tab>
             <nz-tab nzTitle="Cancelados">
-                <p class="text" style="font-size: 2rem;top: 1%;">Proximamente reservaciones</p>
+                <app-card-reservacion></app-card-reservacion>
             </nz-tab>
         </nz-tabset>
 

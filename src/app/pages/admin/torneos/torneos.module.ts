@@ -8,6 +8,7 @@ import { CommonModule } from "@angular/common";
 import { CardTorneoModule } from "src/app/components/admin/cardTorneo/cardTorneo.module";
 import { ReactiveFormsModule } from "@angular/forms";
 import { FileUploadModule } from "src/app/components/admin/file-upload/file-upload.module";
+ 
 @NgModule({
   imports: [
     TorneosRoutingModule,

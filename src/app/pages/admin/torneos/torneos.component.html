@@ -1,5 +1,4 @@
 <div class="container">
-
     <nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleAddTorneo()">
         <ng-container *nzModalContent>
             <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">Agregar Torneo</p>
@@ -34,11 +33,7 @@
                                 <form class='form-list' (ngSubmit)="handleAddDeporte()" [formGroup]="formDeporte">
                                     <input class="form-control" formControlName="name" type="text" nz-input
                                         #inputElement placeholder="Añadir nuevo deporte" />
-                                    <a class="upload-btn" (click)="fileUpload.click()">
-                                        <span nz-icon nzType="upload"></span>
-                                    </a>
-                                    <input type="file" class="file-input" accept="image/png, image/jpeg"
-                                        (change)="addFileDeporte($event)" #fileUpload>
+                                    <app-file-upload (newItemEvent)="addFileDeporte($event)" type="small"></app-file-upload>
                                     <a type='submit' class="add-item" (click)="handleAddDeporte()">
                                         <span nz-icon nzType="plus"></span> </a>
                                 </form>
@@ -50,7 +45,8 @@
                             placeholder="Link" />
                     </div>
                     <div class="col col-sm-3">
-                        <app-file-upload (newItemEvent)="addFileTorneo($event)"></app-file-upload>
+                        <app-file-upload ></app-file-upload>
+                        <!-- <app-file-upload (newItemEvent)="addFileTorneo($event)"></app-file-upload> -->
                     </div>
                     <div class="col col-sm-12">
                         <nz-select formControlName="espacio_padre_id" nzShowSearch nzAllowClear
@@ -76,7 +72,6 @@
             </form>
         </ng-container>
     </nz-modal>
-
     <div class="row">
         <div class="col-sm-6">
             <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">Torneos y actividades</p>
@@ -95,12 +90,10 @@
         </div>
 
     </div>
-
     <div class="row row-cols-auto">
         <div class="col" *ngFor="let torneo of arrTorneos">
             <app-cardTorneo [torneo_id]="torneo.torneo_id" [name]="torneo.name" [evento]="torneo.evento"
                 [description]="torneo.description"></app-cardTorneo>
         </div>
     </div>
-
 </div>

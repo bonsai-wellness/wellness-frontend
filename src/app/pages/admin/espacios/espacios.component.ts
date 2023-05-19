@@ -7,6 +7,7 @@ import { NzTabsCanDeactivateFn } from "ng-zorro-antd/tabs";
 import { Observable } from "rxjs";
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { AnyCatcher } from "rxjs/internal/AnyCatcher";
+import { NzMessageService } from "ng-zorro-antd/message";
 // import DeporteImage from  '../../../../assets/login_image-jpeg';
 
 @Component({
@@ -39,7 +40,8 @@ export class EspaciosComponent implements OnInit {
     public formularioEspacioPadre: FormBuilder,
     public formularioEspacio: FormBuilder,
     public formularioDeporte: FormBuilder,
-    public formularioPuntoImportante: FormBuilder
+    public formularioPuntoImportante: FormBuilder,
+    private message: NzMessageService
   ) {
     this.formEspacioPadre = this.formularioEspacioPadre.group({
       name: [""],
@@ -105,54 +107,116 @@ export class EspaciosComponent implements OnInit {
   }
 
   handleAddEspacioPadre(): void {
-    this._apiservice
-      .addEspacioPadre(this.formEspacioPadre.value)
-      .subscribe((res) => {
-        console.log("handleAddEspacioPadre");
-        console.log(res);
-        this.refresh();
-      });
-    this.isVisibleEspacioPadreModal = false;
-    this.resetVars();
+    try {
+      if (
+        this.formEspacioPadre.value.name === "" ||
+        this.formEspacioPadre.value.code === "" ||
+        this.formEspacioPadre.value.map_url === ""
+      ) {
+        this.message.create("warning", `Todos los campos deben estar llenos`);
+        return;
+      }
+
+      this._apiservice
+        .addEspacioPadre(this.formEspacioPadre.value)
+        .subscribe((res) => {
+          console.log("handleAddEspacioPadre");
+          console.log(res);
+          this.refresh();
+        });
+      this.message.create("success", `Espacio Padre creado con éxito`);
+      this.isVisibleEspacioPadreModal = false;
+      this.resetVars();
+    } catch (error) {
+      console.log(error);
+      this.message.create("error", `No fue posible crear el espacio padre`);
+    }
   }
 
   handleAddDeporte(): void {
-    this._apiservice.addDeporte(this.formDeporte.value).subscribe((res) => {
-      console.log("handleAddDeporte");
-      console.log(res);
-      this.refresh();
-    });
-    this.formDeporte = this.formularioDeporte.group({
-      name: [""],
-      imagen: [File],
-    });
-  }
+    try {
+      if (
+        this.formDeporte.value.name === "" ||
+        this.formDeporte.value.imagen.name === "File"
+      ) {
+        this.message.create(
+          "warning",
+          "Para crear un deporte es necesario ingresar nombre y una imágen"
+        );
+        return;
+      }
 
-  handleAddPuntoImportante(): void {
-    this._apiservice
-      .addPuntoImportante(this.formPuntoImportante.value)
-      .subscribe((res) => {
-        console.log("handleAddPuntoImportante");
+      this._apiservice.addDeporte(this.formDeporte.value).subscribe((res) => {
+        console.log("handleAddDeporte");
         console.log(res);
         this.refresh();
       });
-    this.formPuntoImportante = this.formularioPuntoImportante.group({
-      name: [""],
-    });
+      this.formDeporte = this.formularioDeporte.group({
+        name: [""],
+        imagen: [File],
+      });
+      this.message.create("success", `Deporte creado con éxito`);
+    } catch (error) {
+      console.log(error);
+      this.message.create("error", `No fue posible crear el deporte`);
+    }
+  }
+
+  handleAddPuntoImportante(): void {
+    try {
+      if (this.formPuntoImportante.value.name === "") {
+        this.message.create(
+          "warning",
+          "Para crear un punto importante es necesario ingresar un nombre"
+        );
+        return;
+      }
+
+      this._apiservice
+        .addPuntoImportante(this.formPuntoImportante.value)
+        .subscribe((res) => {
+          console.log("handleAddPuntoImportante");
+          console.log(res);
+          this.refresh();
+        });
+      this.formPuntoImportante = this.formularioPuntoImportante.group({
+        name: [""],
+      });
+      this.message.create("success", `Punto importante creado con éxito`);
+    } catch (error) {
+      console.log(error);
+      this.message.create("error", `No fue posible crear el punto importante`);
+    }
   }
 
   handleAddEspacio() {
     console.log(this.formEspacio.value);
     console.log(this.listOfSelectedDeportes);
     console.log(this.listOfSelectedPuntos);
-    this._apiservice.addEspacio(this.formEspacio.value).subscribe((res) => {
-      console.log("handleAddEspacio");
-      console.log(res);
-      this.refresh();
-    });
-    //TODO: add deporttes y puntos importantes relaciona
-    this.isVisibleEspacioModal = false;
-    this.resetVars();
+    try {
+      if (
+        this.formEspacio.value.name === "" ||
+        this.formEspacio.value.code === "" ||
+        this.formEspacio.value.capacity === "" ||
+        this.formEspacio.value.time_max === "" ||
+        this.formEspacio.value.details === "" ||
+        this.formEspacio.value.espacio_padre_id === 0 ||
+        this.formEspacio.value.imagen === ""
+      ) {
+        this.message.create("warning", `Todos los campos deben estar llenos`);
+        return;
+      }
+      this._apiservice.addEspacio(this.formEspacio.value).subscribe((res) => {
+        console.log("handleAddEspacio");
+        console.log(res);
+        this.refresh();
+      });
+      this.isVisibleEspacioModal = false;
+      this.resetVars();
+      this.message.create("success", `Espacio creado con éxito`);
+    } catch (error) {
+      this.message.create("error", `No fue posible crear el espacio`);
+    }
   }
 
   handleCancel(): void {

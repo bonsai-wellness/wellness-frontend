@@ -5,7 +5,17 @@ import { ApiserviceService } from "src/app/Service";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { finalize, Subscription } from "rxjs";
 import { HttpEventType } from "@angular/common/http";
+import { NzUploadFile } from "ng-zorro-antd/upload";
+
 declare var window: any;
+
+const getBase64 = (file: File): Promise<string | ArrayBuffer | null> =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error) => console.log(error);
+  });
 
 @Component({
   selector: "app-file-upload",
@@ -13,43 +23,48 @@ declare var window: any;
   styleUrls: ["./file-upload.component.css"],
 })
 export class FileUploadComponent implements OnInit {
-  @Input()
-  requiredFileType!: string;
+
+  @Input() size = '';
 
   @Output() newItemEvent = new EventEmitter<string>();
 
-  fileName = "";
-  uploadProgress: number = 0;
-  uploadSub: Subscription = new Subscription();
-  http: any;
-
-  constructor() {}
-
-  ngOnInit(): void {
-    throw new Error("Method not implemented.");
+  imageURL: string = '';
+  uploadForm: FormGroup;
+  constructor(public fb: FormBuilder) {
+    // Reactive Form
+    this.uploadForm = this.fb.group({
+      avatar: [null],
+      name: ['']
+    })
   }
+  ngOnInit(): void { }
 
-  onFileSelected(event: any) {
-    let files = event.target.files as FileList;
-    let file: any;
-    file = files.item(0);
-    this.fileName = file.name;
+  // Image Preview
+  showPreview(event:any) {
+    const file = (event.target as any).files[0];
+    this.uploadForm.patchValue({
+      avatar: file
+    });
+    this.uploadForm.get('avatar')?.updateValueAndValidity()
+    // File Preview
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imageURL = reader.result as string;
+    }
+    reader.readAsDataURL(file);
     this.newItemEvent.emit(file);
-    // let img = new Image();
-    // img.onload = () => {
-    //   // the rest of your code...
-    // };
-    // console.log(file);
-    // img.src = URL.createObjectURL(file);
+  }
+  // Submit Form
+  submit() {
+    console.log(this.uploadForm.value)
   }
 
-  cancelUpload() {
-    this.uploadSub.unsubscribe();
-    this.reset();
-  }
+  // onFileSelected(event: any) {
+  //   let files = event.target.files as FileList;
+  //   let file: any;
+  //   file = files.item(0);
+  //   this.fileName = file.name;
+  //   this.newItemEvent.emit(file);
+  // }
 
-  reset() {
-    this.uploadProgress = 0;
-    this.uploadSub = new Subscription();
-  }
 }

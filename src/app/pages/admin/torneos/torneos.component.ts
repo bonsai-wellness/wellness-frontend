@@ -3,7 +3,8 @@ import { NzMarks } from "ng-zorro-antd/slider";
 // import { EspacioPadre } from 'src/app/models/espacioPadre/espacioPadre';
 import { ApiserviceService } from "src/app/Service";
 import { FormBuilder, FormGroup } from "@angular/forms";
-import { endOfMonth } from 'date-fns';
+import { endOfMonth } from "date-fns";
+import { NzMessageService } from "ng-zorro-antd/message";
 
 declare var window: any;
 
@@ -28,14 +29,15 @@ export class TorneosComponent implements OnInit {
   constructor(
     private _apiservice: ApiserviceService,
     public formularioTorneo: FormBuilder,
-    public formularioDeporte: FormBuilder
+    public formularioDeporte: FormBuilder,
+    private message: NzMessageService
   ) {
     this.formTorneo = this.formularioTorneo.group({
       name: [""],
       evento: [""],
       description: [""],
       deporte_id: [""],
-      location: [''],
+      location: [""],
       url: [""],
       imagen: [""],
       dates: [""],
@@ -79,7 +81,7 @@ export class TorneosComponent implements OnInit {
       evento: [""],
       description: [""],
       deporte_id: [""],
-      location: [''],
+      location: [""],
       url: [""],
       imagen: [""],
       dates: [""],
@@ -95,14 +97,32 @@ export class TorneosComponent implements OnInit {
   }
 
   handleAddTorneo(): void {
-    console.log(this.formTorneo.value);
-    this._apiservice.addTorneo(this.formTorneo.value).subscribe((res) => {
-      console.log("handleAddTorneo");
-      console.log(res);
-      this.refresh();
+    try {
+      if (
+        this.formTorneo.value.name === "" ||
+        this.formTorneo.value.evento === "" ||
+        this.formTorneo.value.description === "" ||
+        this.formTorneo.value.deporte_id === "" ||
+        this.formTorneo.value.location === "" ||
+        this.formTorneo.value.imagen === "" ||
+        this.formTorneo.value.dates === ""
+      ) {
+        this.message.create("warning", `Todos los campos deben estar llenos`);
+        return;
+      }
+
+      this._apiservice.addTorneo(this.formTorneo.value).subscribe((res) => {
+        console.log("handleAddTorneo");
+        console.log(res);
+        this.refresh();
+        this.resetVars();
+      });
+      this.isVisible = false;
       this.resetVars();
-    });
-    this.isVisible = false;
+    } catch (error) {
+      console.log(error);
+      this.message.create("error", `No fue posible crear el torneo`);
+    }
   }
 
   handleCancel(): void {
@@ -111,15 +131,31 @@ export class TorneosComponent implements OnInit {
   }
 
   handleAddDeporte(): void {
-    this._apiservice.addDeporte(this.formDeporte.value).subscribe((res) => {
-      console.log("handleAddDeporte");
-      console.log(res);
-      this.refresh();
-    });
-    this.formDeporte = this.formularioDeporte.group({
-      name: [""],
-      imagen: [File],
-    });
+    try {
+      if (
+        this.formDeporte.value.name === "" ||
+        this.formDeporte.value.imagen.name === "File"
+      ) {
+        this.message.create(
+          "warning",
+          "Para crear un deporte es necesario ingresar nombre y una imágen"
+        );
+        return;
+      }
+      this._apiservice.addDeporte(this.formDeporte.value).subscribe((res) => {
+        console.log("handleAddDeporte");
+        console.log(res);
+        this.refresh();
+      });
+      this.formDeporte = this.formularioDeporte.group({
+        name: [""],
+        imagen: [File],
+      });
+      this.message.create("success", `Deporte creado con éxito`);
+    } catch (error) {
+      console.log(error);
+      this.message.create("error", `No fue posible crear el deporte`);
+    }
   }
 
   espacioOptions = [];
@@ -150,9 +186,12 @@ export class TorneosComponent implements OnInit {
     this.formDeporte.get("imagen")?.setValue(file);
   }
 
-  ranges = { Today: [new Date(), new Date()], 'This Month': [new Date(), endOfMonth(new Date())] };
+  ranges = {
+    Today: [new Date(), new Date()],
+    "This Month": [new Date(), endOfMonth(new Date())],
+  };
 
   onChange(result: Date[]): void {
-    console.log('From: ', result[0], ', to: ', result[1]);
+    console.log("From: ", result[0], ", to: ", result[1]);
   }
 }

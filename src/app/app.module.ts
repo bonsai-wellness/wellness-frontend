@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,7 +15,6 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { DemoNgZorroAntdModule } from './ng-zorro-antd.module';
 import { CommonModule } from '@angular/common';
 import { HeaderModule } from './components/user/header/header.module';
-import { UserAppRoutingModule } from './pages/user/user-app/user-app-routing.module';
 import { PanelAdminRoutingModule } from './pages/admin/panelAdmin/panelAdmin-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PanelAdminModule } from './pages/admin/panelAdmin/panelAdmin.module';
@@ -30,7 +28,6 @@ registerLocaleData(en);
   imports: [
     BrowserModule,
     // HomeUserRoutingModule,
-    UserAppRoutingModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,

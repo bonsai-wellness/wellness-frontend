@@ -24,12 +24,12 @@ export class CalendarComponent implements OnChanges {
 
 	getHorarios(espacioId: number, formattedDate: string) {
 		const body = {
-			ids: this.espacioId,
+			ids: espacioId,
 			date: formattedDate,
 		};
-		this._apiservice.getHorariosDisponibles(body).subscribe((res) => {			
+		this._apiservice.getHorariosDisponibles(body).subscribe((res) => {
 			this.availableTimes = res;
-      console.log(this.availableTimes);
+			console.log(this.availableTimes);
 		});
 	}
 
@@ -53,8 +53,18 @@ export class CalendarComponent implements OnChanges {
 		}
 	}
 
-	onPanelChange(change: { date: Date; mode: string }): void {
-		console.log(`Current value: ${change.date}`);
-		console.log(`Current mode: ${change.mode}`);
+	handleClick(timeReserva: any) {
+		const formattedDate = this.formatDate(this.selectedDate);
+		console.log(timeReserva);
+		const body = {
+			espacio_id: this.espacioId,
+			date: formattedDate,
+			start_time: timeReserva.start_time,
+			end_time: timeReserva.end_time,
+		};
+		this._apiservice.postCreateReservacion(body).subscribe((res) => {
+			console.log("Res of post create reservacion: ", res);
+			console.log("Reservacion created!");
+		});
 	}
 }

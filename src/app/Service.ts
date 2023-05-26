@@ -123,4 +123,16 @@ export class ApiserviceService {
 	//   formData.append("is_active", torneo.is_active);
 	//   return this._http.post(this.API + "/torneo/", formData);
 	// }
+
+	postCreateReservacion(body: {
+		espacio_id: number;
+		date: string;
+		start_time: string;
+		end_time: string;
+	}) {
+		const headers = new HttpHeaders({ "Content-Type": "application/json" });
+		const options = { headers, body, withCredentials: true };
+		console.log(body);
+		return this._http.post(this.API + `/reservation/`, null, options);
+	}
 }

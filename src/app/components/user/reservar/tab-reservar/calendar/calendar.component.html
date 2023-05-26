@@ -1,0 +1,24 @@
+<div class="parent-container">
+	<div
+		class="container"
+		[ngStyle]="{ border: '1px solid #d9d9d9', borderRadius: '4px' }"
+	>
+		<nz-calendar
+			[nzFullscreen]="false"
+			(nzSelectChange)="onValueChange($event)"
+		></nz-calendar>
+		<div *ngIf="availableTimes[0]" class="time-slots">
+			<button
+				*ngFor="let time of availableTimes[0].timeSlots"
+				nz-button
+				nzType="default"
+				(click)="
+					handleClick({ start_time: time.start_time, end_time: time.end_time })
+				"
+			>
+				<span class="start">{{ time.start_time }} </span> -
+				<span class="end"> {{ time.end_time }}</span>
+			</button>
+		</div>
+	</div>
+</div>

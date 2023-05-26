@@ -1,0 +1,37 @@
+<section>
+	<div class="available-hours-container">
+		<span nz-icon nzType="clock-circle" nzTheme="outline"></span>
+		<p>Existen 6 horarios disponibles para el dia de hoy</p>
+	</div>
+	<div class="reserva-espacios-container">
+		<div class="consideraciones-container p-3">
+			<h2 *ngIf="selectedEspacio.name; else elseBlock">
+				{{ selectedEspacio.name }}
+			</h2>
+			<ng-template #elseBlock
+				><h2>Seleccione una cancha y fecha.</h2></ng-template
+			>
+			<div *ngIf="selectedEspacio.name">
+				<div class="d-flex align-items-center mb-1">
+					<span nz-icon nzType="info-circle" nzTheme="outline"></span>
+					<p class="m-0">Ubicación en {{ parentEspacioCode }}</p>
+				</div>
+				<div class="d-flex align-items-center mb-1">
+					<span nz-icon nzType="heat-map" nzTheme="outline"></span>
+					<p class="m-0">En persona (Dirección)</p>
+				</div>
+				<div class="d-flex align-items-center mb-1">
+					<span nz-icon nzType="clock-circle" nzTheme="outline"></span>
+					<p class="m-0">{{ selectedEspacio.time_max }} Minutos</p>
+				</div>
+			</div>
+		</div>
+		<div>
+			<app-select-espacio-hijo
+				(updateState)="updateState($event)"
+				[data]="data"
+			></app-select-espacio-hijo>
+			<app-calendar [espacioId]="selectedEspacio.espacio_id"></app-calendar>
+		</div>
+	</div>
+</section>

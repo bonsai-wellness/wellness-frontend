@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     console.log("HOLA")
     this.http
-      .get<any>('http://localhost:5000/api/auth/user', {
+      .get<any>('http://localhost:8000/api/auth/user', {
         withCredentials: true,
       })
       .subscribe((data) => {

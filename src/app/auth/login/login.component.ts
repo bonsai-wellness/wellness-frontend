@@ -10,7 +10,7 @@ export class LoginComponent {
 
   constructor(private router: Router) {}
 
-  authUrl = 'http://localhost:5000/api/auth/google'; // Replace with the URL of your Express API's Google authentication endpoint
+  authUrl = 'http://localhost:8000/api/auth/google'; // Replace with the URL of your Express API's Google authentication endpoint
 
   glogin() {
     const googleWindow = window.open(

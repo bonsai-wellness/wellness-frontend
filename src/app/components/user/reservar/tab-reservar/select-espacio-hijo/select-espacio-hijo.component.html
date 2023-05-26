@@ -1,0 +1,13 @@
+<nz-select
+	nzShowSearch
+	nzAllowClear
+	nzPlaceHolder="Selecciona un espacio"
+	[(ngModel)]="selectedValue"
+  (ngModelChange)="updateParentState($event)"
+>
+	<nz-option
+		*ngFor="let item of data"
+		[nzLabel]="item.name"
+		[nzValue]="item"
+	></nz-option>
+</nz-select>

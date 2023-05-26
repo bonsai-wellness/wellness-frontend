@@ -26,13 +26,15 @@
             <form (ngSubmit)="handleAddEspacio()" [formGroup]="formEspacio">
                 <div class="row">
                     <div class="col col-sm-9">
-                        <input formControlName="name" type="text" class="form-control" placeholder="Nombre" />
+                        <input id="espacio-form-nombre" formControlName="name" type="text" class="form-control"
+                            placeholder="Nombre" />
                     </div>
                     <div class="col col-sm-3">
-                        <input formControlName="code" type="text" class="form-control" placeholder="Codigo" />
+                        <input id="espacio-form-codigo" formControlName="code" type="text" class="form-control"
+                            placeholder="Codigo" />
                     </div>
                     <div class="col col-sm-12">
-                        <nz-select formControlName="deporte_id" nzShowSearch nzAllowClear
+                        <nz-select id="espacio-form-deporte" formControlName="deporte_id" nzShowSearch nzAllowClear
                             [nzDropdownRender]="renderTemplateDeportes" nzPlaceHolder="Deporte" nzSize='large'
                             (ngModelChange)="onSelectDeporte($event)" nzMode="multiple"
                             [(ngModel)]="listOfSelectedDeportes">
@@ -49,7 +51,8 @@
                                     </a>
                                     <input type="file" class="file-input" accept="image/png, image/jpeg"
                                         (change)="addFileDeporte($event)" #fileUpload> -->
-                                    <app-file-upload (newItemEvent)="addFileDeporte($event)" type="small"></app-file-upload>
+                                    <app-file-upload (newItemEvent)="addFileDeporte($event)"
+                                        type="small"></app-file-upload>
 
                                     <a type='submit' class="add-item" (click)="handleAddDeporte()">
                                         <span nz-icon nzType="plus"></span> </a>
@@ -138,7 +141,7 @@
                     <input type="search" class="form-control" id="searchQuery" placeholder="Search..." />
                 </div>
                 <div class="col-sm-4">
-                    <button class="btn btn-primary" type="button" (click)="showEspacioModal()">
+                    <button id="add-button" class="btn btn-primary" type="button" (click)="showEspacioModal()">
                         <span nz-icon nzType="plus" class="btn-icon"></span>
                     </button>
                 </div>

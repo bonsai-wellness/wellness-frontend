@@ -17,6 +17,7 @@ export class AnunciosComponent {
       description: "Canchas Escamilla",
       image: '../../../../assets/wellness.jpeg',
       is_active: true,
+      url: '',
     },
     {
       aviso_id: 1,
@@ -26,6 +27,7 @@ export class AnunciosComponent {
       description: "Canchas Escamilla",
       image: '../../../../assets/tecfoto.jpeg',
       is_active: true,
+      url: '',
     } 
   ];
 

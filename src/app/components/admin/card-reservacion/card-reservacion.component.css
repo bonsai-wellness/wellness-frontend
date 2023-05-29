@@ -1,27 +1,62 @@
-.container-border{
-    border: 1px solid black;
-    width: 90%;
-    /* border-radius: 5%; */
-    /* border-color: black; */
-    padding: 10px;
+
+.reserva {
+	background-color: #fff;
+	border-radius: 10px;
+	display: flex;
+	/* max-width: 100%; */
+	margin: 10px;
+	overflow: hidden;
+	width: 90%;
+    height: 100px;
 }
 
-.text-name{
-    font-size: 1rem;
-    top: 1%;
-    font-weight: bold;
+span{
+    color: #fff;
 }
 
-span.badge.rounded-pill{
-    background-color: gray;
-    padding: 5px;
-    margin: 5px;
-    /* display: flex;
-    align-items: center;
-    width: 5rem; */
+p {
+	letter-spacing: 1px;
+	text-transform: uppercase;
+    color: #fff;
 }
 
-.col-sm-1{
-    
-    /* margin: 0 auto; */
+h5 {
+	margin: 1px;
+	letter-spacing: 1px;
 }
+
+.reserva-preview {
+	background-color: #004892;
+	padding: 30px;
+	max-width: 100%;
+}
+
+.reserva-preview a {
+	color: #fff;
+	display: inline-block;
+	font-size: 9px;
+	opacity: 0.6;
+	margin-top: 30px;
+	text-decoration: none;
+}
+
+.reserva-info {
+	padding: 30px;
+	position: relative;
+	width: 100%;
+}
+
+.btn {
+	background-color: #004892;
+	border: 0;
+	border-radius: 50px;
+	color: #fff;
+	font-size: 12px;
+	padding: 12px 25px;
+	position: absolute;
+	bottom: 30px;
+	right: 30px;
+	letter-spacing: 1px;
+}
+
+

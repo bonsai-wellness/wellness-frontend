@@ -1,12 +1,4 @@
-<!-- <form [formGroup]="uploadForm" (ngSubmit)="submit()">
-    <input type="file" accept="image/*" (change)="showPreview($event)" />
-    <div class="imagePreview" *ngIf="imageURL && imageURL !== ''">
-      <img [src]="imageURL" [alt]="uploadForm.value.name">
-    </div>
-    <input formControlName="name" placeholder="Enter name">
-    <button type="submit">Submit</button>
-  </form>   -->
-<!-- <input type="file" accept="image/*" (change)="showPreview($event)">-->
+
 
 <div *ngIf="imageURL && imageURL !== ''; then thenBlock else elseBlock"></div>
 <ng-template #thenBlock>
@@ -22,29 +14,3 @@
     <input class='input-file' type="file" accept="image/*" (change)="showPreview($event)" #fileUpload>
   </div>
 </ng-template>
-
-
-<!-- <div class="container">
-    <nz-upload
-      nzAction="https://run.mocky.io/v3/8fb3e833-0bc3-4ac9-b0af-c8cec12baa64"
-      nzListType="picture-card"
-      [(nzFileList)]="fileList"
-      [nzShowButton]="fileList.length < 1"
-      [nzPreview]="handlePreview"
-    >
-      <div>
-        <span nz-icon nzType="plus"></span>
-        <div style="margin-top: 8px">Subir imágen</div>
-      </div>
-    </nz-upload>
-    <nz-modal
-      [nzVisible]="previewVisible"
-      [nzContent]="modalContent"
-      [nzFooter]="null"
-      (nzOnCancel)="previewVisible = false"
-    >
-      <ng-template #modalContent>
-        <img [src]="previewImage" [ngStyle]="{ width: '100%' }" />
-      </ng-template>
-    </nz-modal>
-  </div> -->

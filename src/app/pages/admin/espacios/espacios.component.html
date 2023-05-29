@@ -34,69 +34,23 @@
                             placeholder="Codigo" />
                     </div>
                     <div class="col col-sm-12">
-                        <nz-select id="espacio-form-deporte" formControlName="deporte_id" nzShowSearch nzAllowClear
-                            [nzDropdownRender]="renderTemplateDeportes" nzPlaceHolder="Deporte" nzSize='large'
-                            (ngModelChange)="onSelectDeporte($event)" nzMode="multiple"
-                            [(ngModel)]="listOfSelectedDeportes">
-                            <nz-option *ngFor="let item of arrDeportes" [nzLabel]="item.name"
-                                [nzValue]="item.deporte_id"></nz-option>
-                        </nz-select>
-                        <ng-template #renderTemplateDeportes>
-                            <div class="container container-select">
-                                <form class='form-list' (ngSubmit)="handleAddDeporte()" [formGroup]="formDeporte">
-                                    <input class="form-control form-control-add-list" formControlName="name" type="text"
-                                        nz-input #inputElement placeholder="Añadir nuevo deporte" />
-                                    <!-- <a class="upload-btn" (click)="fileUpload.click()">
-                                        <span nz-icon nzType="upload"></span>
-                                    </a>
-                                    <input type="file" class="file-input" accept="image/png, image/jpeg"
-                                        (change)="addFileDeporte($event)" #fileUpload> -->
-                                    <app-file-upload (newItemEvent)="addFileDeporte($event)"
-                                        type="small"></app-file-upload>
-
-                                    <a type='submit' class="add-item" (click)="handleAddDeporte()">
-                                        <span nz-icon nzType="plus"></span> </a>
-                                </form>
-                            </div>
-                        </ng-template>
+                        <app-select-deporte></app-select-deporte>
                     </div>
 
                     <div class="col col-sm-12">
-                        <nz-select formControlName="espacio_padre_id" nzShowSearch nzAllowClear
-                            nzPlaceHolder="Espacio Padre" nzSize='large' (ngModelChange)="onSelectEspacio($event)">
-                            <nz-option *ngFor="let item of arrEspacioPadre" [nzLabel]="item.name"
-                                [nzValue]="item.espacio_padre_id"></nz-option>
-                        </nz-select>
+                        <app-select-espacio-padre></app-select-espacio-padre>
                     </div>
 
                     <div class="col col-sm-12">
-                        <nz-select nzShowSearch nzAllowClear [nzDropdownRender]="renderTemplate" nzPlaceHolder="Deporte"
-                            nzSize='large' nzMode="multiple" nzPlaceHolder="Puntos importantes"
-                            [(ngModel)]="listOfSelectedPuntos">
-                            <nz-option *ngFor="let item of arrPuntosImportantes" [nzLabel]="item.name"
-                                [nzValue]="item"></nz-option>
-                        </nz-select>
-                        <ng-template #renderTemplate>
-                            <form class='form-list' (ngSubmit)="handleAddPuntoImportante()"
-                                [formGroup]="formPuntoImportante">
-                                <div class="container container-select">
-                                    <input type="text" formControlName="name" nz-input #inputElement
-                                        placeholder="Añadir nuevo punto importante" />
-                                    <a type='submit' class="add-item" (click)="handleAddPuntoImportante()">
-                                        <span nz-icon nzType="plus"></span> </a>
-                                </div>
-                            </form>
-                        </ng-template>
+                        <app-select-punto-importante></app-select-punto-importante>
                     </div>
 
                     <div class="col col-sm-9">
-                        <input formControlName="details" type="text" class="form-control form-control-detalles"
-                            placeholder="Detalles" />
+                        <textarea formControlName="details" type="text" class="form-control form-control-detalles"
+                            placeholder="Detalles" rows="5"></textarea>
                     </div>
                     <div class="col col-sm-3">
                         <app-file-upload (newItemEvent)="addFileEspacio($event)" size="big"></app-file-upload>
-                        <!-- <app-file-upload ></app-file-upload> -->
-
                     </div>
                     <div class="col col-sm-6">
                         <input formControlName="time_max" type="number" min="0" class="form-control"

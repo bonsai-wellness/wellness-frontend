@@ -56,15 +56,6 @@ export class FileUploadComponent implements OnInit {
   }
   // Submit Form
   submit() {
-    console.log(this.uploadForm.value)
   }
-
-  // onFileSelected(event: any) {
-  //   let files = event.target.files as FileList;
-  //   let file: any;
-  //   file = files.item(0);
-  //   this.fileName = file.name;
-  //   this.newItemEvent.emit(file);
-  // }
 
 }

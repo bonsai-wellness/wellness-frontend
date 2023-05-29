@@ -1,12 +1,14 @@
-import { Component, Input, NgIterable } from '@angular/core';
+import { Component, Input, NgIterable, OnInit } from '@angular/core';
 import { ModuleAdmin } from 'src/app/models/admin/moduleAdmin/moduleAdmin';
+import { AppConstants } from 'src/app/app-constants';
+import { NzModalService } from 'ng-zorro-antd/modal';
 
 @Component({
   selector: 'app-cardTorneo',
   templateUrl: './cardTorneo.component.html',
   styleUrls: ['./cardTorneo.component.css']
 })
-export class CardTorneoComponent  {
+export class CardTorneoComponent  implements OnInit{
 
   @Input() torneo_id = 0;
   @Input() created_at = '';
@@ -21,5 +23,29 @@ export class CardTorneoComponent  {
   @Input() imagen = '';
   @Input() is_active = '';
   @Input() deporte_id = 0;
+  isVisibleDelete =false;
+
+  baseURL = AppConstants.baseURL;
+  constructor(private modal: NzModalService) {}
+
+  ngOnInit(): void {
+   }
+
+   handleOpenDelete(){
+      this.modal.confirm({
+        nzTitle: 'Estas seguro que deseas eliminar este torneo?',
+        nzContent: '<b style="color: red;">Esta acción no es reversible</b>',
+        nzOkText: 'Sí',
+        nzOkType: 'primary',
+        nzOkDanger: true,
+        nzOnOk: () => console.log('OK'),
+        nzCancelText: 'No',
+        nzOnCancel: () => console.log('Cancel')
+      });
+   }
+
+  handleDelete(){
+
+  }
   
 }

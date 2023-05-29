@@ -1,34 +1,30 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { PanelAdminComponent } from "src/app/pages/admin/panelAdmin/panelAdmin.component";
+import { AnunciosComponent } from "./anuncios/anuncios.component";
 import { AppAdminComponent } from "./app-admin.component";
+import { EspacioDetailsComponent } from "./espacios/espacio-details/espacio-details.component";
+import { EspaciosComponent } from "./espacios/espacios.component";
+import { PanelAdminComponent } from "./panelAdmin/panelAdmin.component";
+import { TorneosComponent } from "./torneos/torneos.component";
+
 const routes: Routes = [
   {
     path: "",
     component: AppAdminComponent,
     children: [
-      { path: "", pathMatch: "full", redirectTo: "panel-admin" },
+      { path: '', component: PanelAdminComponent}, 
+      { path: 'panel-admin', component: PanelAdminComponent}, 
+      { path: 'espacios', component: EspaciosComponent, children: [
+        // {
+        //   path: 'espacios/:espacio_id/espacio-details', 
+        //   component: EspacioDetailsComponent, 
+        // },
+      ],}, 
+      { path: 'torneos', component: TorneosComponent}, 
+      { path: 'anuncios', component: AnunciosComponent}, 
       {
-        path: "panel-admin",
-        loadChildren: () =>
-          import("./panelAdmin/panelAdmin.module").then(
-            (m) => m.PanelAdminModule
-          ),
-      },
-      {
-        path: "espacios",
-        loadChildren: () =>
-          import("./espacios/espacios.module").then((m) => m.EspaciosModule),
-      },
-      {
-        path: "torneos",
-        loadChildren: () =>
-          import("./torneos/torneos.module").then((m) => m.TorneosModule),
-      },
-      {
-        path: "anuncios",
-        loadChildren: () =>
-          import("./anuncios/anuncios.module").then((m) => m.AnunciosModule),
+        path: 'espacios/:espacio_id/espacio-details', 
+        component: EspacioDetailsComponent, 
       },
       { path: "**", redirectTo: "" },
     ],

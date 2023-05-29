@@ -7,6 +7,7 @@ import { Deporte } from "./models/deporte/deporte";
 import { PuntoImportante } from "./models/puntoImportante/puntoImportante";
 import { Espacio } from "./models/espacio/espacio";
 import { Torneo } from "./models/torneo/torneo";
+import { Anuncio } from "./models/anuncio/anuncio";
 
 @Injectable({ providedIn: "root" })
 export class ApiserviceService {
@@ -54,10 +55,10 @@ export class ApiserviceService {
 		return this._http.get(this.API + "/anuncio/");
 	}
 
-	//POST
-	addEspacioPadre(espacioPadre: EspacioPadre): Observable<any> {
-		return this._http.post(this.API + "/espacio-padre/", espacioPadre);
-	}
+  //POST
+  addEspacioPadre(espacioPadre: EspacioPadre): Observable<any> {
+    return this._http.post(this.API + "/espacio-padre/", espacioPadre);
+  }
 
 	addEspacio(espacio: Espacio): Observable<any> {
 		// Create form data
@@ -90,9 +91,11 @@ export class ApiserviceService {
 		return this._http.post(this.API + "/deporte/", formData);
 	}
 
-	addPuntoImportante(puntoImportante: PuntoImportante): Observable<any> {
-		return this._http.post(this.API + "/punto-importante/", puntoImportante);
-	}
+  addPuntoImportante(puntoImportante: PuntoImportante):  Observable<any> {
+    return this._http.post(this.API + "/punto-importante/", puntoImportante);
+  }
+
+  //Delete
 
 	addTorneo(torneo: Torneo): Observable<any> {
 		const formData = new FormData();
@@ -109,20 +112,15 @@ export class ApiserviceService {
 		return this._http.post(this.API + "/torneo/", formData);
 	}
 
-	// addAnuncio(torneo: Torneo):  Observable<any> {
-	//   const formData = new FormData();
-	//   formData.append("name", torneo.name);
-	//   formData.append("evento", torneo.evento);
-	//   formData.append("description", torneo.description);
-	//   formData.append("url", torneo.url);
-	//   formData.append("location", torneo.location);
-	//   formData.append("date_start", torneo.dates[0].toISOString());
-	//   formData.append("date_end", torneo.dates[1].toISOString());
-	//   formData.append("deporte_id", torneo.deporte_id as any);
-	//   formData.append("imagen", torneo.imagen, `${torneo.name}.jpeg`);
-	//   formData.append("is_active", torneo.is_active);
-	//   return this._http.post(this.API + "/torneo/", formData);
-	// }
+
+  addAnuncio(anuncio: Anuncio):  Observable<any> {
+    const formData = new FormData();
+    formData.append("name", anuncio.name);
+    formData.append("description", anuncio.description);
+    formData.append("url", anuncio.url);
+    formData.append("imagen", anuncio.image, `${anuncio.name}.jpeg`);
+    return this._http.post(this.API + "/anuncio/", formData);
+  }
 
 	postCreateReservacion(body: {
 		espacio_id: number;

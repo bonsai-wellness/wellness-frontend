@@ -17,11 +17,8 @@ export class ReservarMenuComponent {
 
   ngOnInit() {
     document.title = this.title;
-    console.log("Reserva")
-
     this._apiservice.getAllDeportes().subscribe(res => { 
       // this.espaciosPadre=res;
-      console.log(res);
       this.newData = res; 
     })
   

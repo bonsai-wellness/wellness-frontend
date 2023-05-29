@@ -1,4 +1,5 @@
 <div class="container">
+    <!-- <app-modal-add-anuncio></app-modal-add-anuncio> -->
     <nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleAddAnuncio()">
         <ng-container *nzModalContent>
             <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">Agregar anuncio</p>
@@ -13,12 +14,11 @@
                             placeholder="Link" />
                     </div>
                     <div class="col col-sm-9">
-                        <input formControlName="description" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Description" />
+                        <textarea formControlName="description" type="text" class="form-control"
+                            aria-describedby="helpId" placeholder="Description" rows="5"></textarea>
                     </div>
                     <div class="col col-sm-3">
                         <app-file-upload size="big"></app-file-upload>
-                        <!-- <app-file-upload (newItemEvent)="addFileAnuncio($event)"></app-file-upload> -->
                     </div>
                 </div>
             </form>
@@ -34,7 +34,7 @@
                         placeholder="Search...">
                 </div>
                 <div class="col-sm-4">
-                    <button id="add-button" class="btn btn-primary" type="button" (click)="showModal()">
+                    <button class="btn btn-primary" type="button" (click)="showModal()">
                         <span nz-icon nzType="plus" class="btn-icon"></span>
                     </button>
                 </div>
@@ -44,8 +44,6 @@
     </div>
     <div class="row row-cols-auto overflow-x-scroll">
         <div class="col" *ngFor="let anuncio of arrAnuncios">
-            <!-- <app-cardAnuncio [Anuncio_id]="Anuncio.Anuncio_id" [name]="Anuncio.name" [evento]="Anuncio.evento"
-                [description]="Anuncio.description"></app-cardAnuncio> -->
             <app-card-anuncio [name]="anuncio.name" [imagen]="anuncio.imagen"
                 [description]="anuncio.description"></app-card-anuncio>
         </div>

@@ -1,0 +1,13 @@
+<nz-select nzShowSearch nzAllowClear [nzDropdownRender]="renderTemplate" nzSize='large' nzMode="multiple"
+    nzPlaceHolder="Punto Importante" nzSize='large' (ngModelChange)="onSelectPuntoImportante($event)"
+    [(ngModel)]="listOfSelectedPuntos">
+    <nz-option *ngFor="let item of arrPuntosImportantes" [nzLabel]="item.name" [nzValue]="item"></nz-option>
+</nz-select>
+<ng-template #renderTemplate>
+    <form class='form-list' (ngSubmit)="handleAddPuntoImportante()" [formGroup]="formPuntoImportante">
+            <input class="form-control form-control-add-list" type="text" formControlName="name" nz-input #inputElement
+                placeholder="Añadir nuevo punto importante" />
+            <a type='submit' class="add-item" (click)="handleAddPuntoImportante()">
+                <span nz-icon nzType="plus"></span> </a>
+    </form>
+</ng-template>

@@ -15,7 +15,6 @@ export class CardAnuncioComponent implements OnInit {
   baseURL = AppConstants.baseURL;
 
   ngOnInit() {
-    console.log(this.imagen);
     // this._apiservice.getAllActiveAnuncios().subscribe((res) => {
     //   this.arrAnuncios = res;
     // });

@@ -93,23 +93,17 @@ export class AnunciosComponent implements OnInit {
         this.message.create("warning", `Todos los campos deben estar llenos`);
         return;
       }
-
-      // this._apiservice.addAnuncio(this.formAnuncio.value).subscribe((res) => {
-      //   console.log("handleAddAnuncio");
-      //   console.log(res);
-      //   this.refresh();
-      //   this.resetVars();
-      // });
       this.isVisible = false;
+      this._apiservice.addAnuncio(this.formAnuncio.value).subscribe((res) => {
+        this.refresh();
+      });
       this.resetVars();
     } catch (error) {
-      console.log(error);
       this.message.create("error", `No fue posible crear el Anuncio`);
     }
   }
 
   handleCancel(): void {
-    console.log("Button cancel clicked!");
     this.isVisible = false;
   }
 
@@ -126,8 +120,6 @@ export class AnunciosComponent implements OnInit {
         return;
       }
       this._apiservice.addDeporte(this.formDeporte.value).subscribe((res) => {
-        console.log("handleAddDeporte");
-        console.log(res);
         this.refresh();
       });
       this.formDeporte = this.formularioDeporte.group({
@@ -136,7 +128,6 @@ export class AnunciosComponent implements OnInit {
       });
       this.message.create("success", `Deporte creado con éxito`);
     } catch (error) {
-      console.log(error);
       this.message.create("error", `No fue posible crear el deporte`);
     }
   }
@@ -146,16 +137,7 @@ export class AnunciosComponent implements OnInit {
   onSelectEspacio(val: any) {}
 
   onSelectDeporte(event: any) {
-    console.log(this.listOfSelectedDeportes);
-    console.log(event);
-    // if (val) {
-    //   this.espacioOptions = [];
-    //   this.arrEspacioPadre.map((res:any) => {
-    //     if(res.name == val){
-    //       this.espacioOptions = res.name;
-    //     }
-    //   });
-    // }
+
   }
 
   addFileAnuncio(newItem: string) {
@@ -175,6 +157,5 @@ export class AnunciosComponent implements OnInit {
   };
 
   onChange(result: Date[]): void {
-    console.log("From: ", result[0], ", to: ", result[1]);
   }
 }

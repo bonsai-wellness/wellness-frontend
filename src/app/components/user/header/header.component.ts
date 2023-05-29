@@ -33,13 +33,9 @@ export class HeaderComponent implements OnInit {
 
   open(): void {
     this.visible = true;
-    console.log("open");
-    console.log(this.name)
-    console.log(this.imgUrl)
   }
 
   close(): void {
     this.visible = false;
-    console.log("close")
   }
 }

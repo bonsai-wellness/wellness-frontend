@@ -1,9 +1,17 @@
-<div class="container">
-    <div class="card">
-        <h2 nz-typography class="title">{{name}}</h2>
-        <img class="image" alt="torneo" src="../../../../assets/login-image.jpeg" />        
-        <p class="text" style="font-size: 0.8rem;top: 1%;">{{evento}}</p>
-        <p class="text" style="font-size: 0.8rem;top: 1%;">{{description}}</p>
-       
+<div class=container>
+    <div class=card>
+        <div class=image>
+            <img href="#" src={{baseURL+imagen}}>
+        </div>
+        <div class="title">
+            <h2>{{evento}}</h2>
+        </div>
+        <div class=content>
+            <p>{{description}}</p>
+            <span class="delete" nz-icon nzType="delete" nzTheme="fill" (click)="handleOpenDelete()"></span>
+            
+            <a href={{url}} target="_blank"><span  class="redirect"  nz-icon nzType="link" nzTheme="outline"></span></a>
+
+        </div>
     </div>
 </div>

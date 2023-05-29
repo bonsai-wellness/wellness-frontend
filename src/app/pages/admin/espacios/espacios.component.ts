@@ -120,15 +120,12 @@ export class EspaciosComponent implements OnInit {
       this._apiservice
         .addEspacioPadre(this.formEspacioPadre.value)
         .subscribe((res) => {
-          console.log("handleAddEspacioPadre");
-          console.log(res);
           this.refresh();
         });
       this.message.create("success", `Espacio Padre creado con éxito`);
       this.isVisibleEspacioPadreModal = false;
       this.resetVars();
     } catch (error) {
-      console.log(error);
       this.message.create("error", `No fue posible crear el espacio padre`);
     }
   }
@@ -147,8 +144,6 @@ export class EspaciosComponent implements OnInit {
       }
 
       this._apiservice.addDeporte(this.formDeporte.value).subscribe((res) => {
-        console.log("handleAddDeporte");
-        console.log(res);
         this.refresh();
       });
       this.formDeporte = this.formularioDeporte.group({
@@ -157,7 +152,6 @@ export class EspaciosComponent implements OnInit {
       });
       this.message.create("success", `Deporte creado con éxito`);
     } catch (error) {
-      console.log(error);
       this.message.create("error", `No fue posible crear el deporte`);
     }
   }
@@ -175,8 +169,6 @@ export class EspaciosComponent implements OnInit {
       this._apiservice
         .addPuntoImportante(this.formPuntoImportante.value)
         .subscribe((res) => {
-          console.log("handleAddPuntoImportante");
-          console.log(res);
           this.refresh();
         });
       this.formPuntoImportante = this.formularioPuntoImportante.group({
@@ -184,15 +176,11 @@ export class EspaciosComponent implements OnInit {
       });
       this.message.create("success", `Punto importante creado con éxito`);
     } catch (error) {
-      console.log(error);
       this.message.create("error", `No fue posible crear el punto importante`);
     }
   }
 
   handleAddEspacio() {
-    console.log(this.formEspacio.value);
-    console.log(this.listOfSelectedDeportes);
-    console.log(this.listOfSelectedPuntos);
     try {
       if (
         this.formEspacio.value.name === "" ||
@@ -207,8 +195,6 @@ export class EspaciosComponent implements OnInit {
         return;
       }
       this._apiservice.addEspacio(this.formEspacio.value).subscribe((res) => {
-        console.log("handleAddEspacio");
-        console.log(res);
         this.refresh();
       });
       this.isVisibleEspacioModal = false;
@@ -220,7 +206,6 @@ export class EspaciosComponent implements OnInit {
   }
 
   handleCancel(): void {
-    console.log("Button cancel clicked!");
     this.isVisibleEspacioPadreModal = false;
     this.isVisibleEspacioModal = false;
     this.resetVars();
@@ -278,38 +263,13 @@ export class EspaciosComponent implements OnInit {
 
   espacioOptions = [];
 
-  onSelectEspacio(val: any) {
-    // if (val) {
-    //   this.espacioOptions = [];
-    //   this.arrEspacioPadre.map((res:any) => {
-    //     if(res.name == val){
-    //       this.espacioOptions = res.name;
-    //     }
-    //   });
-    // }
-  }
-
-  onSelectDeporte(event: any) {
-    console.log(this.listOfSelectedDeportes);
-    console.log(event);
-    // if (val) {
-    //   this.espacioOptions = [];
-    //   this.arrEspacioPadre.map((res:any) => {
-    //     if(res.name == val){
-    //       this.espacioOptions = res.name;
-    //     }
-    //   });
-    // }
-  }
 
   addFileEspacio(newItem: string) {
     this.formEspacio.get("imagen")?.setValue(newItem);
   }
 
-  addFileDeporte(event: any) {
-    let files = event.target.files as FileList;
-    let file: any;
-    file = files.item(0);
-    this.formDeporte.get("imagen")?.setValue(file);
+  onSelectEspacio(){
+
   }
+
 }

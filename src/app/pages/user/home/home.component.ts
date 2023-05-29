@@ -9,6 +9,5 @@ export class HomeComponent {
 
   ngOnInit() {
     document.title = this.title;
-    console.log("Home")
   }
 }

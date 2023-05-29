@@ -2,7 +2,7 @@ import { Component, Input, NgIterable, OnInit } from '@angular/core';
 import { ModuleAdmin } from 'src/app/models/admin/moduleAdmin/moduleAdmin';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-
+import { AppConstants } from 'src/app/app-constants';
 @Component({
   selector: 'app-cardEspacio',
   templateUrl: './cardEspacio.component.html',
@@ -24,7 +24,8 @@ export class CardEspacioComponent implements OnInit  {
   @Input() espacio_padre_id = '';
   @Input() imagen = '';
   @Input() is_active = '';
-
+  baseURL= AppConstants.baseURL;
+  
   constructor(private router:Router){
 
   }

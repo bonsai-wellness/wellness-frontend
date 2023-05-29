@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserAppComponent } from './user-app.component';
 import { ReservarDeporteComponent } from '../reservar-deporte/reservar-deporte.component';
+import { PanelAdminComponent } from '../../admin/panelAdmin/panelAdmin.component';
 
 const routes: Routes = [
   {

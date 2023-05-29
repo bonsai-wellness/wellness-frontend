@@ -17,8 +17,9 @@
                             placeholder="Location" />
                     </div>
                     <div class="col col-sm-6">
-                        <input formControlName="description" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Description" />
+                        
+                            <textarea formControlName="description" type="text" class="form-control"
+                            aria-describedby="helpId" placeholder="Description" rows="5"></textarea>
                     </div>
                     <div class="col col-sm-12">
                         <nz-select formControlName="deporte_id" nzShowSearch nzAllowClear
@@ -87,7 +88,7 @@
     <div class="row row-cols-auto">
         <div class="col" *ngFor="let torneo of arrTorneos">
             <app-cardTorneo [torneo_id]="torneo.torneo_id" [name]="torneo.name" [evento]="torneo.evento"
-                [description]="torneo.description"></app-cardTorneo>
+                [description]="torneo.description" [imagen]="torneo.imagen"></app-cardTorneo>
         </div>
     </div>
 </div>

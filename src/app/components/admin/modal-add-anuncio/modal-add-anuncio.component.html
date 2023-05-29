@@ -1,0 +1,24 @@
+<nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleAddAnuncio()">
+    <ng-container *nzModalContent>
+        <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">Agregar anuncio</p>
+        <form (ngSubmit)="handleAddAnuncio()" [formGroup]="formAnuncio">
+            <div class="row">
+                <div class="col col-sm-6">
+                    <input formControlName="name" type="text" class="form-control" aria-describedby="helpId"
+                        placeholder="Nombre" />
+                </div>
+                <div class="col col-sm-6">
+                    <input formControlName="url" type="text" class="form-control" aria-describedby="helpId"
+                        placeholder="Link" />
+                </div>
+                <div class="col col-sm-9">
+                    <textarea formControlName="description" type="text" class="form-control"
+                        aria-describedby="helpId" placeholder="Description" rows="5"></textarea>
+                </div>
+                <div class="col col-sm-3">
+                    <app-file-upload size="big"></app-file-upload>
+                </div>
+            </div>
+        </form>
+    </ng-container>
+</nz-modal>

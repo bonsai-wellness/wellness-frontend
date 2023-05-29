@@ -46,7 +46,6 @@ export class EspacioDetailsComponent implements OnInit {
     private message: NzMessageService
   ) {
     let params: any = this.location.getState();
-    console.log(params);
     this.formEspacio = this.formularioEspacio.group({
       name: [params?.name],
       code: [params?.code],
@@ -90,18 +89,10 @@ export class EspacioDetailsComponent implements OnInit {
   }
 
   showEspacioModal(): void {
-    console.log("click");
     this.isVisibleEspacioPadreModal = true;
   }
 
   handleEdit(): void {
-    console.log("Button ok clicked!");
-    console.log(this.formEspacio.value);
-    // this._apiservice
-    //   .addEspacioPadre(this.formEspacio.value)
-    //   .subscribe((respuesta) => {
-    //     console.log("Post espacio padre");
-    //   });
     this.isVisibleEspacioPadreModal = false;
   }
 
@@ -119,8 +110,6 @@ export class EspacioDetailsComponent implements OnInit {
       }
 
       this._apiservice.addDeporte(this.formDeporte.value).subscribe((res) => {
-        console.log("handleAddDeporte");
-        console.log(res);
         this.refresh();
       });
       this.formDeporte = this.formularioDeporte.group({
@@ -129,7 +118,6 @@ export class EspacioDetailsComponent implements OnInit {
       });
       this.message.create("success", `Deporte creado con éxito`);
     } catch (error) {
-      console.log(error);
       this.message.create("error", `No fue posible crear el deporte`);
     }
   }
@@ -147,8 +135,6 @@ export class EspacioDetailsComponent implements OnInit {
       this._apiservice
         .addPuntoImportante(this.formPuntoImportante.value)
         .subscribe((res) => {
-          console.log("handleAddPuntoImportante");
-          console.log(res);
           this.refresh();
         });
       this.formPuntoImportante = this.formularioPuntoImportante.group({
@@ -156,13 +142,11 @@ export class EspacioDetailsComponent implements OnInit {
       });
       this.message.create("success", `Punto importante creado con éxito`);
     } catch (error) {
-      console.log(error);
       this.message.create("error", `No fue posible crear el punto importante`);
     }
   }
 
   handleCancel(): void {
-    console.log("Button cancel clicked!");
     this.isVisibleEspacioPadreModal = false;
   }
 
@@ -178,16 +162,6 @@ export class EspacioDetailsComponent implements OnInit {
   }
 
   onSelectDeporte(event: any) {
-    console.log(this.listOfSelectedDeportes);
-    console.log(event);
-    // if (val) {
-    //   this.espacioOptions = [];
-    //   this.arrEspacioPadre.map((res:any) => {
-    //     if(res.name == val){
-    //       this.espacioOptions = res.name;
-    //     }
-    //   });
-    // }
   }
 
   addFileEspacio(newItem: string) {

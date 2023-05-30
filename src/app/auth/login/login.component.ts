@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiserviceService } from "src/app/Service";
 
 @Component({
   selector: 'app-login',
@@ -8,9 +9,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private _apiservice: ApiserviceService) {}
 
-  authUrl = 'http://localhost:8000/api/auth/google'; // Replace with the URL of your Express API's Google authentication endpoint
+  authUrl = this. _apiservice.authRoute();
 
   glogin() {
     const googleWindow = window.open(

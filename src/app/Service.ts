@@ -11,8 +11,8 @@ import { Anuncio } from "./models/anuncio/anuncio";
 
 @Injectable({ providedIn: "root" })
 export class ApiserviceService {
-	// API: string = "https://bonsai-rest.azurewebsites.net/api";
-	API: string = "http://localhost:8000/api";
+	API: string = "https://bonsai-rest.azurewebsites.net/api";
+	// API: string = "http://localhost:8000/api";
 
 	constructor(private _http: HttpClient) {}
 
@@ -53,6 +53,10 @@ export class ApiserviceService {
 
 	getAllActiveAnuncios() {
 		return this._http.get(this.API + "/anuncio/");
+	}
+
+	getCurrentUser() {
+		return this._http.get(this.API + "/auth/user/", { withCredentials: true });
 	}
 
   //POST
@@ -133,4 +137,9 @@ export class ApiserviceService {
 		console.log(body);
 		return this._http.post(this.API + `/reservation/`, null, options);
 	}
+
+	authRoute(): string {
+		return this.API + "/auth/google";
+	}
+
 }

@@ -1,35 +1,32 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { ApiserviceService } from "src/app/Service";
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: "app-header",
+  templateUrl: "./header.component.html",
+  styleUrls: ["./header.component.css"],
 })
 export class HeaderComponent implements OnInit {
+  constructor(
+    private http: HttpClient,
+    private _apiService: ApiserviceService
+  ) {}
 
-  constructor(private http: HttpClient) {}
+  @ViewChild("footerTemplate") footerTemplate: any;
 
-  @ViewChild('footerTemplate') footerTemplate: any;
-  
   visible = false;
 
   name = "";
   imgUrl = "";
 
   ngOnInit() {
-    console.log("HOLA")
-    this.http
-      .get<any>('http://localhost:8000/api/auth/user', {
-        withCredentials: true,
-      })
-      .subscribe((data) => {
-        console.log(data);
-        this.name = data.name;
-        this.imgUrl = data.profile_picture;
-      });
+    this._apiService.getCurrentUser().subscribe((data: any) => {
+      console.log(data);
+      this.name = data.name;
+      this.imgUrl = data.profile_picture;
+    });
   }
-
 
   open(): void {
     this.visible = true;

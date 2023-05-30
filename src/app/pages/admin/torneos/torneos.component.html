@@ -17,8 +17,9 @@
                             placeholder="Location" />
                     </div>
                     <div class="col col-sm-6">
-                        <input formControlName="description" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Description" />
+                        
+                            <textarea formControlName="description" type="text" class="form-control"
+                            aria-describedby="helpId" placeholder="Description" rows="5"></textarea>
                     </div>
                     <div class="col col-sm-12">
                         <nz-select formControlName="deporte_id" nzShowSearch nzAllowClear
@@ -33,7 +34,8 @@
                                 <form class='form-list' (ngSubmit)="handleAddDeporte()" [formGroup]="formDeporte">
                                     <input class="form-control" formControlName="name" type="text" nz-input
                                         #inputElement placeholder="Añadir nuevo deporte" />
-                                    <app-file-upload (newItemEvent)="addFileDeporte($event)" type="small"></app-file-upload>
+                                    <app-file-upload (newItemEvent)="addFileDeporte($event)"
+                                        type="small"></app-file-upload>
                                     <a type='submit' class="add-item" (click)="handleAddDeporte()">
                                         <span nz-icon nzType="plus"></span> </a>
                                 </form>
@@ -45,7 +47,7 @@
                             placeholder="Link" />
                     </div>
                     <div class="col col-sm-3">
-                        <app-file-upload ></app-file-upload>
+                        <app-file-upload></app-file-upload>
                         <!-- <app-file-upload (newItemEvent)="addFileTorneo($event)"></app-file-upload> -->
                     </div>
                     <div class="col col-sm-12">
@@ -56,18 +58,11 @@
                         </nz-select>
                     </div>
                     <div class="col col-sm-12">
-                        <nz-range-picker
-                        [nzRanges]="ranges"
-                        nzShowTime
-                        nzFormat="yyyy/MM/dd HH:mm:ss"
-                        ngModel
-                        nzSize="large"
-                        (ngModelChange)="onChange($event)"
-                        formControlName="dates"
-                      ></nz-range-picker>
+                        <nz-range-picker [nzRanges]="ranges" nzShowTime nzFormat="yyyy/MM/dd HH:mm:ss" ngModel
+                            nzSize="large" (ngModelChange)="onChange($event)" formControlName="dates"></nz-range-picker>
                     </div>
 
-                    
+
                 </div>
             </form>
         </ng-container>
@@ -81,8 +76,8 @@
                 <div class="col-sm-8"> <input type="search" class="form-control" id="searchQuery"
                         placeholder="Search...">
                 </div>
-                <div class="col-sm-4"> 
-                    <button class="btn btn-primary" type="button" (click)="showModal()">
+                <div class="col-sm-4">
+                    <button id="add-button" class="btn btn-primary" type="button" (click)="showModal()">
                         <span nz-icon nzType="plus" class="btn-icon"></span>
                     </button>
                 </div>
@@ -93,7 +88,7 @@
     <div class="row row-cols-auto">
         <div class="col" *ngFor="let torneo of arrTorneos">
             <app-cardTorneo [torneo_id]="torneo.torneo_id" [name]="torneo.name" [evento]="torneo.evento"
-                [description]="torneo.description"></app-cardTorneo>
+                [description]="torneo.description" [imagen]="torneo.imagen"></app-cardTorneo>
         </div>
     </div>
 </div>

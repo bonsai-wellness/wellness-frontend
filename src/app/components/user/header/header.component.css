@@ -1,3 +1,29 @@
-.logo-tec{
-    width: 100%;
+.logo-tec {
+  width: 100%;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  margin-left: 24px;
+  margin-bottom: 12px;
+}
+
+.profile img {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.name p {
+  font-size: 14px;
+  margin: 0;
+  margin-left: 10px;
 }

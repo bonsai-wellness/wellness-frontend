@@ -1,0 +1,4 @@
+<nz-select formControlName="espacio_padre_id" nzShowSearch nzAllowClear nzPlaceHolder="Espacio Padre" nzSize='large'
+    (ngModelChange)="onSelectEspacio($event)">
+    <nz-option *ngFor="let item of arrEspacioPadre" [nzLabel]="item.name" [nzValue]="item.espacio_padre_id"></nz-option>
+</nz-select>

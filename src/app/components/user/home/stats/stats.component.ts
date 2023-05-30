@@ -17,7 +17,6 @@ export class StatsComponent {
     if (porcentajeHTML){
       porcentajeHTML.textContent= porcentajeNum + '%';
       degrees = (porcentajeNum / 100) * 360;
-      console.log(degrees)
     }
 
     if (degrees > 180){

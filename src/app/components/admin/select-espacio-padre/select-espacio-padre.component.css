@@ -1,0 +1,30 @@
+nz-select {
+  width: 100%;
+}
+nz-divider {
+  /* margin: 4px 0; */
+}
+.container-select {
+  display: flex;
+  /* flex-wrap: nowrap; */
+  padding: 1px;
+  width: 100%;
+  vertical-align: middle;
+}
+.form-list {
+  display: flex;
+  width: 100%;
+  align-content: center;
+  vertical-align: middle;
+  justify-content: center;
+}
+.add-item {
+  flex: 0 0 auto;
+  padding: 8px;
+  display: block;
+}
+
+.form-control-add-list {
+  width: 70%;
+  margin-right: 5px;
+}

@@ -43,6 +43,8 @@ import { CardEstadisticasComponent } from "./components/admin/card-estadisticas/
 import { EspacioDetailsComponent } from "./pages/admin/espacios/espacio-details/espacio-details.component";
 import { AppAdminComponent } from "./pages/admin/app-admin.component";
 import { AppAdminRoutingModule } from "./pages/admin/app-admin-routing.module";
+import { HeaderEspacioComponent } from './components/admin/header-espacio/header-espacio.component';
+import { ModalEditEspacioComponent } from './components/admin/modal-edit-espacio/modal-edit-espacio.component';
 registerLocaleData(en);
 
 @NgModule({
@@ -67,6 +69,8 @@ registerLocaleData(en);
     CardEstadisticasComponent,
     EspacioDetailsComponent,
     AppAdminComponent,
+    HeaderEspacioComponent,
+    ModalEditEspacioComponent,
   ],
   imports: [
     BrowserModule,

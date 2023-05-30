@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { AppConstants } from 'src/app/app-constants';
 
 @Component({
   selector: 'app-card-deporte',
@@ -11,4 +12,8 @@ export class CardDeporteComponent {
   @Input() updated_at = 0;
   @Input() name = '';
   @Input() imagen = '';
+
+  baseURL = AppConstants.baseURL;
+
+  
 }

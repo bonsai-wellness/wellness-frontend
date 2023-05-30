@@ -32,9 +32,10 @@ export class ApiserviceService {
 		return this._http.get(this.API + `/reservation`, options);
 	}
 
-	getDeporteById(id: number) {
-		return this._http.get(this.API + `/espacio-deporte/${id}`);
-	}
+	// getDeporteById(id: number) {
+	// 	let deportes: [] = this._http.get(this.API + `/deportes/${id}`);
+	// 	return deportes.find((deporte) => deporte.deporte_id == id);
+	// }
 
 	getEspaciosByIdPadre(id: number) {
 		return this._http.get(this.API + `/espacio/espacio-padre/${id}`);

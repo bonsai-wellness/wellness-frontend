@@ -1,1 +1,25 @@
-<app-tab-reservar [data]="espacioOfDeporte"></app-tab-reservar>
+
+<div class="mt-3">
+    <!-- <div class="container mt-3">
+        <img src={{baseURL+deporte.imagen}} alt="">
+    </div> -->
+    <div class="card text-white my-2 rounded-3 border-0">
+        <img src="{{baseURL+deporte.imagen}}" class="card-img rounded-3" alt="...">
+        <div class="card-img-overlay d-flex align-items-end fondo text-white rounded-3">
+          <h4 class="text-white text-center display-5 fw-bold">{{deporte.name}}</h4>
+        </div>
+      </div>
+      <nz-tabset nzCentered>
+        <!-- <div class="w-100"> -->
+            <nz-tab nzTitle="Lugar">
+            </nz-tab>
+        <!-- </div> -->
+        <nz-tab nzTitle="Reservar">
+            <app-tab-reservar [data]="espacioOfDeporte"></app-tab-reservar>
+        </nz-tab>
+        <nz-tab nzTitle="Torneos">
+        </nz-tab>
+        <!-- </div> -->
+    </nz-tabset>
+    
+</div>

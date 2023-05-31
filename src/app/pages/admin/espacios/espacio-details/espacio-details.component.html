@@ -1,7 +1,5 @@
 <div class="container">
-
-    <nz-modal [(nzVisible)]="isVisibleEspacioPadreModal" (nzOnCancel)="handleCancel()"
-        (nzOnOk)="handleEdit()">
+    <nz-modal [(nzVisible)]="isVisibleEspacioPadreModal" (nzOnCancel)="handleCancel()" (nzOnOk)="handleEdit()">
         <ng-container *nzModalContent>
             <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">Editar Espacio</p>
             <form (ngSubmit)="handleEdit()" [formGroup]="formEspacio">
@@ -30,15 +28,16 @@
                                     </a>
                                     <input type="file" class="file-input" accept="image/png, image/jpeg"
                                         (change)="addFileDeporte($event)" #fileUpload> -->
-                                    <app-file-upload (newItemEvent)="addFileDeporte($event)" type="small"></app-file-upload>
-
+                                    <app-file-upload (newItemEvent)="addFileDeporte($event)"
+                                        type="small"></app-file-upload>
+    
                                     <a type='submit' class="add-item" (click)="handleAddDeporte()">
                                         <span nz-icon nzType="plus"></span> </a>
                                 </form>
                             </div>
                         </ng-template>
                     </div>
-
+    
                     <div class="col col-sm-12">
                         <nz-select formControlName="espacio_padre_id" nzShowSearch nzAllowClear
                             nzPlaceHolder="Espacio Padre" nzSize='large' (ngModelChange)="onSelectEspacio($event)">
@@ -46,7 +45,7 @@
                                 [nzValue]="item.espacio_padre_id"></nz-option>
                         </nz-select>
                     </div>
-
+    
                     <div class="col col-sm-12">
                         <nz-select nzShowSearch nzAllowClear [nzDropdownRender]="renderTemplate" nzPlaceHolder="Deporte"
                             nzSize='large' nzMode="multiple" nzPlaceHolder="Puntos importantes"
@@ -66,7 +65,7 @@
                             </form>
                         </ng-template>
                     </div>
-
+    
                     <div class="col col-sm-9">
                         <input formControlName="details" type="text" class="form-control form-control-detalles"
                             placeholder="Detalles" />
@@ -74,7 +73,7 @@
                     <div class="col col-sm-3">
                         <app-file-upload (newItemEvent)="addFileEspacio($event)" size="big"></app-file-upload>
                         <!-- <app-file-upload ></app-file-upload> -->
-
+    
                     </div>
                     <div class="col col-sm-6">
                         <input formControlName="time_max" type="number" min="0" class="form-control"
@@ -103,33 +102,21 @@
                                 [(ngModel)]="closeAt" nzFormat="HH:mm" nzPlaceHolder="Horario Salida"></nz-time-picker>
                         </div>
                     </div>
-
+    
                 </div>
             </form>
         </ng-container>
     </nz-modal>
-
+    
+    <app-header-espacio  [name]="espacio.name" [code]="espacio.code"
+        [open_at]="espacio.open_at" [imagen]="espacio.imagen" [close_at]="espacio.close_at" [time_max]="espacio.time_max" [capacity]="espacio.capacity" [details]="espacio.details" >
+    </app-header-espacio>
     <div class="row">
-        <div class="col-sm-4">
-            <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">{{espacio?.name}}</p>
-        </div>
-        <div class="col-sm-3">
-            <button class="btn" type="button" (click)="showEspacioModal()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                    class="bi bi-pencil-fill" viewBox="0 0 16 16">
-                    <path
-                        d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
-                </svg>
-            </button>
-        </div>
-
-    </div>
-    <div class="row">
-        <nz-tabset >
+        <nz-tabset>
             <nz-tab nzTitle="Proximos">
-               <app-card-reservacion></app-card-reservacion>
-               <app-card-reservacion></app-card-reservacion>
-               <app-card-reservacion></app-card-reservacion>
+                <app-card-reservacion></app-card-reservacion>
+                <app-card-reservacion></app-card-reservacion>
+                <app-card-reservacion></app-card-reservacion>
 
             </nz-tab>
             <nz-tab nzTitle="Por Confirmar">

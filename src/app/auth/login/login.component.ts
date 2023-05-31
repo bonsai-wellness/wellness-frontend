@@ -22,8 +22,8 @@ export class LoginComponent {
     let listener = window.addEventListener('message', (message) => {
       //message will contain facebook user and details
       const statusCode = message.data.statusCode;
+      localStorage.setItem('token', message.data.jwtToken);
       googleWindow!.close();
-      console.log(message.data.pop)
       if (statusCode === 200) {
         this.router.navigate(['/home']);
       }

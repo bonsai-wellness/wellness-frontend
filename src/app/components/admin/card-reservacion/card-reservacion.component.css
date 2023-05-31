@@ -12,12 +12,14 @@
 
 span{
     color: #fff;
+	width: 20px;
 }
 
 p {
 	letter-spacing: 1px;
 	text-transform: uppercase;
     color: #fff;
+	text-align: left;
 }
 
 h5 {
@@ -27,8 +29,9 @@ h5 {
 
 .reserva-preview {
 	background-color: #004892;
-	padding: 30px;
+	padding: 20px;
 	max-width: 100%;
+	width: 40%;
 }
 
 .reserva-preview a {
@@ -57,6 +60,11 @@ h5 {
 	bottom: 30px;
 	right: 30px;
 	letter-spacing: 1px;
+}
+
+.row{
+	display: flex;
+	flex-direction: row;
 }
 
 

@@ -1,22 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiserviceService } from "src/app/Service";
-import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-admin-login',
+  templateUrl: './admin-login.component.html',
+  styleUrls: ['./admin-login.component.css']
 })
-export class LoginComponent implements OnInit {
-
-  constructor(private router: Router, private _apiservice: ApiserviceService, private auth: AuthService) {}
-
-  ngOnInit(): void {
-    if (this.auth.isAuthenticated()) {
-      this.router.navigate(['home']);
-    }
-  }
+export class AdminLoginComponent {
+  constructor(private router: Router, private _apiservice: ApiserviceService) {}
 
   authUrl = this. _apiservice.authRoute();
 

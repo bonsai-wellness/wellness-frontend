@@ -6,10 +6,14 @@ import { EspacioDetailsComponent } from "./espacios/espacio-details/espacio-deta
 import { EspaciosComponent } from "./espacios/espacios.component";
 import { PanelAdminComponent } from "./panelAdmin/panelAdmin.component";
 import { TorneosComponent } from "./torneos/torneos.component";
+import { AdminLoginComponent } from "src/app/components/admin/admin-login/admin-login.component";
 
 const routes: Routes = [
   {
-    path: "",
+    path: "", component: AdminLoginComponent
+  },
+  {
+    path: "dashboard",
     component: AppAdminComponent,
     children: [
       { path: '', component: PanelAdminComponent}, 

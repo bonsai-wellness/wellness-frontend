@@ -16,13 +16,11 @@ import { NzMenuModule } from "ng-zorro-antd/menu";
 import { DemoNgZorroAntdModule } from "./ng-zorro-antd.module";
 import { CommonModule } from "@angular/common";
 import { HeaderModule } from "./components/user/header/header.module";
-import { UserAppRoutingModule } from "./pages/user/user-app/user-app-routing.module";
 import { ReactiveFormsModule } from "@angular/forms";
 import { NzOptionComponent, NzSelectModule } from "ng-zorro-antd/select";
 import { NzSelectComponent } from "ng-zorro-antd/select";
 import { NzModalModule, NzModalService } from "ng-zorro-antd/modal";
 import { NzFormModule } from "ng-zorro-antd/form";
-import { AdminRoutingModule } from "./components/admin/drawer/admin-routing.module";
 import { ModalAddAnuncioComponent } from "./components/admin/modal-add-anuncio/modal-add-anuncio.component";
 import { AnunciosComponent } from "./pages/admin/anuncios/anuncios.component";
 import { CardAnuncioComponent } from "./components/admin/card-anuncio/card-anuncio.component";
@@ -42,9 +40,10 @@ import { CardReservacionComponent } from "./components/admin/card-reservacion/ca
 import { CardEstadisticasComponent } from "./components/admin/card-estadisticas/card-estadisticas.component";
 import { EspacioDetailsComponent } from "./pages/admin/espacios/espacio-details/espacio-details.component";
 import { AppAdminComponent } from "./pages/admin/app-admin.component";
-import { AppAdminRoutingModule } from "./pages/admin/app-admin-routing.module";
-import { HeaderEspacioComponent } from './components/admin/header-espacio/header-espacio.component';
-import { ModalEditEspacioComponent } from './components/admin/modal-edit-espacio/modal-edit-espacio.component';
+import { HeaderEspacioComponent } from "./components/admin/header-espacio/header-espacio.component";
+import { ModalEditEspacioComponent } from "./components/admin/modal-edit-espacio/modal-edit-espacio.component";
+import { JwtHelperService, JWT_OPTIONS } from "@auth0/angular-jwt";
+
 registerLocaleData(en);
 
 @NgModule({
@@ -75,8 +74,6 @@ registerLocaleData(en);
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AdminRoutingModule,
-    UserAppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
@@ -90,9 +87,12 @@ registerLocaleData(en);
     NzSelectModule,
     NzModalModule,
     NzFormModule,
-    AppAdminRoutingModule,
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
+  providers: [
+    { provide: NZ_I18N, useValue: en_US },
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -22,6 +22,7 @@ const routes: Routes = [
     loadChildren: () => 
     import("./pages/admin/app-admin.module").then((m) => m.AppAdminModule),
   },
+  { path: "**", redirectTo: "" },
 ];
 
 @NgModule({

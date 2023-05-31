@@ -13,7 +13,10 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private _apiservice: ApiserviceService, private auth: AuthService) {}
 
   ngOnInit(): void {
-    if (this.auth.isAuthenticated()) {
+    if (this.auth.isAdminAuthenticated()) {
+      this.router.navigate(['admin']);
+    }
+    else if (this.auth.isAuthenticated()) {
       this.router.navigate(['home']);
     }
   }
@@ -32,7 +35,12 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('token', message.data.jwtToken);
       googleWindow!.close();
       if (statusCode === 200) {
-        this.router.navigate(['/home']);
+        if (this.auth.isAdminAuthenticated()) {
+          this.router.navigate(['admin']);
+        }
+        else if (this.auth.isAuthenticated()) {
+          this.router.navigate(['home']);
+        }
       }
     });
   }

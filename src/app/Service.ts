@@ -25,7 +25,8 @@ export class ApiserviceService {
 
 	//GETS
 	getAllActiveEspacioPadre() {
-		return this._http.get(this.API + "/espacio-padre");
+		const headers = this.authHeader();
+		return this._http.get(this.API + "/espacio-padre", { headers });
 	}
 
 	getEspacioDeporte(id: number) {

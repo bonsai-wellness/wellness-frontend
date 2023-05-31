@@ -1,5 +1,6 @@
 import { Input, Component, OnChanges, SimpleChanges } from "@angular/core";
 import { ApiserviceService } from "src/app/Service";
+import { NzCalendarMode } from "ng-zorro-antd/calendar";
 
 @Component({
 	selector: "app-calendar",
@@ -10,8 +11,57 @@ export class CalendarComponent implements OnChanges {
 	@Input() espacioId!: number;
 	selectedDate: Date = new Date();
 	availableTimes: any = [];
+	mode: NzCalendarMode = "month";
+	selectedMonth: Date = new Date();	
 
 	constructor(private _apiservice: ApiserviceService) {}
+
+	ngOnInit() {
+		if (this.selectedMonth instanceof Date) {
+			// Selected month was changed
+			// Perform your desired actions here
+			console.log("Selected month changed:", this.selectedMonth.getMonth());
+			this.selectedMonth = new Date();
+    		this.selectedDate = new Date()
+		}
+	}
+
+	handleMonthChange(selectedDate: Date): void {
+		if (selectedDate instanceof Date) {
+			// Selected month was changed
+			// Perform your desired actions here
+			console.log("Selected month changed:", selectedDate.getMonth());			
+		}
+	}
+
+	dateFullCellRender: (date: Date) => string | number = (date: Date) => {
+		const currentDate = new Date(); // Get the current date
+		const endDate = new Date();
+		endDate.setDate(currentDate.getDate() + 2); // Calculate the end date (current date + 2 days)
+
+		if (
+			(date.getMonth() !== this.selectedMonth?.getMonth() &&
+				date.getDate() === this.selectedDate?.getDate()) ||
+			date < currentDate ||
+			date > endDate
+		) {
+			return "disabled"; // Apply a CSS class or style to disabled dates
+		}
+
+		return date.getDate(); // Display the date normally for enabled dates
+	};
+
+	disabledDate: (date: Date) => boolean = (date: Date) => {
+		const currentDate = new Date(); // Get the current date
+		const endDate = new Date();
+		endDate.setDate(currentDate.getDate() + 2); // Calculate the end date (current date + 2 days)
+
+		return (
+			date.getMonth() !== this.selectedMonth?.getMonth() ||
+			(date.getDate() !== currentDate.getDate() &&
+				(date < currentDate || date > endDate))
+		);
+	};
 
 	formatDate(date: Date) {
 		const year = date.getFullYear();

@@ -4,8 +4,12 @@
 		[ngStyle]="{ border: '1px solid #d9d9d9', borderRadius: '4px' }"
 	>
 		<nz-calendar
+			[nzMode]="mode"
 			[nzFullscreen]="false"
 			(nzSelectChange)="onValueChange($event)"
+			[nzDisabledDate]="disabledDate"
+			[(nzValue)]="selectedMonth"
+			(nzValueChange)="handleMonthChange($event)"
 		></nz-calendar>
 		<div *ngIf="availableTimes[0]" class="time-slots">
 			<button

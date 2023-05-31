@@ -8,13 +8,21 @@ import { PuntoImportante } from "./models/puntoImportante/puntoImportante";
 import { Espacio } from "./models/espacio/espacio";
 import { Torneo } from "./models/torneo/torneo";
 import { Anuncio } from "./models/anuncio/anuncio";
+import { head } from "cypress/types/lodash";
 
 @Injectable({ providedIn: "root" })
 export class ApiserviceService {
-	API: string = "https://bonsai-rest.azurewebsites.net/api";
-	// API: string = "http://localhost:8000/api";
+	// API: string = "https://bonsai-rest.azurewebsites.net/api";
+	API: string = "http://localhost:8000/api";
 
 	constructor(private _http: HttpClient) {}
+
+	authHeader(): HttpHeaders {
+		const token = localStorage.getItem('token');
+		const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+		return headers
+	}
+
 
 	//GETS
 	getAllActiveEspacioPadre() {
@@ -56,7 +64,8 @@ export class ApiserviceService {
 	}
 
 	getCurrentUser() {
-		return this._http.get(this.API + "/auth/user/", { withCredentials: true });
+		const headers = this.authHeader();
+		return this._http.get(this.API + "/auth/user/", { headers });
 	}
 
   //POST

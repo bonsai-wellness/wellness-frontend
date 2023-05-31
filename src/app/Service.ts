@@ -12,8 +12,8 @@ import { head } from "cypress/types/lodash";
 
 @Injectable({ providedIn: "root" })
 export class ApiserviceService {
-	API: string = "https://bonsai-rest.azurewebsites.net/api";
-	// API: string = "http://localhost:8000/api";
+	// API: string = "https://bonsai-rest.azurewebsites.net/api";
+	API: string = "http://localhost:8000/api";
 
 	constructor(private _http: HttpClient) {}
 
@@ -25,15 +25,20 @@ export class ApiserviceService {
 
 	//GETS
 	getAllActiveEspacioPadre() {
-		return this._http.get(this.API + "/espacio-padre");
+		const headers = this.authHeader();
+		return this._http.get(this.API + "/espacio-padre", { headers });
 	}
 
 	getEspacioDeporte(id: number) {
-		return this._http.get(this.API + `/espacio-deporte/${id}`);
+		const headers = this.authHeader();
+		return this._http.get(this.API + `/espacio-deporte/${id}`, { headers });
 	}
 
 	getHorariosDisponibles(body: { ids: number; date: string }) {
-		const headers = new HttpHeaders({ "Content-Type": "application/json" });
+		const token = localStorage.getItem('token');
+		const headers = new HttpHeaders();
+		headers.set("Content-Type", "application/json");
+		headers.set('Authorization', `Bearer ${token}`);
 		const params = new HttpParams({ fromObject: body });
 		const options = { headers, params };
 		return this._http.get(this.API + `/reservation`, options);
@@ -45,22 +50,27 @@ export class ApiserviceService {
 	// }
 
 	getEspaciosByIdPadre(id: number) {
-		return this._http.get(this.API + `/espacio/espacio-padre/${id}`);
+		const headers = this.authHeader();
+		return this._http.get(this.API + `/espacio/espacio-padre/${id}`, { headers });
 	}
 
 	getAllActiveTorneos() {
-		return this._http.get(this.API + "/torneo/");
+		const headers = this.authHeader();
+		return this._http.get(this.API + "/torneo/", { headers });
 	}
 
 	getAllDeportes(): Observable<any> {
-		return this._http.get(this.API + "/deporte/");
+		const headers = this.authHeader();
+		return this._http.get(this.API + "/deporte/", { headers });
 	}
 	getAllPuntosImportantes(): Observable<any> {
-		return this._http.get(this.API + "/punto-importante/");
+		const headers = this.authHeader();
+		return this._http.get(this.API + "/punto-importante/", { headers });
 	}
 
 	getAllActiveAnuncios() {
-		return this._http.get(this.API + "/anuncio/");
+		const headers = this.authHeader();
+		return this._http.get(this.API + "/anuncio/", { headers });
 	}
 
 	getCurrentUser() {
@@ -70,7 +80,8 @@ export class ApiserviceService {
 
   //POST
   addEspacioPadre(espacioPadre: EspacioPadre): Observable<any> {
-    return this._http.post(this.API + "/espacio-padre/", espacioPadre);
+		const headers = this.authHeader();
+    return this._http.post(this.API + "/espacio-padre/", espacioPadre, { headers });
   }
 
 	addEspacio(espacio: Espacio): Observable<any> {
@@ -91,7 +102,8 @@ export class ApiserviceService {
 		formData.append("imagen", espacio.imagen, `${espacio.name}.jpeg`);
 		formData.append("is_active", espacio.is_active);
 
-		const res = this._http.post(this.API + "/espacio/", formData);
+		const headers = this.authHeader();
+		const res = this._http.post(this.API + "/espacio/", formData, { headers });
 		console.log(res);
 		// let espacio_id = res.espacio_id;
 		return res;
@@ -101,11 +113,13 @@ export class ApiserviceService {
 		const formData = new FormData();
 		formData.append("name", deporte.name);
 		formData.append("imagen", deporte.imagen, `${deporte.name}.jpeg`);
-		return this._http.post(this.API + "/deporte/", formData);
+		const headers = this.authHeader();
+		return this._http.post(this.API + "/deporte/", formData, { headers });
 	}
 
   addPuntoImportante(puntoImportante: PuntoImportante):  Observable<any> {
-    return this._http.post(this.API + "/punto-importante/", puntoImportante);
+		const headers = this.authHeader();
+    return this._http.post(this.API + "/punto-importante/", puntoImportante, { headers });
   }
 
   //Delete
@@ -122,7 +136,8 @@ export class ApiserviceService {
 		formData.append("deporte_id", torneo.deporte_id as any);
 		formData.append("imagen", torneo.imagen, `${torneo.name}.jpeg`);
 		formData.append("is_active", torneo.is_active);
-		return this._http.post(this.API + "/torneo/", formData);
+		const headers = this.authHeader();
+		return this._http.post(this.API + "/torneo/", formData, { headers });
 	}
 
 
@@ -132,7 +147,8 @@ export class ApiserviceService {
     formData.append("description", anuncio.description);
     formData.append("url", anuncio.url);
     formData.append("imagen", anuncio.image, `${anuncio.name}.jpeg`);
-    return this._http.post(this.API + "/anuncio/", formData);
+		const headers = this.authHeader();
+    return this._http.post(this.API + "/anuncio/", formData, { headers });
   }
 
 	postCreateReservacion(body: {

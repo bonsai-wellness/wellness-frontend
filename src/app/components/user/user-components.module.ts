@@ -15,6 +15,8 @@ import { CalendarComponent } from "./reservar/tab-reservar/calendar/calendar.com
 import { FormsModule } from "@angular/forms";
 import { NzSelectModule } from "ng-zorro-antd/select";
 import { SelectEspacioHijoComponent } from "./reservar/tab-reservar/select-espacio-hijo/select-espacio-hijo.component";
+import { TabTorneosComponent } from "./reservar/tab-torneos/tab-torneos.component";
+import { TorneoCardComponent } from "./reservar/torneo-card/torneo-card.component";
 
 @NgModule({
 	declarations: [
@@ -25,6 +27,8 @@ import { SelectEspacioHijoComponent } from "./reservar/tab-reservar/select-espac
 		TabReservarComponent,
 		CalendarComponent,
 		SelectEspacioHijoComponent,
+		TabTorneosComponent,
+		TorneoCardComponent,
 	],
 	imports: [
 		CommonModule,
@@ -42,8 +46,10 @@ import { SelectEspacioHijoComponent } from "./reservar/tab-reservar/select-espac
 		AnunciosComponent,
 		CardDeporteComponent,
 		TabReservarComponent,
-		CalendarComponent,		
-		SelectEspacioHijoComponent,		
+		CalendarComponent,
+		SelectEspacioHijoComponent,
+		TabTorneosComponent,
+		TorneoCardComponent,
 	],
 })
 export class UserComponentsModule {}

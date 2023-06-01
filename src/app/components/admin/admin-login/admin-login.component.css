@@ -17,7 +17,7 @@ body {
 }
 
 .left-container {
-  background-image: url(../../../assets/wellness.jpg);
+  background-image: url(../../../../assets/login-image.jpeg);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;

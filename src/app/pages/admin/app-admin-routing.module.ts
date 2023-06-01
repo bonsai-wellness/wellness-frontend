@@ -6,11 +6,14 @@ import { EspacioDetailsComponent } from "./espacios/espacio-details/espacio-deta
 import { EspaciosComponent } from "./espacios/espacios.component";
 import { PanelAdminComponent } from "./panelAdmin/panelAdmin.component";
 import { TorneosComponent } from "./torneos/torneos.component";
+import { AdminLoginComponent } from "src/app/components/admin/admin-login/admin-login.component";
+import { RoleGuardService } from "src/app/services/role-guard-service.service";
 
 const routes: Routes = [
   {
     path: "",
     component: AppAdminComponent,
+    canActivate: [RoleGuardService],
     children: [
       { path: '', component: PanelAdminComponent}, 
       { path: 'panel-admin', component: PanelAdminComponent}, 

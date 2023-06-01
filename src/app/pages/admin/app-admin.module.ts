@@ -1,11 +1,11 @@
 import { NgModule } from "@angular/core";
-import { AppAdminRoutingModule } from "./app-admin-routing.module";
 import { CommonModule } from "@angular/common";
+import { AppAdminRoutingModule } from "./app-admin-routing.module";
 
 @NgModule({
   imports: [
     CommonModule,
-    AppAdminRoutingModule,
+    AppAdminRoutingModule
   ],
   declarations: [
   ],

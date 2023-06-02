@@ -17,3 +17,6 @@ export class CardPanelAdminComponent  {
   @Input() path = '';
 
 }
+
+
+

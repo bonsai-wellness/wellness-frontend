@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NzMarks } from 'ng-zorro-antd/slider';
 import { ModuleAdmin } from 'src/app/models/admin/moduleAdmin/moduleAdmin';
+
 @Component({
   selector: 'app-panelAdmin',
   templateUrl: './panelAdmin.component.html',
@@ -48,5 +49,4 @@ export class PanelAdminComponent {
       path: '../anuncios',
     }
   ];
-
 }

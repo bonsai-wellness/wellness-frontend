@@ -1,0 +1,8 @@
+<section class="tab-torneos">
+	<h2>Torneos disponibles</h2>
+	<ul>
+		<li *ngFor="let torneo of listTorneos">
+			<app-torneo-card [torneo]="torneo"></app-torneo-card>
+		</li>
+	</ul>
+</section>

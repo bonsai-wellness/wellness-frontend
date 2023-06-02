@@ -15,6 +15,17 @@ import { CalendarComponent } from "./reservar/tab-reservar/calendar/calendar.com
 import { FormsModule } from "@angular/forms";
 import { NzSelectModule } from "ng-zorro-antd/select";
 import { SelectEspacioHijoComponent } from "./reservar/tab-reservar/select-espacio-hijo/select-espacio-hijo.component";
+import { TabTorneosComponent } from "./reservar/tab-torneos/tab-torneos.component";
+import { TorneoCardComponent } from "./reservar/torneo-card/torneo-card.component";
+import { EspaciosPadreComponent } from "./reservar/tab-lugar/espacios-padre/espacios-padre.component";
+import { TabLugarComponent } from "./reservar/tab-lugar/tab-lugar/tab-lugar.component";
+import { NzCollapseModule } from "ng-zorro-antd/collapse";
+import { NzListModule } from "ng-zorro-antd/list";
+import { PuntosImportantesComponent } from "./reservar/tab-lugar/puntos-importantes/puntos-importantes.component";
+import { UbicacionComponent } from "./reservar/tab-lugar/ubicacion/ubicacion.component";
+import { ModalConfirmReservationComponent } from "./reservar/modal-confirm-reservation/modal-confirm-reservation.component";
+import { NzAlertModule } from "ng-zorro-antd/alert";
+import { AlertsComponent } from "./alerts/alerts.component";
 
 @NgModule({
 	declarations: [
@@ -25,6 +36,14 @@ import { SelectEspacioHijoComponent } from "./reservar/tab-reservar/select-espac
 		TabReservarComponent,
 		CalendarComponent,
 		SelectEspacioHijoComponent,
+		TabTorneosComponent,
+		TorneoCardComponent,
+		TabLugarComponent,
+		EspaciosPadreComponent,
+		PuntosImportantesComponent,
+		UbicacionComponent,
+		ModalConfirmReservationComponent,
+		AlertsComponent,
 	],
 	imports: [
 		CommonModule,
@@ -35,6 +54,9 @@ import { SelectEspacioHijoComponent } from "./reservar/tab-reservar/select-espac
 		NzCalendarModule,
 		NzSelectModule,
 		FormsModule,
+		NzCollapseModule,
+		NzListModule,
+		NzAlertModule,
 	],
 	exports: [
 		StatsComponent,
@@ -42,8 +64,17 @@ import { SelectEspacioHijoComponent } from "./reservar/tab-reservar/select-espac
 		AnunciosComponent,
 		CardDeporteComponent,
 		TabReservarComponent,
-		CalendarComponent,		
-		SelectEspacioHijoComponent,		
+		CalendarComponent,
+		SelectEspacioHijoComponent,
+		TabTorneosComponent,
+		TorneoCardComponent,
+		TabLugarComponent,
+		EspaciosPadreComponent,
+		PuntosImportantesComponent,
+		UbicacionComponent,
+		ModalConfirmReservationComponent,
+		AlertsComponent,
 	],
 })
+
 export class UserComponentsModule {}

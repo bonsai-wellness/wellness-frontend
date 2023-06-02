@@ -1,22 +1,20 @@
-<div class="row my-2 mis-reservas rounded-3 p-4">
-    <div class="col-4 text-center">
-        <h1>24 Jun</h1>
+<div nzMatchRouter routerLink="./mis-reservaciones" class="row my-2 mis-reservas rounded-3 py-4">
+    <div class="col-4 fecha text-center">
+        <h1>{{formatoFecha(displayReservaciones.reservacion.date)}}</h1>
     </div>
     <div class="col-8 p-0">
                 <div class="rounded-3 text-left">
                     <div class="px-4 border-start border-black">
                         <div class="titulo-reserva">
-                            <h4 class="">Tenis cancha 8</h4>                            
+                            <h4 class="">{{espacioHijo.name}}</h4>                            
                         </div>
                         
                         <div class="horario-reserva">
-                            <p class="m-0">9:30 am</p>
+                            <p class="m-0">{{hora_inicio}} - {{hora_final}}</p>
                         </div>
                     </div>
                     
                     
         </div>
     </div>
-    
-
 </div>

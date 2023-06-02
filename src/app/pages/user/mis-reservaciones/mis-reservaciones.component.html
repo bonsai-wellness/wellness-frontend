@@ -1,0 +1,14 @@
+<div class="mt-3">
+    <div class="card-lista-reservaciones rounded-3">
+        <nz-list 
+            nzItemLayout="horizontal"
+            >
+              <nz-list-item 
+              *ngFor="let reservacion of displayReservaciones"
+              >
+              <app-reservacion-card class="w-100" [displayReservacion]="reservacion"></app-reservacion-card>
+              </nz-list-item>
+              <nz-list-empty *ngIf="displayReservaciones.length === 0"></nz-list-empty>
+              </nz-list>
+    </div>
+</div>

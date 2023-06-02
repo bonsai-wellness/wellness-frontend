@@ -1,5 +1,17 @@
 .mis-reservas{
+    width: 100%;
     background-color:#fff;
     text-align: left;
+    /* border: 1px solid #f0f0f0; */
 }
 
+.fecha{
+    width: 25%;
+}
+
+.horario-reserva{
+    color: rgba(0, 0, 0, 0.45);
+    font-size: 14px;
+    line-height: 1.5715;
+
+}

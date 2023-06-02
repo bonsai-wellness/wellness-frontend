@@ -1,0 +1,16 @@
+.contenedor-espacios-padre{
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 16px;
+}
+
+:host ::ng-deep .ant-collapse > .ant-collapse-item > .ant-collapse-header{
+  padding-left: 0;
+    font-weight: 500;
+    font-size: calc(1.275rem + .3vw);
+}
+
+:host ::ng-deep .ant-collapse-ghost > .ant-collapse-item > .ant-collapse-content > .ant-collapse-content-box{
+  border: 1px solid rgb(218, 218, 218);
+  border-radius: var(--bs-border-radius-lg)!important;
+}

@@ -1,0 +1,33 @@
+<div class="contenedor-espacios-padre">
+    <nz-collapse nzGhost>
+        <nz-collapse-panel
+          *ngFor="let panel of panels"
+          [nzHeader]="panel.espacioPadre.name"
+          [nzActive]="panel.active"
+          [nzDisabled]="panel.disabled"
+        >
+          <div class="card-espacios-padre rounded-3">
+            <nz-list 
+            nzItemLayout="horizontal"
+            >
+              <nz-list-item 
+              *ngFor="let espacio of panel.espaciosHijo"
+              >
+                <nz-list-item-meta
+                nzDescription={{espacio.code}}
+                  >
+                  <nz-list-item-meta-title>
+                    <a>
+                      {{ espacio.name }}
+                    </a>
+                  </nz-list-item-meta-title>
+                </nz-list-item-meta>
+              </nz-list-item>
+
+              <app-ubicacion [url]="panel.espacioPadre.map_url"></app-ubicacion>
+              
+              </nz-list>
+            </div>
+        </nz-collapse-panel>
+      </nz-collapse>
+</div>

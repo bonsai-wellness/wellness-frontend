@@ -12,12 +12,14 @@
       <nz-tabset nzCentered>
         <!-- <div class="w-100"> -->
             <nz-tab nzTitle="Lugar">
+                <app-tab-lugar [espaciosPadre]="espaciosPadre" [espaciosHijo]="espacioOfDeporte"></app-tab-lugar>
             </nz-tab>
         <!-- </div> -->
         <nz-tab nzTitle="Reservar">
             <app-tab-reservar [data]="espacioOfDeporte"></app-tab-reservar>
         </nz-tab>
         <nz-tab nzTitle="Torneos">
+            <app-tab-torneos></app-tab-torneos>
         </nz-tab>
         <!-- </div> -->
     </nz-tabset>

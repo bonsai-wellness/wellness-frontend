@@ -1,0 +1,6 @@
+.customContainer{
+    height: 200px;
+    background: rgb(255,255,255);
+    background: linear-gradient(236deg, rgba(255,255,255,1) 13%, rgba(172,209,227,1) 58%);
+    border-radius: 10px;
+}

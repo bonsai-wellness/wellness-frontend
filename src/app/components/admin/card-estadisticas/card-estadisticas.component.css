@@ -122,3 +122,28 @@
 .info span {
 	color: #000;
 }
+
+/* new added */
+
+.ant-menu-horizontal{
+	background-color: transparent ;
+}
+
+.ant-menu-item{
+	background-color: #f1f5f9 ;
+}
+
+.itemNotSelected{
+	border-radius: 0px 10px 10px 0px;
+}
+
+.itemSelected{
+	border-radius: 10px 0px 0px 10px;
+}
+
+
+.itemsContainer{
+	padding: 20px;	
+	margin-bottom: 25px;
+}
+

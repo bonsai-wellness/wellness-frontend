@@ -7,18 +7,14 @@ img{
     background-size: auto;   
 }
 
-/* :host ::ng-deep .ant-tabs-nav-wrap{
-    display: flex;
+:host ::ng-deep .ant-tabs-tab-btn{
+    font-weight: 500 ;
+    font-size: calc(1rem + .3vw);
+    color: rgba(0, 0, 0, 0.45);
 }
 
-:host ::ng-deep .ant-tabs .ant-tabs-tab{
-    flex-grow: 1;
-    margin-right: 0px;
-    width: 100%;
-    text-align: center;
-} */
-
-/* :host ::ng-deep .ant-tabs-nav {
+/* 
+:host ::ng-deep .ant-tabs-nav {
     display: flex !important;
 }
 
@@ -27,4 +23,5 @@ img{
     margin-right: 0px !important;
     width: 100% !important;
     text-align: center !important;
-} */
+} 
+*/

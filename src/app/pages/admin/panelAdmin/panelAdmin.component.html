@@ -1,16 +1,153 @@
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6">
-            <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">Panel de Administrador</p>
-            <div class="row">
-                <div class="col-sm-6" *ngFor="let module of modulesAdmin">
-                    <app-cardPanelAdmin [name]="module.name" [total]="module.total" [active]="module.active"
-                        [inactive]="module.inactive" [lastEdit]="module.lastEdit"
-                        [path]="module.path"></app-cardPanelAdmin>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <title>Inicio</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+    
+            <div class="row" style=" padding: 20px;">    
+                <div class="col-md-6">
+                    <div class="text-left">
+                        <h2 class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">Inicio | Panel de Estadísticas</h2>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-end">
+                        <button class="btn btn-dark">
+                            <span nz-icon nzType="download" nzTheme="outline"></span>
+                            Descargar reporte
+                        </button>
+                    </div>
                 </div>
             </div>
+            <hr class="solid mr-3 ">
+    
+            <!-- <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <app-admin-people-card></app-admin-people-card>
+                    </div>
+    
+                    <div class="col-md-4">
+                       <app-admin-reservations></app-admin-reservations>
+                    </div>
+                </div>
+            </div>
+             -->
+    
+    
+            <div class="custom-container">
+                    <div class="row customRow">
+                
+                        <div class="customColumn">
+                            <p>Porcentaje de aforo: 
+                                <span nz-icon nzType="smile" nzTheme="outline"></span>
+                            </p>
+                            <h2>65%</h2>
+                            <h5 class="upper">Aumento del 20% con respecto a la última hora</h5>
+                        </div>
+                        
+                        <div class="customColumn">
+                            <p>Total de personas: 
+                                <span nz-icon nzType="user-add" nzTheme="outline"></span>
+                            </p>
+                            <h2>165</h2>
+                            <h5 class="upper">Aumento del 20% con respecto a la última hora</h5>
+                        </div>
+
+                        <div class="customColumn">
+                            <p >Reservaciones hoy:
+                                <span nz-icon nzType="schedule" nzTheme="outline"></span>
+                            </p>
+                            <h2>26</h2>
+                            <h5 class="lower">Decremento del 35% con respecto al último dia</h5>
+                        </div>
+    
+                        <div class="customColumn">
+                            <p>Visitas del sitio hoy: 
+                                <span nz-icon nzType="usergroup-delete" nzTheme="outline"></span>
+                            </p>
+                            <h2>3500</h2>
+                            <h5 class="upper">Aumento del 200% con respecto a la última hora</h5>
+                        </div>
+                        
+                    </div>
+            </div>
+
+            
+
+            <!-- <div> <app-card-estadisticas></app-card-estadisticas> </div> -->
+    
+         
+            <!-- <div class="col-sm-6" *ngFor="let module of modulesAdmin">
+                <app-cardPanelAdmin [name]="module.name" [total]="module.total" [active]="module.active"
+                    [inactive]="module.inactive" [lastEdit]="module.lastEdit"
+                    [path]="module.path"></app-cardPanelAdmin>
+            </div> -->
+    
+            
+
+
+            
+                <div class="row customRow chartAndTables">
+                    <div class="col-md-8 cardContainer">
+                        <app-admin-charts></app-admin-charts>            
+                    </div>
+                    
+                    <div class="col-md-4 cardContainer">
+                       <h3>Reservaciones recientes </h3>
+                       <div class="container">
+                        <div class="row tableContainer"> 
+
+                            <table >
+                                <tr>
+                                  <td>
+                                    <div class="imageContainer">
+                                        <img
+                                        src="https://api.dicebear.com/6.x/initials/svg?seed=AS"
+                                        alt="avatar" />
+                                     
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <div class="textContainer">
+                                        <div class="upText">
+                                            <h4>
+                                                Alexis Cardona 
+                                            </h4>
+                                        </div>
+                                        <div class="downText">
+                                            <h5>
+                                               a00831284@tec.mx
+                                            </h5>
+                                        </div>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <div class="buttonContainer">
+                                            <h5>
+                                                12:00 pm  - 13:00 pm                                      
+                                            </h5>
+                                    </div>
+                                  </td>
+                                </tr>
+                              </table>
+
+                        </div>
+                       </div>
+                    </div>            
+                </div>
+        
+    
+    
         </div>
-        <div class="col-sm-6"> <app-card-estadisticas></app-card-estadisticas>
-        </div>
-    </div>
-</div>
+    </div>    
+</body>    
+</html>
+

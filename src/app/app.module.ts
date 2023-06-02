@@ -40,19 +40,9 @@ import { CardReservacionComponent } from "./components/admin/card-reservacion/ca
 import { CardEstadisticasComponent } from "./components/admin/card-estadisticas/card-estadisticas.component";
 import { EspacioDetailsComponent } from "./pages/admin/espacios/espacio-details/espacio-details.component";
 import { AppAdminComponent } from "./pages/admin/app-admin.component";
-<<<<<<< HEAD
 import { HeaderEspacioComponent } from "./components/admin/header-espacio/header-espacio.component";
 import { ModalEditEspacioComponent } from "./components/admin/modal-edit-espacio/modal-edit-espacio.component";
 import { JwtHelperService, JWT_OPTIONS } from "@auth0/angular-jwt";
-=======
-import { AppAdminRoutingModule } from "./pages/admin/app-admin-routing.module";
-import { HeaderEspacioComponent } from './components/admin/header-espacio/header-espacio.component';
-import { ModalEditEspacioComponent } from './components/admin/modal-edit-espacio/modal-edit-espacio.component';
-import { AdminChartsComponent } from "./components/admin/admin-charts/admin-charts.component";
-import { AdminPeopleCardComponent } from "./components/admin/admin-people-card/admin-people-card.component";
-import { AdminReservationsComponent } from "./components/admin/admin-reservations/admin-reservations.component";
-
->>>>>>> 1587dac (added charts and stats)
 
 registerLocaleData(en);
 
@@ -80,9 +70,6 @@ registerLocaleData(en);
     AppAdminComponent,
     HeaderEspacioComponent,
     ModalEditEspacioComponent,
-    AdminChartsComponent,
-    AdminPeopleCardComponent,
-    AdminReservationsComponent,
   ],
   imports: [
     BrowserModule,

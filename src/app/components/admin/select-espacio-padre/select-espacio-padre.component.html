@@ -1,4 +1,13 @@
 <nz-select formControlName="espacio_padre_id" nzShowSearch nzAllowClear nzPlaceHolder="Espacio Padre" nzSize='large'
     (ngModelChange)="onSelectEspacio($event)">
-    <nz-option *ngFor="let item of arrEspacioPadre" [nzLabel]="item.name" [nzValue]="item.espacio_padre_id"></nz-option>
+    <nz-option *ngFor="let item of arrEspacioPadre" nzCustomContent [nzLabel]="item.name" [nzValue]="item.espacio_padre_id">
+        <div class="box">
+            {{item.name}}
+            
+            <a nz-popconfirm nzPopconfirmTitle="¿Estas seguro que deseas borrar el deporte?" nzPopconfirmPlacement="bottom"
+            (nzOnConfirm)="confirmDelete()" (nzOnCancel)="cancelDelete()">
+            <span class='delete' nz-icon nzType="delete" nzTheme="outline"></span>
+        </a>
+        </div>
+    </nz-option>
 </nz-select>

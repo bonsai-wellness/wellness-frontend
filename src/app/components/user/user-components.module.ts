@@ -26,7 +26,9 @@ import { UbicacionComponent } from "./reservar/tab-lugar/ubicacion/ubicacion.com
 import { ModalConfirmReservationComponent } from "./reservar/modal-confirm-reservation/modal-confirm-reservation.component";
 import { NzAlertModule } from "ng-zorro-antd/alert";
 import { AlertsComponent } from "./alerts/alerts.component";
-
+import { ReservacionCardComponent } from "./mis-reservaciones/reservacion-card/reservacion-card.component";
+import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
+import { RouterModule } from "@angular/router";
 @NgModule({
 	declarations: [
 		StatsComponent,
@@ -44,6 +46,7 @@ import { AlertsComponent } from "./alerts/alerts.component";
 		UbicacionComponent,
 		ModalConfirmReservationComponent,
 		AlertsComponent,
+		ReservacionCardComponent,
 	],
 	imports: [
 		CommonModule,
@@ -57,6 +60,8 @@ import { AlertsComponent } from "./alerts/alerts.component";
 		NzCollapseModule,
 		NzListModule,
 		NzAlertModule,
+		NzPopconfirmModule,
+		RouterModule,
 	],
 	exports: [
 		StatsComponent,
@@ -74,6 +79,7 @@ import { AlertsComponent } from "./alerts/alerts.component";
 		UbicacionComponent,
 		ModalConfirmReservationComponent,
 		AlertsComponent,
+		ReservacionCardComponent,
 	],
 })
 

@@ -35,4 +35,12 @@ export class SelectEspacioPadreComponent implements OnInit {
 
   }
 
+  cancelDelete(): void {
+    console.log('click cancel');
+  }
+
+  confirmDelete(): void {
+    console.log('click confirm');
+  }
+
 }

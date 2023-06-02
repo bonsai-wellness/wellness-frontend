@@ -34,6 +34,11 @@ export class ApiserviceService {
 		return this._http.get(this.API + "/espacio-padre", { headers });
 	}
 
+	getAllEspaciosHijo(){
+		const headers = this.authHeader();
+		return this._http.get(this.API + "/espacio/", { headers });
+	}
+
 	getEspacioDeporte(id: number) {
 		const headers = this.authHeader();
 		return this._http.get(this.API + `/espacio-deporte/${id}`, { headers });
@@ -46,11 +51,14 @@ export class ApiserviceService {
 		return this._http.get(this.API + `/reservation`, options);
 	}
 
+	getMisReservaciones(){
+		const headers = this.authHeader();
+		return this._http.get(this.API + `/reservation/user/`, { headers });
+	}
+
 	getEspaciosByIdPadre(id: number) {
 		const headers = this.authHeader();
-		return this._http.get(this.API + `/espacio/espacio-padre/${id}`, {
-			headers,
-		});
+		return this._http.get(this.API + `/espacio/espacio-padre/${id}`, { headers});
 	}
 
 	getEspaciosPadreByDeporteId(id: number){
@@ -88,8 +96,23 @@ export class ApiserviceService {
 		return this._http.get(this.API + "/auth/user/", { headers });
 	}
 
-	//POST
-	addEspacioPadre(espacioPadre: EspacioPadre): Observable<any> {
+	getTodayReservations(id: number) {
+		const headers = this.authHeader();
+		return this._http.get(this.API + `/reservation/today/${id}`, { headers });
+	}
+
+	getPastReservations(id: number) {
+		const headers = this.authHeader();
+		return this._http.get(this.API + `/reservation/past/${id}`, { headers });
+	}
+
+	getNextReservations(id: number) {
+		const headers = this.authHeader();
+		return this._http.get(this.API + `/reservation/next/${id}`, { headers });
+	}
+
+  //POST
+  addEspacioPadre(espacioPadre: EspacioPadre): Observable<any> {
 		const headers = this.authHeader();
 		return this._http.post(this.API + "/espacio-padre/", espacioPadre, {
 			headers,
@@ -138,6 +161,11 @@ export class ApiserviceService {
 
 	//Delete
 
+	deleteReservacion(id: number){
+		const headers = this.authHeader();
+		return this._http.delete(this.API + `/reservation/${id}`, { headers });
+	}
+	
 	addTorneo(torneo: Torneo): Observable<any> {
 		const formData = new FormData();
 		formData.append("name", torneo.name);

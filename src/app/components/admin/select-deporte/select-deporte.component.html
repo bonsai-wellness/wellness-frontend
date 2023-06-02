@@ -1,8 +1,17 @@
-
 <nz-select formControlName="deporte_id" nzShowSearch nzAllowClear [nzDropdownRender]="renderTemplateDeportes"
     nzPlaceHolder="Deporte" nzSize='large' (ngModelChange)="onSelectDeporte($event)" nzMode="multiple"
     [(ngModel)]="listOfSelectedDeportes">
-    <nz-option *ngFor="let item of arrDeportes" [nzLabel]="item.name" [nzValue]="item.deporte_id"></nz-option>
+    <nz-option *ngFor="let item of arrDeportes" nzCustomContent [nzLabel]="item.name" [nzValue]="item.deporte_id">
+        <app-modal-add-anuncio [isVisible]="modalVisible"></app-modal-add-anuncio>
+        <div class="box">
+            {{item.name}}
+            <a nz-popconfirm nzPopconfirmTitle="¿Estas seguro que deseas borrar el deporte?" nzPopconfirmPlacement="bottom"
+                (nzOnConfirm)="confirmDelete()" (nzOnCancel)="cancelDelete()">
+                <span class='delete' nz-icon nzType="delete" nzTheme="outline"></span>
+            </a>
+        </div>
+
+    </nz-option>
 </nz-select>
 <ng-template #renderTemplateDeportes>
     <div class="container container-select">
@@ -10,9 +19,9 @@
             <input class="form-control form-control-add-list" formControlName="name" type="text" nz-input #inputElement
                 placeholder="Añadir nuevo deporte" />
             <app-file-upload (newItemEvent)="addFileDeporte($event)" type="small"></app-file-upload>
+
             <a type='submit' class="add-item" (click)="handleAddDeporte()">
-                <span nz-icon nzType="plus"></span> </a>
+                <span nz-icon nzType="plus"></span> Agregar</a>
         </form>
     </div>
 </ng-template>
-

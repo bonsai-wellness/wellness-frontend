@@ -6,7 +6,7 @@
                     <span nz-icon nzType="clock-circle" nzTheme="outline"></span>
                 </div>
                 <div class="col-9">
-                    <p>10:30-11:30</p>
+                    <p>{{reservation.start_time}} - {{reservation.end_time}}</p>
                 </div>
             </div>
             <div class="row">
@@ -14,15 +14,15 @@
                     <span nz-icon nzType="calendar" nzTheme="outline"></span>
                 </div>
                 <div class="col-9">
-                    <p>20 de mayo 2023</p>
+                    <p>{{reservation.date}}</p>
                 </div>
             </div>
 
-            <a>60 min <i class="fas fa-chevron-right"></i></a>
+            <a>{{reservation.booked_time}} min <i class="fas fa-chevron-right"></i></a>
         </div>
         <div class="reserva-info">
             <h5>A01284186@tec.mx</h5>
-            <h5>Paulina López Holguín</h5>
+            <h5>{{reservation.u_name}}</h5>
             <button class="btn">Cancelar</button>
         </div>
     </div>

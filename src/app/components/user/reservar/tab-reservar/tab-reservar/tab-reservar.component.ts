@@ -30,8 +30,7 @@ export class TabReservarComponent {
 	constructor(private _apiservice: ApiserviceService) {}
 
 	updateState(updatedState: any) {
-		this.selectedEspacio = updatedState;
-		console.log(this.selectedEspacio);
+		this.selectedEspacio = updatedState;		
 		this._apiservice.getAllActiveEspacioPadre().subscribe((res) => {
 			const response = res as [];			
 			const parentEspacio: any = response.find(

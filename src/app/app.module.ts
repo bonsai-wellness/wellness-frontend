@@ -43,6 +43,7 @@ import { AppAdminComponent } from "./pages/admin/app-admin.component";
 import { HeaderEspacioComponent } from "./components/admin/header-espacio/header-espacio.component";
 import { ModalEditEspacioComponent } from "./components/admin/modal-edit-espacio/modal-edit-espacio.component";
 import { JwtHelperService, JWT_OPTIONS } from "@auth0/angular-jwt";
+import { AdminChartsComponent } from "./components/admin/admin-charts/admin-charts.component";
 
 registerLocaleData(en);
 
@@ -70,6 +71,7 @@ registerLocaleData(en);
     AppAdminComponent,
     HeaderEspacioComponent,
     ModalEditEspacioComponent,
+    AdminChartsComponent,
   ],
   imports: [
     BrowserModule,

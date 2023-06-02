@@ -18,9 +18,9 @@ export class ApiserviceService {
 	constructor(private _http: HttpClient) {}
 
 	authHeader(): HttpHeaders {
-		const token = localStorage.getItem('token');
-		const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-		return headers
+		const token = localStorage.getItem("token");
+		const headers = new HttpHeaders().set("Authorization", `Bearer ${token}`);
+		return headers;
 	}
 
 	//GETS
@@ -35,10 +35,7 @@ export class ApiserviceService {
 	}
 
 	getHorariosDisponibles(body: { ids: number; date: string }) {
-		const token = localStorage.getItem('token');
-		const headers = new HttpHeaders();
-		headers.set("Content-Type", "application/json");
-		headers.set('Authorization', `Bearer ${token}`);
+		const headers = this.authHeader();
 		const params = new HttpParams({ fromObject: body });
 		const options = { headers, params };
 		return this._http.get(this.API + `/reservation`, options);
@@ -51,7 +48,9 @@ export class ApiserviceService {
 
 	getEspaciosByIdPadre(id: number) {
 		const headers = this.authHeader();
-		return this._http.get(this.API + `/espacio/espacio-padre/${id}`, { headers });
+		return this._http.get(this.API + `/espacio/espacio-padre/${id}`, {
+			headers,
+		});
 	}
 
 	getAllActiveTorneos() {
@@ -78,11 +77,13 @@ export class ApiserviceService {
 		return this._http.get(this.API + "/auth/user/", { headers });
 	}
 
-  //POST
-  addEspacioPadre(espacioPadre: EspacioPadre): Observable<any> {
+	//POST
+	addEspacioPadre(espacioPadre: EspacioPadre): Observable<any> {
 		const headers = this.authHeader();
-    return this._http.post(this.API + "/espacio-padre/", espacioPadre, { headers });
-  }
+		return this._http.post(this.API + "/espacio-padre/", espacioPadre, {
+			headers,
+		});
+	}
 
 	addEspacio(espacio: Espacio): Observable<any> {
 		// Create form data
@@ -117,12 +118,14 @@ export class ApiserviceService {
 		return this._http.post(this.API + "/deporte/", formData, { headers });
 	}
 
-  addPuntoImportante(puntoImportante: PuntoImportante):  Observable<any> {
+	addPuntoImportante(puntoImportante: PuntoImportante): Observable<any> {
 		const headers = this.authHeader();
-    return this._http.post(this.API + "/punto-importante/", puntoImportante, { headers });
-  }
+		return this._http.post(this.API + "/punto-importante/", puntoImportante, {
+			headers,
+		});
+	}
 
-  //Delete
+	//Delete
 
 	addTorneo(torneo: Torneo): Observable<any> {
 		const formData = new FormData();
@@ -140,16 +143,15 @@ export class ApiserviceService {
 		return this._http.post(this.API + "/torneo/", formData, { headers });
 	}
 
-
-  addAnuncio(anuncio: Anuncio):  Observable<any> {
-    const formData = new FormData();
-    formData.append("name", anuncio.name);
-    formData.append("description", anuncio.description);
-    formData.append("url", anuncio.url);
-    formData.append("imagen", anuncio.image, `${anuncio.name}.jpeg`);
+	addAnuncio(anuncio: Anuncio): Observable<any> {
+		const formData = new FormData();
+		formData.append("name", anuncio.name);
+		formData.append("description", anuncio.description);
+		formData.append("url", anuncio.url);
+		formData.append("imagen", anuncio.image, `${anuncio.name}.jpeg`);
 		const headers = this.authHeader();
-    return this._http.post(this.API + "/anuncio/", formData, { headers });
-  }
+		return this._http.post(this.API + "/anuncio/", formData, { headers });
+	}
 
 	postCreateReservacion(body: {
 		espacio_id: number;
@@ -157,14 +159,12 @@ export class ApiserviceService {
 		start_time: string;
 		end_time: string;
 	}) {
-		const headers = new HttpHeaders({ "Content-Type": "application/json" });
-		const options = { headers, body, withCredentials: true };
-		console.log(body);
-		return this._http.post(this.API + `/reservation/`, null, options);
+		const headers = this.authHeader();		
+		const options = { headers };
+		return this._http.post(this.API + `/reservation/`, body, options);
 	}
 
 	authRoute(): string {
 		return this.API + "/auth/google";
 	}
-
 }

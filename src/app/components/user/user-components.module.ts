@@ -17,6 +17,9 @@ import { NzSelectModule } from "ng-zorro-antd/select";
 import { SelectEspacioHijoComponent } from "./reservar/tab-reservar/select-espacio-hijo/select-espacio-hijo.component";
 import { TabTorneosComponent } from "./reservar/tab-torneos/tab-torneos.component";
 import { TorneoCardComponent } from "./reservar/torneo-card/torneo-card.component";
+import { ModalConfirmReservationComponent } from "./reservar/modal-confirm-reservation/modal-confirm-reservation.component";
+import { NzAlertModule } from "ng-zorro-antd/alert";
+import { AlertsComponent } from "./alerts/alerts.component";
 
 @NgModule({
 	declarations: [
@@ -29,6 +32,8 @@ import { TorneoCardComponent } from "./reservar/torneo-card/torneo-card.componen
 		SelectEspacioHijoComponent,
 		TabTorneosComponent,
 		TorneoCardComponent,
+		ModalConfirmReservationComponent,
+		AlertsComponent,
 	],
 	imports: [
 		CommonModule,
@@ -39,6 +44,7 @@ import { TorneoCardComponent } from "./reservar/torneo-card/torneo-card.componen
 		NzCalendarModule,
 		NzSelectModule,
 		FormsModule,
+		NzAlertModule,
 	],
 	exports: [
 		StatsComponent,
@@ -50,6 +56,8 @@ import { TorneoCardComponent } from "./reservar/torneo-card/torneo-card.componen
 		SelectEspacioHijoComponent,
 		TabTorneosComponent,
 		TorneoCardComponent,
+		ModalConfirmReservationComponent,
+		AlertsComponent,
 	],
 })
 export class UserComponentsModule {}

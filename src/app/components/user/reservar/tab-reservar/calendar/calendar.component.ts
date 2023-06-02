@@ -12,7 +12,7 @@ export class CalendarComponent implements OnChanges {
 	selectedDate: Date = new Date();
 	availableTimes: any = [];
 	mode: NzCalendarMode = "month";
-	selectedMonth: Date = new Date();	
+	selectedMonth: Date = new Date();
 
 	constructor(private _apiservice: ApiserviceService) {}
 
@@ -20,9 +20,8 @@ export class CalendarComponent implements OnChanges {
 		if (this.selectedMonth instanceof Date) {
 			// Selected month was changed
 			// Perform your desired actions here
-			console.log("Selected month changed:", this.selectedMonth.getMonth());
 			this.selectedMonth = new Date();
-    		this.selectedDate = new Date()
+			this.selectedDate = new Date();
 		}
 	}
 
@@ -30,7 +29,6 @@ export class CalendarComponent implements OnChanges {
 		if (selectedDate instanceof Date) {
 			// Selected month was changed
 			// Perform your desired actions here
-			console.log("Selected month changed:", selectedDate.getMonth());			
 		}
 	}
 
@@ -79,42 +77,21 @@ export class CalendarComponent implements OnChanges {
 		};
 		this._apiservice.getHorariosDisponibles(body).subscribe((res) => {
 			this.availableTimes = res;
-			console.log(this.availableTimes);
 		});
 	}
 
 	ngOnChanges(changes: SimpleChanges) {
 		const formattedDate = this.formatDate(this.selectedDate);
-		console.log("Given id: ", this.espacioId);
-		console.log("Given date: ", formattedDate);
 		if (this.espacioId && this.selectedDate) {
 			this.getHorarios(this.espacioId, formattedDate);
 		}
 	}
 
 	onValueChange(value: Date): void {
-		console.log(`Current valuee: ${value}`);
 		this.selectedDate = value;
 		const formattedDate = this.formatDate(this.selectedDate);
-		console.log("Given id: ", this.espacioId);
-		console.log("Given date: ", formattedDate);
 		if (this.espacioId && this.selectedDate) {
 			this.getHorarios(this.espacioId, formattedDate);
 		}
-	}
-
-	handleClick(timeReserva: any) {
-		const formattedDate = this.formatDate(this.selectedDate);
-		console.log(timeReserva);
-		const body = {
-			espacio_id: this.espacioId,
-			date: formattedDate,
-			start_time: timeReserva.start_time,
-			end_time: timeReserva.end_time,
-		};
-		this._apiservice.postCreateReservacion(body).subscribe((res) => {
-			console.log("Res of post create reservacion: ", res);
-			console.log("Reservacion created!");
-		});
 	}
 }

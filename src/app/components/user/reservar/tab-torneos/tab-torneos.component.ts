@@ -13,8 +13,7 @@ export class TabTorneosComponent {
 
   ngOnInit() {
     this._apiservice.getAllActiveTorneos().subscribe((res) => {
-      this.listTorneos = res;
-      console.log(this.listTorneos);
+      this.listTorneos = res;      
     });
   }
 }

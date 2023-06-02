@@ -28,3 +28,14 @@ nz-divider {
   width: 70%;
   margin-right: 5px;
 }
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+span.delete{
+  color: red
+}

@@ -9,19 +9,23 @@ import { AppConstants } from 'src/app/app-constants';
 })
 export class HeaderEspacioComponent implements OnInit{
   baseURL= AppConstants.baseURL;
-
-  @Input() name = ''
-  @Input() code = ''
-  @Input() open_at = ''
-  @Input() imagen = ''
-  @Input() details = ''
-  @Input() close_at = ''
-  @Input() time_max = ''
+  @Input() name = '';
+  @Input() code = '';
+  @Input() open_at = '';
+  @Input() imagen = '';
+  @Input() details = '';
+  @Input() close_at = '';
+  @Input() time_max = '';
   @Input() capacity = '';
+  openEditModal = false;
 
   constructor(private router:Router){
   }
 
   ngOnInit(): void {
+  }
+
+  handleEdit(){
+    this.openEditModal=true;
   }
 }

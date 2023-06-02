@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { ApiserviceService } from 'src/app/Service';
@@ -8,7 +8,9 @@ import { ApiserviceService } from 'src/app/Service';
   styleUrls: ['./modal-add-anuncio.component.css']
 })
 export class ModalAddAnuncioComponent implements OnInit {
-  isVisible = false;
+  @Input() isVisible = false;
+  @Output() answer = new EventEmitter<string>();
+
   formAnuncio: FormGroup;
   arrAnuncios: any;
 

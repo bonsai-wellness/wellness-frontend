@@ -1,2 +1,64 @@
-<!-- TODO:  put modal component in here -->
+<nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleEdit()">
+    <ng-container *nzModalContent>
+        <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">Editar Espacio</p>
+        <form (ngSubmit)="handleEdit()" [formGroup]="formEspacio">
+            <div class="row">
+                <div class="col col-sm-9">
+                    <input formControlName="name" type="text" class="form-control" placeholder="Nombre" />
+                </div>
+                <div class="col col-sm-3">
+                    <input formControlName="code" type="text" class="form-control" placeholder="Codigo" />
+                </div>
+                <div class="col col-sm-12">
+                    <app-select-deporte></app-select-deporte>
+                </div>
 
+                <div class="col col-sm-12">
+                    <app-select-espacio-padre></app-select-espacio-padre>
+                </div>
+
+                <div class="col col-sm-12">
+                    <app-select-punto-importante></app-select-punto-importante>
+                </div>
+
+                <div class="col col-sm-9">
+                    <input formControlName="details" type="text" class="form-control form-control-detalles"
+                        placeholder="Detalles" />
+                </div>
+                <div class="col col-sm-3">
+                    <app-file-upload (newItemEvent)="addFileEspacio($event)" size="big"></app-file-upload>
+                    <!-- <app-file-upload ></app-file-upload> -->
+
+                </div>
+                <div class="col col-sm-6">
+                    <input formControlName="time_max" type="number" min="0" class="form-control"
+                        placeholder="Tiempo max de reserva" />
+                </div>
+                <div class="col col-sm-6">
+                    <input formControlName="capacity" type="number" min="0" class="form-control"
+                        placeholder="Capacidad max" />
+                </div>
+                <div class="col col-sm-6" style="display: flex;vertical-align: middle;">
+                    <div class="col col-sm-6">
+                        <p class="text">Horario Entrada</p>
+                    </div>
+                    <div class="col col-sm-6">
+                        <nz-time-picker class="form-control" nzPlaceHolder="Horario Entrada"
+                            formControlName="open_at" [(ngModel)]="openAt" nzSize="large"
+                            nzFormat="HH:mm"></nz-time-picker>
+                    </div>
+                </div>
+                <div class="col col-sm-6" style="display: flex;">
+                    <div class="col col-sm-6">
+                        <p class="text">Horario Salida</p>
+                    </div>
+                    <div class="col col-sm-6">
+                        <nz-time-picker class="form-control" formControlName="close_at" nzSize="large"
+                            [(ngModel)]="closeAt" nzFormat="HH:mm" nzPlaceHolder="Horario Salida"></nz-time-picker>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </ng-container>
+</nz-modal>

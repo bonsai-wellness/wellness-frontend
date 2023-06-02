@@ -1,4 +1,6 @@
 
+<app-modal-edit-espacio [isVisible]='openEditModal'></app-modal-edit-espacio >
+
 <div class="container">
     <div class="card">
         <img class="card-img" src={{baseURL+imagen}} alt="Card image">
@@ -8,7 +10,7 @@
                     <h1 class="card-title">{{name}}</h1>
                 </div>
                 <div class="col">
-                    <button class="btn" type="button">
+                    <button class="btn" type="button" (click)="handleEdit()">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" 
                             class="bi bi-pencil-fill" viewBox="0 0 16 16">
                             <path

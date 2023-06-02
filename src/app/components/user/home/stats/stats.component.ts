@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+import { ApiserviceService } from "src/app/Service";
 
 @Component({
   selector: 'app-stats',
@@ -6,10 +8,28 @@ import { Component } from '@angular/core';
   styleUrls: ['./stats.component.css']
 })
 export class StatsComponent {
+
+  constructor(private http: HttpClient, private _apiService: ApiserviceService) {}
   
-  ngOnInit():void {
+  ngOnInit(): void {
+    this.getGym();
+    setInterval(() => {
+      this.getGym();
+    }, 5000);
+  }
+
+  getGym(): void {
+    this._apiService.getWellnessGym().subscribe((data: any) => {
+      console.log(data);
+      const acutal = Number(data.aforo_actual);
+      const max = Number(data.capacidad_max)
+      this.runGraph(Math.round((acutal / max) * 100));
+    });
+  }
+
+  runGraph(porcentajeNum: number) {
     let porcentajeHTML = document.querySelector('.numb');
-    let porcentajeNum = 75;
+    // let porcentajeNum = 75;
     let degrees = 0;
     let leftPercentage = 0;
 
@@ -36,7 +56,6 @@ export class StatsComponent {
       right.style.setProperty('--rightRotate', rightPercentage + 'deg');
     }
   }
-
 
   
 }

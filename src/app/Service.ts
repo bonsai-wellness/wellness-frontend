@@ -96,8 +96,23 @@ export class ApiserviceService {
 		return this._http.get(this.API + "/auth/user/", { headers });
 	}
 
-	//POST
-	addEspacioPadre(espacioPadre: EspacioPadre): Observable<any> {
+	getTodayReservations(id: number) {
+		const headers = this.authHeader();
+		return this._http.get(this.API + `/reservation/today/${id}`, { headers });
+	}
+
+	getPastReservations(id: number) {
+		const headers = this.authHeader();
+		return this._http.get(this.API + `/reservation/past/${id}`, { headers });
+	}
+
+	getNextReservations(id: number) {
+		const headers = this.authHeader();
+		return this._http.get(this.API + `/reservation/next/${id}`, { headers });
+	}
+
+  //POST
+  addEspacioPadre(espacioPadre: EspacioPadre): Observable<any> {
 		const headers = this.authHeader();
 		return this._http.post(this.API + "/espacio-padre/", espacioPadre, {
 			headers,

@@ -13,7 +13,7 @@ export class SelectDeporteComponent implements OnInit {
   arrDeportes: any;
   formDeporte: FormGroup;
   listOfSelectedDeportes = [];
-
+  modalVisible=false;
 
   constructor(
     private _apiservice: ApiserviceService,
@@ -73,6 +73,18 @@ export class SelectDeporteComponent implements OnInit {
     } catch (error) {
       this.message.create("error", `No fue posible crear el deporte`);
     }
+  }
+
+  handleDelete(){
+    this.modalVisible=true;
+  }
+
+  cancelDelete(): void {
+    console.log('click cancel');
+  }
+
+  confirmDelete(): void {
+    console.log('click confirm');
   }
 
 

@@ -1,4 +1,4 @@
-<nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleAddAnuncio()">
+<nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleAddAnuncio()" [nzMask]="false">
     <ng-container *nzModalContent>
         <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">Agregar anuncio</p>
         <form (ngSubmit)="handleAddAnuncio()" [formGroup]="formAnuncio">

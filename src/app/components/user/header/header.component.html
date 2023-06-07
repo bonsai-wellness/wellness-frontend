@@ -11,7 +11,7 @@
       </a>
     </div>
     <div class="col">
-      <!-- <h1>Bienvenido</h1> -->
+
       <ng-content [titulo]></ng-content>
     </div>
   </div>
@@ -35,7 +35,7 @@
     [nzFooter]="footerTemplate"
   >
     <ng-container *nzDrawerContent>
-      <!-- <img class="logo-tec" src="assets/logo-borregos.png" alt="hey"> -->
+
       <ul nz-menu nzTheme="light" nzMode="inline">
         <li nz-menu-item nzMatchRouterExact routerLink="./" (click)="close()">
           <span nz-icon nzType="home" nzTheme="outline"></span>
@@ -59,7 +59,7 @@
           <span nz-icon nzType="calendar"></span>
           <span>Mis reservaciones</span>
         </li>
-        <li
+        <!-- <li
           nz-menu-item
           nzMatchRouterExact
           routerLink="/anuncios"
@@ -67,7 +67,7 @@
         >
           <span nz-icon nzType="notification"></span>
           <span>Anuncios</span>
-        </li>
+        </li> -->
       </ul>
     </ng-container>
   </nz-drawer>

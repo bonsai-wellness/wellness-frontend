@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Anuncio } from 'src/app/models/anuncio/anuncio';
+import { ApiserviceService } from 'src/app/Service';
+
 @Component({
   selector: 'app-anuncios',
   templateUrl: './anuncios.component.html',
@@ -7,6 +9,8 @@ import { Anuncio } from 'src/app/models/anuncio/anuncio';
 })
 export class AnunciosComponent {
   currentName='hola';
+  
+  constructor(private _apiservice: ApiserviceService){}
 
   arrAnuncios: Anuncio[] = [
     {
@@ -30,5 +34,11 @@ export class AnunciosComponent {
       url: '',
     } 
   ];
+
+  ngOnInit(){
+    this._apiservice.getAllActiveAnuncios().subscribe( (res) =>{
+      console.log("anuncios", res);
+        });
+  }
 
 }

@@ -8,7 +8,17 @@ import { ApiserviceService } from 'src/app/Service';
 })
 export class ReservacionesComponent {
   reservaciones: any;
-  displayReservaciones: any;
+  displayReservacion: any;
+
+  today = new Date().toISOString().split('T')[0];
+
+  emptyReservations = {
+    ename: "No hay reservaciones",
+    date: this.today,
+    start_time: "",
+    end_time: "",
+    name: "",
+  }
 
   fecha: any;
   hora_inicio:any;
@@ -23,44 +33,28 @@ export class ReservacionesComponent {
 
     this._apiservice.getMisReservaciones().subscribe( (res) =>{
       this.reservaciones = res;
-
       this.agregarDisplayReservas();
-      // console.log(this.displayReservaciones);
-      // if(this.displayReservaciones.reservacion){
-      //   this.setDisplayData();
-      // }
     })
-    
   }
 
-  ngOnChanges(){
-    if(this.displayReservaciones){
-      console.log(this.displayReservaciones);
-      // this.setDisplayData();
-    }
+  setDisplayData() {
+    this.fecha = this.formatoFecha(this.displayReservacion.date);
+    this.hora_inicio = this.displayReservacion.start_time.slice(0, 5);
+    this.hora_final = this.displayReservacion.end_time.slice(0, 5);
+    this.nombre_espacio_padre = this.displayReservacion.name;
+    this.nombre_espacio = this.displayReservacion.ename;
   }
-
-  // setDisplayData(){
-  //   this.fecha = this.formatoFecha(this.displayReservaciones.reservacion.date);
-  //   this.hora_inicio = this.displayReservaciones.reservacion.start_time.slice(0, 5);
-  //   this.hora_final = this.displayReservaciones.reservacion.end_time.slice(0, 5);
-  //   this.nombre_espacio_padre = this.displayReservaciones.reservacion.name;
-  //   this.nombre_espacio = this.displayReservaciones.espacio.name;
-  //   this.code_espacio = this.displayReservaciones.espacio.code;
-  // }
 
   formatoFecha(fecha: string): string {
-    const date = new Date(fecha);
+    const [year, month, day] = fecha.split('-');
+    const parsedMonth = parseInt(month);
+    const abbreviatedMonth = this.getMesAbreviado(parsedMonth);
 
-    const month = date.getMonth() + 1; // Adding 1 because getMonth() returns zero-based months (0-11)
-    const day = date.getDate();
-
-    return `${day} ${this.getMesAbreviado(month)}`;
+    return `${day} ${abbreviatedMonth}`;
   }
 
   getMesAbreviado(numeroMes: number): string {
-    const date = new Date();
-    date.setMonth(numeroMes - 1); // Set the month (subtract 1 because months are zero-based)
+    const date = new Date(0, numeroMes - 1);
 
     const nombreMes = date.toLocaleString('es-ES', { month: 'short' });
     const nombreMayusMes = nombreMes.charAt(0).toUpperCase() + nombreMes.slice(1);
@@ -70,29 +64,11 @@ export class ReservacionesComponent {
 
   agregarDisplayReservas(){
     if(this.reservaciones.length >0){
-      let espacio = this.getEspacioReservado(this.reservaciones[0].espacio_id);
-      console.log("espacio",espacio);
-      this.displayReservaciones = 
-        {
-          espacio: espacio, 
-          reservacion: this.reservaciones[0]
-        }
-        ;
-      this.hora_inicio = this.displayReservaciones.reservacion.start_time.slice(0, 5);
-    this.hora_final = this.displayReservaciones.reservacion.end_time.slice(0, 5);
+      this.displayReservacion = this.reservaciones[0];
+    }else{
+      this.displayReservacion = this.emptyReservations;
     }
+    this.setDisplayData();
   }
 
-  getEspacioReservado(id: number): any{
-    
-    console.log("bef")
-    this._apiservice.getAllEspaciosHijo().subscribe( (res) =>{
-      const response= res as []; 
-      let espacio: any = response.find((espaciosHijo: any) => espaciosHijo.espacio_id == id);
-      console.log("id",id, res, espacio);
-      this.espacioHijo = espacio;
-      return espacio;
-    })
-    
-  }
 }

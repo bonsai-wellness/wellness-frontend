@@ -1,9 +1,4 @@
-.anuncio{
-    width: 100%;
-    object-fit:cover;
-    /* height: 100px; */
-    /* translate: 100px; */
-}
+
 .anuncios{
     height: 180px;
     object-fit:cover;

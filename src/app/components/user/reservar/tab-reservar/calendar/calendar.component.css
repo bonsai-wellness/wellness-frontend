@@ -15,3 +15,11 @@
 	flex-wrap: wrap;
 	width: 100%;
 }
+
+:host ::ng-deep .ant-select-single .ant-select-selector{
+	border-radius: 0.5rem;
+}
+
+:host ::ng-deep .ant-picker-calendar-header .ant-picker-calendar-mode-switch{
+	visibility: hidden;
+}

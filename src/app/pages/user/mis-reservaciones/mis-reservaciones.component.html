@@ -4,11 +4,11 @@
             nzItemLayout="horizontal"
             >
               <nz-list-item 
-              *ngFor="let reservacion of displayReservaciones"
+              *ngFor="let reservacion of reservaciones"
               >
               <app-reservacion-card class="w-100" [displayReservacion]="reservacion"></app-reservacion-card>
               </nz-list-item>
-              <nz-list-empty *ngIf="displayReservaciones.length === 0"></nz-list-empty>
+              <nz-list-empty *ngIf="reservaciones.length === 0"></nz-list-empty>
               </nz-list>
     </div>
 </div>

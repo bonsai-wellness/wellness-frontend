@@ -12,8 +12,8 @@ import { head } from "cypress/types/lodash";
 
 @Injectable({ providedIn: "root" })
 export class ApiserviceService {
-	API: string = "https://bonsai-rest.azurewebsites.net/api";
-	// API: string = "http://localhost:8000/api";
+	// API: string = "https://bonsai-rest.azurewebsites.net/api";
+	API: string = "http://localhost:8000/api";
 
 	constructor(private _http: HttpClient) {}
 
@@ -161,7 +161,7 @@ export class ApiserviceService {
 
 	//Delete
 
-	deleteReservacion(id: number){
+	deleteReservacion(id: number): Observable<any>{
 		const headers = this.authHeader();
 		return this._http.delete(this.API + `/reservation/${id}`, { headers });
 	}

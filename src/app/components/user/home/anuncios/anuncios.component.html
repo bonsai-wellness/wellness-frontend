@@ -1,26 +1,22 @@
 <div class="row ">
     <div class="col-12 my-2 rounded-3 p-0 anuncios">
         
-        <!-- <img src="assets/anunciod.png" alt="e" class="anuncio img-fluid rounded-3 w-100"> -->
         <carousel  class="h-100 d-block " [interval]="0 " >
           <slide *ngFor="let anuncio of arrAnuncios" class="text-center w-80 mx-auto ">
-            <img src={{anuncio.image}} alt="" class="anuncios  rounded-3 w-100 h-40">
+
+            <div class="card text-white my-2 rounded-3 border-0 w-100 h-40">
+              <a href={{anuncio.url}} class="rounded-3">
+        
+                <img src="{{baseURL+anuncio.imagen}}" class="card-img rounded-3 anuncios" alt="...">
+                <div class="fondo rounded-3 w-100 h-100">
+                </div>
+                <div class="card-img-overlay d-flex row align-items-center justify-content-center rounded-3 text-white  p-5">
+                  <h5 class="text-white text-center">{{anuncio.name}}</h5>
+                  <!-- <p>{{anuncio.description}}</p> -->
+                </div>
+              </a>
+            </div>
           </slide>
-            <!-- <slide >
-              <div class="text-center py-3 w-80 mx-auto">
-                <img src="assets/wellness.jpeg" alt="e" class="anuncio img-fluid rounded-3 w-100">
-              </div>
-            </slide>
-            <slide class="h-100">
-              <div class="text-center py-3 w-80 mx-auto">
-                <img src="assets/wellness.jpeg" alt="e" class="anuncio img-fluid rounded-3 w-100">
-              </div>
-            </slide>
-            <slide>
-              <div class="text-center py-3 w-80 mx-auto">
-                <img src="assets/wellness.jpeg" alt="e" class="anuncio img-fluid rounded-3 w-100">
-              </div>
-            </slide> -->
           </carousel>
     </div>
     

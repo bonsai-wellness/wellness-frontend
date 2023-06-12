@@ -1,10 +1,14 @@
-.anuncio{
-    width: 100%;
-    object-fit:cover;
-    /* height: 100px; */
-    /* translate: 100px; */
-}
+
 .anuncios{
     height: 180px;
     object-fit:cover;
+}
+
+.fondo{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5));
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }

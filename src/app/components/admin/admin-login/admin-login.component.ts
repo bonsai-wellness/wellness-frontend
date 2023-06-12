@@ -21,10 +21,14 @@ export class AdminLoginComponent {
     let listener = window.addEventListener('message', (message) => {
       //message will contain facebook user and details
       const statusCode = message.data.statusCode;
-      localStorage.setItem('token', message.data.jwtToken);
-      googleWindow!.close();
-      if (statusCode === 200) {
-        this.router.navigate(['/home']);
+      if (message.data.jwtToken) {
+        localStorage.setItem('token', message.data.jwtToken);
+        googleWindow!.close();
+        if (statusCode === 200) {
+          this.router.navigate(['/home']);
+        }
+      } else {
+        this.router.navigate(['/']);
       }
     });
   }

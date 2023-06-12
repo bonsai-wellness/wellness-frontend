@@ -1,5 +1,5 @@
 
-<div class="contenedor-puntos-importantes">
+<!-- <div class="contenedor-puntos-importantes">
     <div class="titulo-puntos-importantes">
         <h4>
             Puntos Importantes
@@ -11,10 +11,7 @@
                 <nz-list-item-meta>
                 <nz-list-item-meta-title>
                     <div class="d-flex gap-3 align-items-center">
-                        <img 
-                            src="assets/square.png"
-                            alt="" 
-                            height="10px">
+                            <span nz-icon nzType="info-circle" nzTheme="outline"></span>
                         {{ puntoImportante.name }}
                     </div>
                 </nz-list-item-meta-title>
@@ -22,4 +19,8 @@
             </nz-list-item>
         </nz-list>
     </div>
-</div>
+</div> -->
+
+<button nz-button (click)="info()" class="border border-0">
+    <span nz-icon nzType="info-circle" nzTheme="outline"></span>
+</button>

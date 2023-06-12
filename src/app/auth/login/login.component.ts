@@ -32,7 +32,9 @@ export class LoginComponent implements OnInit {
     let listener = window.addEventListener('message', (message) => {
       //message will contain facebook user and details
       const statusCode = message.data.statusCode;
-      localStorage.setItem('token', message.data.jwtToken);
+      if (message.data.statusCode) {
+        localStorage.setItem('token', message.data.jwtToken); 
+      }
       googleWindow!.close();
       if (statusCode === 200) {
         if (this.auth.isAdminAuthenticated()) {

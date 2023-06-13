@@ -12,8 +12,8 @@ import { head } from "cypress/types/lodash";
 
 @Injectable({ providedIn: "root" })
 export class ApiserviceService {
-	// API: string = "https://bonsai-rest.azurewebsites.net/api";
-	API: string = "http://localhost:8000/api";
+	API: string = "https://bonsai-rest.azurewebsites.net/api";
+	// API: string = "http://localhost:8000/api";
 
 	constructor(private _http: HttpClient) {}
 
@@ -121,7 +121,6 @@ export class ApiserviceService {
 
 	addEspacio(espacio: Espacio): Observable<any> {
 		// Create form data
-		console.log(espacio.open_at.toISOString());
 		const formData = new FormData();
 		formData.append("name", espacio.name);
 		formData.append("code", espacio.code);
@@ -139,8 +138,6 @@ export class ApiserviceService {
 
 		const headers = this.authHeader();
 		const res = this._http.post(this.API + "/espacio/", formData, { headers });
-		console.log(res);
-		// let espacio_id = res.espacio_id;
 		return res;
 	}
 
@@ -159,13 +156,6 @@ export class ApiserviceService {
 		});
 	}
 
-	//Delete
-
-	deleteReservacion(id: number): Observable<any>{
-		const headers = this.authHeader();
-		return this._http.delete(this.API + `/reservation/${id}`, { headers });
-	}
-	
 	addTorneo(torneo: Torneo): Observable<any> {
 		const formData = new FormData();
 		formData.append("name", torneo.name);
@@ -203,6 +193,38 @@ export class ApiserviceService {
 		return this._http.post(this.API + `/reservation/`, body, options);
 	}
 
+	relEspacioDeporte(body: {
+		espacio_id: number;
+		deporte_id: number;
+	}) {
+		const headers = this.authHeader();		
+		const options = { headers };
+		return this._http.post(this.API + `/espacio-deporte/`, body, options);
+	}
+
+	relEspacioPuntoImportante(body: {
+		espacio_id: number;
+		punto_importante_id: number;
+	}) {
+		const headers = this.authHeader();		
+		const options = { headers };
+		return this._http.post(this.API + `/espacio-punto_importante/`, body, options);
+	}
+
+	//Delete
+
+	deleteReservacion(id: number): Observable<any>{
+		const headers = this.authHeader();
+		return this._http.delete(this.API + `/reservation/${id}`, { headers });
+	}
+
+	deleteObject(id: number, type:string): Observable<any>{
+		const headers = this.authHeader();
+		const path = type.replace(/\s+/g, '-').toLowerCase();
+		return this._http.delete(this.API + `/${path}/${id}`, { headers });
+	}
+
+	//Auth
 	authRoute(): string {
 		return this.API + "/auth/google";
 	}

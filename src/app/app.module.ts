@@ -44,6 +44,7 @@ import { HeaderEspacioComponent } from "./components/admin/header-espacio/header
 import { ModalEditEspacioComponent } from "./components/admin/modal-edit-espacio/modal-edit-espacio.component";
 import { JwtHelperService, JWT_OPTIONS } from "@auth0/angular-jwt";
 import { AdminChartsComponent } from "./components/admin/admin-charts/admin-charts.component";
+import { ModalDeleteComponent } from './components/admin/modal-delete/modal-delete.component';
 
 registerLocaleData(en);
 
@@ -72,6 +73,7 @@ registerLocaleData(en);
     HeaderEspacioComponent,
     ModalEditEspacioComponent,
     AdminChartsComponent,
+    ModalDeleteComponent,
   ],
   imports: [
     BrowserModule,

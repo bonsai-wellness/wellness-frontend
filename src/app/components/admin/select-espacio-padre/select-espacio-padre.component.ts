@@ -9,8 +9,9 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 })
 export class SelectEspacioPadreComponent implements OnInit {
   @Input() espacio_id = '';
-
+  list =[];
   @Output() espacio_padre_id = new EventEmitter<string>();
+  @Output() listOfSelectedEspacioPadre = new EventEmitter<string>();
 
   arrEspacioPadre: any;
 
@@ -31,16 +32,8 @@ export class SelectEspacioPadreComponent implements OnInit {
       this.arrEspacioPadre = res;
     });
   }
-  onSelectEspacio(val: any) {
-
-  }
-
-  cancelDelete(): void {
-    console.log('click cancel');
-  }
-
-  confirmDelete(): void {
-    console.log('click confirm');
+  onSelectEspacio(event: any) {
+    this.espacio_padre_id.emit(event);
   }
 
 }

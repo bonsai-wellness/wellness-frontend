@@ -9,14 +9,6 @@ import { NzUploadFile } from "ng-zorro-antd/upload";
 
 declare var window: any;
 
-const getBase64 = (file: File): Promise<string | ArrayBuffer | null> =>
-  new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = (error) => console.log(error);
-  });
-
 @Component({
   selector: "app-file-upload",
   templateUrl: "./file-upload.component.html",

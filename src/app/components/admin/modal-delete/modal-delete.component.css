@@ -1,0 +1,20 @@
+span.delete{
+    color: red
+}
+
+.cancel_button {
+	background-color: #004892;
+	border: 0;
+	border-radius: 50px;
+	color: #fff;
+	font-size: 12px;
+	padding: 12px 25px;
+	position: absolute;
+	bottom: 30px;
+	right: 30px;
+	letter-spacing: 1px;
+}
+
+.delete_button{
+	margin: 10px;
+}

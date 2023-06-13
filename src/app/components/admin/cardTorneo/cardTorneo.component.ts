@@ -31,19 +31,6 @@ export class CardTorneoComponent  implements OnInit{
   ngOnInit(): void {
    }
 
-   handleOpenDelete(){
-      this.modal.confirm({
-        nzTitle: 'Estas seguro que deseas eliminar este torneo?',
-        nzContent: '<b style="color: red;">Esta acción no es reversible</b>',
-        nzOkText: 'Sí',
-        nzOkType: 'primary',
-        nzOkDanger: true,
-        nzOnOk: () => console.log('OK'),
-        nzCancelText: 'No',
-        nzOnCancel: () => console.log('Cancel')
-      });
-   }
-
   handleDelete(){
 
   }

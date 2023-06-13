@@ -1,31 +1,29 @@
 
 
 <nz-layout class="app-layout">
-  <nz-sider class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed"
+  <nz-sider class="menu-sidebar" nzCollapsible nzWidth="300px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed"
     [nzTrigger]="null">
     <div class="sidebar-logo">
-
       <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
         <img class="trigger" src="../../../assets/logo-borregos.svg" alt="logo">
       </span>
     </div>
     <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-
       <li nz-menu-item nzMatchRouter routerLink="panel-admin">
-        <span nz-icon nzType="appstore"></span>
-        <span>Panel Administrativo</span>
+        <span class='icon' nz-icon nzType="appstore"></span>
+        <span class='menu-item'>Panel Administrativo</span>
       </li>
       <li nz-menu-item nzMatchRouter routerLink="espacios">
-        <span nz-icon nzType="build"></span>
-        <span>Espacios</span>
+        <span class='icon' nz-icon nzType="build"></span>
+        <span class='menu-item'>Espacios</span>
       </li>
       <li nz-menu-item nzMatchRouter routerLink="torneos">
-        <span nz-icon nzType="trophy"></span>
-        <span>Torneos y actividades</span>
+        <span class='icon' nz-icon nzType="trophy"></span>
+        <span class='menu-item'>Torneos y actividades</span>
       </li>
       <li nz-menu-item nzMatchRouter routerLink="anuncios">
-        <span nz-icon nzType="notification"></span>
-        <span>Anuncios</span>
+        <span class='icon' nz-icon nzType="notification"></span>
+        <span class='menu-item'>Anuncios</span>
       </li>
 
     </ul>

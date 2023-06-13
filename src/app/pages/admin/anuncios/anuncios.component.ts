@@ -17,7 +17,6 @@ export class AnunciosComponent implements OnInit {
   arrDeportes: any;
   users: any;
   padre: any;
-  formDeporte: FormGroup;
   listOfSelectedDeportes = [];
   openAt = new Date();
   closeAt = new Date();
@@ -32,11 +31,6 @@ export class AnunciosComponent implements OnInit {
       name: [""],
       description: [""],
       url: [""],
-      // is_active: ["T"],
-    });
-    this.formDeporte = this.formularioDeporte.group({
-      name: [""],
-      imagen: [File],
     });
   }
 
@@ -44,25 +38,11 @@ export class AnunciosComponent implements OnInit {
     this._apiservice.getAllActiveAnuncios().subscribe((res) => {
       this.arrAnuncios = res;
     });
-    this._apiservice.getAllActiveEspacioPadre().subscribe((res) => {
-      this.arrEspacioPadre = res;
-    });
-
-    this._apiservice.getAllDeportes().subscribe((res) => {
-      this.arrDeportes = res;
-    });
   }
 
   refresh() {
     this._apiservice.getAllActiveAnuncios().subscribe((res) => {
       this.arrAnuncios = res;
-    });
-    this._apiservice.getAllActiveEspacioPadre().subscribe((res) => {
-      this.arrEspacioPadre = res;
-    });
-
-    this._apiservice.getAllDeportes().subscribe((res) => {
-      this.arrDeportes = res;
     });
   }
 
@@ -71,11 +51,6 @@ export class AnunciosComponent implements OnInit {
       name: [""],
       description: [""],
       url: [""],
-      // is_active: ["T"],
-    });
-    this.formDeporte = this.formularioDeporte.group({
-      name: [""],
-      imagen: [File],
     });
   }
   showModal(): void {
@@ -107,48 +82,8 @@ export class AnunciosComponent implements OnInit {
     this.isVisible = false;
   }
 
-  handleAddDeporte(): void {
-    try {
-      if (
-        this.formDeporte.value.name === "" ||
-        this.formDeporte.value.imagen.name === "File"
-      ) {
-        this.message.create(
-          "warning",
-          "Para crear un deporte es necesario ingresar nombre y una imágen"
-        );
-        return;
-      }
-      this._apiservice.addDeporte(this.formDeporte.value).subscribe((res) => {
-        this.refresh();
-      });
-      this.formDeporte = this.formularioDeporte.group({
-        name: [""],
-        imagen: [File],
-      });
-      this.message.create("success", `Deporte creado con éxito`);
-    } catch (error) {
-      this.message.create("error", `No fue posible crear el deporte`);
-    }
-  }
-
-  espacioOptions = [];
-
-  onSelectEspacio(val: any) {}
-
-  onSelectDeporte(event: any) {
-
-  }
-
   addFileAnuncio(newItem: string) {
     this.formAnuncio.get("imagen")?.setValue(newItem);
-  }
-
-  addFileDeporte(event: any) {
-    let files = event.target.files as FileList;
-    let file: any;
-    file = files.item(0);
-    this.formDeporte.get("imagen")?.setValue(file);
   }
 
   ranges = {

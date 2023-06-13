@@ -1,15 +1,21 @@
+import { jwtToken } from "cypress/jwtToken";
+
 describe("Torneo Form Filling", () => {
   it("Completes Form Fields", () => {
-    cy.visit("/admin/torneos");
+    cy.visit("/admin/torneos", {
+      onBeforeLoad: function (window) {
+        window.localStorage.setItem('token', jwtToken)
+    }});
     cy.get("#add-button").click();
     cy.get('input[placeholder="Evento"]').type("Intramuros");
     cy.get('input[placeholder="Nombre"]').type("Intramuros Basquetbol");
     cy.get('input[placeholder="Location"]').type("http://maps.google.com/");
-    cy.get('input[placeholder="Description"]').type(
+    cy.get('textarea[formcontrolname="description"]').type(
       "Torneo interno de basquetbol."
     );
     cy.get('nz-select[formControlName="deporte_id"]').click();
     cy.get('nz-option-item[ng-reflect-label="Basquetbol"]').click();
+    cy.get('input[placeholder="Evento"]').click();
     cy.get('nz-select[formControlName="espacio_padre_id"]').click();
     cy.get(
       'nz-option-item[ng-reflect-label="Centro Deportivo Borregos I"]'

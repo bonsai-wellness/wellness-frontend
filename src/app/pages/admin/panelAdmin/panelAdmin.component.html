@@ -19,28 +19,11 @@
                 </div>
                 <div class="col-md-6">
                     <div class="text-end">
-                        <button class="btn btn-dark">
-                            <span nz-icon nzType="download" nzTheme="outline"></span>
-                            Descargar reporte
-                        </button>
+                        <app-admin-people-card></app-admin-people-card>      
                     </div>
                 </div>
             </div>
             <hr class="solid mr-3 ">
-    
-            <!-- <div class="container">
-                <div class="row">
-                    <div class="col-md-8">
-                        <app-admin-people-card></app-admin-people-card>
-                    </div>
-    
-                    <div class="col-md-4">
-                       <app-admin-reservations></app-admin-reservations>
-                    </div>
-                </div>
-            </div>
-             -->
-    
     
             <div class="custom-container">
                     <div class="row customRow">
@@ -80,24 +63,11 @@
                     </div>
             </div>
 
-            
-
-            <!-- <div> <app-card-estadisticas></app-card-estadisticas> </div> -->
-    
-         
-            <!-- <div class="col-sm-6" *ngFor="let module of modulesAdmin">
-                <app-cardPanelAdmin [name]="module.name" [total]="module.total" [active]="module.active"
-                    [inactive]="module.inactive" [lastEdit]="module.lastEdit"
-                    [path]="module.path"></app-cardPanelAdmin>
-            </div> -->
-    
-            
-
-
+                
                 <div class="row customColumn" style="margin-left: 20px;">
 
                     <div class="sectionOne cardContainer" >
-                        <app-admin-charts></app-admin-charts>            
+                        <app-admin-charts></app-admin-charts>      
                     </div>
                     
                     <div class="sectionTwo cardContainer">
@@ -132,7 +102,7 @@
                                   <td>
                                     <div class="buttonContainer">
                                             <h5>
-                                                12:00 pm  - 13:00 pm                                      
+                                                12:00pm - 13:00pm                                      
                                             </h5>
                                     </div>
                                   </td>
@@ -150,4 +120,3 @@
     </div>    
 </body>    
 </html>
-

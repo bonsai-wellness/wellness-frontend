@@ -7,6 +7,8 @@ import { ModuleAdmin } from 'src/app/models/admin/moduleAdmin/moduleAdmin';
   templateUrl: './panelAdmin.component.html',
   styleUrls: ['./panelAdmin.component.css']
 })
+
+
 export class PanelAdminComponent {
 
   currentName='hola';

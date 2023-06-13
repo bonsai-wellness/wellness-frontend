@@ -20,7 +20,7 @@ export class StatsComponent {
 
   getGym(): void {
     this._apiService.getWellnessGym().subscribe((data: any) => {
-      console.log(data);
+      // console.log(data);
       const acutal = Number(data.aforo_actual);
       const max = Number(data.capacidad_max)
       this.runGraph(Math.round((acutal / max) * 100));

@@ -21,5 +21,5 @@
 }
 
 :host ::ng-deep .ant-picker-calendar-header .ant-picker-calendar-mode-switch{
-	visibility: hidden;
+	display: none;
 }

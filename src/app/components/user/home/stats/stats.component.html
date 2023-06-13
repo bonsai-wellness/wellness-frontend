@@ -1,40 +1,24 @@
 <div class="container-sm text-center stats my-2 p-0 d-block">
     
-
     <carousel  class="carousel-dark h-100 d-block" [interval]="0">
         <slide >
-          <div class="text-center w-80 mx-auto mt-5">
-            <div class="circular mx-auto">
-                <div class="inner"></div>
-                <div class="outer"></div>
-                <div class="numb">
-                   0%
-                </div>
-                <div class="circle">
-                   <div class="dot">
-                      <span></span>
-                   </div>
-                   <div class="bar left" id="left">
-                      <div class="progress"></div>
-                   </div>
-                   <div class="bar right" id="right">
-                      <div class="progress"></div>
-                   </div>
-                </div>
-             </div>
-            <h5 class="mt-5">Aforo actual del gimnasio</h5>
+
+          <div class="text-center w-80 mx-auto mt-5 aforo">
+             <app-aforo-actual></app-aforo-actual>
+            <h5 class="mt-5 aforo-texto">Aforo actual del gimnasio</h5>
           </div>
+
         </slide>
         <slide class="h-100">
-          <div class="text-center py-3 w-75 mx-auto">
-            <h2>Second custom content</h2>
-            <div class="lead">
-              <h3>Second slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </div>
+
+          <div class="aforo-semanal-container text-center py-3 w-75 mx-auto">
+            <app-admin-charts></app-admin-charts>
+            <h5 class="aforo-semanal-texto mt-5">Aforo semanal del gimnasio</h5>
           </div>
+
         </slide>
         <slide>
+
           <div class="text-center py-5 w-75 mx-auto">
             <h2>Third custom content</h2>
             <div class="lead">
@@ -42,6 +26,8 @@
               <p>Nulla vitae elit libero, a pharetra augue mollis interdum. </p>
             </div>
           </div>
+          
         </slide>
       </carousel>
+
 </div>

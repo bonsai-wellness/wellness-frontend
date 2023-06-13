@@ -43,9 +43,8 @@ import { AppAdminComponent } from "./pages/admin/app-admin.component";
 import { HeaderEspacioComponent } from "./components/admin/header-espacio/header-espacio.component";
 import { ModalEditEspacioComponent } from "./components/admin/modal-edit-espacio/modal-edit-espacio.component";
 import { JwtHelperService, JWT_OPTIONS } from "@auth0/angular-jwt";
-import { AdminChartsComponent } from "./components/admin/admin-charts/admin-charts.component";
+import { SharedComponentsModule } from "./components/shared/shared-components.module";
 import { ModalDeleteComponent } from './components/admin/modal-delete/modal-delete.component';
-
 registerLocaleData(en);
 
 @NgModule({
@@ -72,7 +71,6 @@ registerLocaleData(en);
     AppAdminComponent,
     HeaderEspacioComponent,
     ModalEditEspacioComponent,
-    AdminChartsComponent,
     ModalDeleteComponent,
   ],
   imports: [
@@ -91,6 +89,7 @@ registerLocaleData(en);
     NzSelectModule,
     NzModalModule,
     NzFormModule,
+    SharedComponentsModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },

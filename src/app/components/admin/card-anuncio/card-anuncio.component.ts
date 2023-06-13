@@ -6,7 +6,7 @@ import { AppConstants } from 'src/app/app-constants';
   styleUrls: ['./card-anuncio.component.css']
 })
 export class CardAnuncioComponent implements OnInit {
-
+  @Input() anuncio_id=0;
   @Input() name = '';
   @Input() imagen = '';
   @Input() description = '';
@@ -15,15 +15,6 @@ export class CardAnuncioComponent implements OnInit {
   baseURL = AppConstants.baseURL;
 
   ngOnInit() {
-    // this._apiservice.getAllActiveAnuncios().subscribe((res) => {
-    //   this.arrAnuncios = res;
-    // });
-    // this._apiservice.getAllActiveEspacioPadre().subscribe((res) => {
-    //   this.arrEspacioPadre = res;
-    // });
 
-    // this._apiservice.getAllDeportes().subscribe((res) => {
-    //   this.arrDeportes = res;
-    // });
   }
 }

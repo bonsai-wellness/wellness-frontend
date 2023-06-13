@@ -1,4 +1,4 @@
-<nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleAddAnuncio()" [nzMask]="false">
+<nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleAddAnuncio()" [nzMask]="false" nzCancelText="Cancelar" nzOkText="Crear">
     <ng-container *nzModalContent>
         <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">Agregar anuncio</p>
         <form (ngSubmit)="handleAddAnuncio()" [formGroup]="formAnuncio">
@@ -9,7 +9,7 @@
                 </div>
                 <div class="col col-sm-6">
                     <input formControlName="url" type="text" class="form-control" aria-describedby="helpId"
-                        placeholder="Link" />
+                        placeholder="URL página informativa" />
                 </div>
                 <div class="col col-sm-9">
                     <textarea formControlName="description" type="text" class="form-control"

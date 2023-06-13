@@ -1,6 +1,6 @@
 <div class="container">
     <nz-modal nzCentered [(nzVisible)]="isVisibleEspacioPadreModal" (nzOnCancel)="handleCancel()"
-        (nzOnOk)="handleAddEspacioPadre()">
+        (nzOnOk)="handleAddEspacioPadre()" nzCancelText="Cancelar" nzOkText="Crear">
         <ng-container *nzModalContent>
             <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">Agregar Espacio Padre</p>
             <form (ngSubmit)="handleAddEspacioPadre()" [formGroup]="formEspacioPadre">
@@ -20,7 +20,7 @@
     </nz-modal>
 
     <nz-modal nzCentered [(nzVisible)]="isVisibleEspacioModal" (nzOnCancel)="handleCancel()"
-        (nzOnOk)="handleAddEspacio()">
+        (nzOnOk)="handleAddEspacio()" nzCancelText="Cancelar" nzOkText="Crear">
         <ng-container *nzModalContent>
             <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">Agregar Espacio</p>
             <form (ngSubmit)="handleAddEspacio()" [formGroup]="formEspacio">
@@ -34,15 +34,17 @@
                             placeholder="Codigo" />
                     </div>
                     <div class="col col-sm-12">
-                        <app-select-deporte></app-select-deporte>
+                        <app-select-deporte (listOfSelectedDeportes)="addList($event, 'deporte')"></app-select-deporte>
                     </div>
 
                     <div class="col col-sm-12">
-                        <app-select-espacio-padre></app-select-espacio-padre>
+                        <app-select-espacio-padre
+                            (espacio_padre_id)="addList($event, 'espacio-padre')"></app-select-espacio-padre>
                     </div>
 
                     <div class="col col-sm-12">
-                        <app-select-punto-importante></app-select-punto-importante>
+                        <app-select-punto-importante
+                            (listOfSelectedPuntos)="addList($event, 'punto')"></app-select-punto-importante>
                     </div>
 
                     <div class="col col-sm-9">
@@ -105,13 +107,10 @@
 
     <div class="row">
         <nz-tabset [nzCanDeactivate]="openEspacioPadreModal">
-            <div class="col" *ngFor="let espacioPadre of arrEspacioPadre">
-                <nz-tab nzTitle="{{ espacioPadre.code }}">
-                    <app-tabEspacios [espacio_padre_id]="espacioPadre.espacio_padre_id"></app-tabEspacios>
-                </nz-tab>
-            </div>
+            <nz-tab *ngFor="let espacioPadre of arrEspacioPadre" nzTitle="{{ espacioPadre.name }}">
+                <app-tabEspacios [espacio_padre_id]="espacioPadre.espacio_padre_id"></app-tabEspacios>
+            </nz-tab>
             <nz-tab nzTitle="+ Agregar instalacion Padre">
-
             </nz-tab>
         </nz-tabset>
 

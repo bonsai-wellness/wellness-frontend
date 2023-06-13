@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ApiserviceService } from 'src/app/Service';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { FormGroup } from '@angular/forms';
+import { NzSelectModeType } from 'ng-zorro-antd/select';
 
 @Component({
   selector: 'app-select-deporte',
@@ -12,8 +13,10 @@ import { FormGroup } from '@angular/forms';
 export class SelectDeporteComponent implements OnInit {
   arrDeportes: any;
   formDeporte: FormGroup;
-  listOfSelectedDeportes = [];
   modalVisible=false;
+  list =[];
+  @Input() multiple:NzSelectModeType = 'multiple';
+  @Output() listOfSelectedDeportes = new EventEmitter<string[]>();
 
   constructor(
     private _apiservice: ApiserviceService,
@@ -39,7 +42,7 @@ export class SelectDeporteComponent implements OnInit {
   }
 
   onSelectDeporte(event: any) {
-
+    this.listOfSelectedDeportes.emit(event);
   }
 
   addFileDeporte(event: any) {
@@ -78,14 +81,5 @@ export class SelectDeporteComponent implements OnInit {
   handleDelete(){
     this.modalVisible=true;
   }
-
-  cancelDelete(): void {
-    console.log('click cancel');
-  }
-
-  confirmDelete(): void {
-    console.log('click confirm');
-  }
-
 
 }

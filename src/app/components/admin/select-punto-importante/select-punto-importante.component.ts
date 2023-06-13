@@ -15,9 +15,9 @@ export class SelectPuntoImportanteComponent implements OnInit {
 
   arrDeportes: any;
   arrPuntosImportantes: any;
-
   formPuntoImportante: FormGroup;
-  listOfSelectedPuntos = [];
+  list =[];
+  @Output() listOfSelectedPuntos = new EventEmitter<string[]>();
 
   constructor(
     private _apiservice: ApiserviceService,
@@ -66,15 +66,7 @@ export class SelectPuntoImportanteComponent implements OnInit {
   }
 
   onSelectPuntoImportante(event: any) {
-
-  }
-
-  cancelDelete(): void {
-    console.log('click cancel');
-  }
-
-  confirmDelete(): void {
-    console.log('click confirm');
+    this.listOfSelectedPuntos.emit(event);
   }
 
 }

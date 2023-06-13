@@ -27,3 +27,20 @@
   margin: 0;
   margin-left: 10px;
 }
+
+
+  /* Tablet */
+  @media (min-width:600px) {
+    .logo-tec {
+      height: 60px;
+      width: auto;
+    }
+  }
+  
+  /* Desktop */
+  @media (min-width:900px) {
+    .logo-tec {
+      height: 76px;
+      width: auto;
+    }
+  }

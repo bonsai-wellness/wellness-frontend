@@ -50,3 +50,35 @@
 .torneo-title {
     font-size: 14px;
 }
+
+ /* Tablet */
+ @media (min-width:600px) {
+    .torneo-card-link {
+        height: 180px;
+    }
+
+    .card-description {
+        padding: 4rem;
+    }
+
+    .torneo-type {
+        font-size: 15px;
+    }
+    
+    .torneo-title {
+        font-size: 20px;
+    }
+  }
+
+/* Desktop */
+@media (min-width:900px) {
+    .torneo-card-link {
+        height: 200px;
+    }
+
+    .card-description {
+        padding: 4.5rem;
+    }
+
+
+  }

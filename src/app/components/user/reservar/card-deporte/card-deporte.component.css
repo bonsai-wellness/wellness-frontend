@@ -16,3 +16,18 @@
 img{
     height: 100px;   
 }
+
+ /* Tablet */
+ @media (min-width:600px) {
+    img{
+        height: 168px;   
+    }
+ }
+
+ /* Desktop */
+ @media (min-width:900px) {
+    img {
+      height: 230px;
+    }
+
+  }

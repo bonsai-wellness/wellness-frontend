@@ -21,8 +21,6 @@ export class EspacioDetailsComponent implements OnInit {
   pastReservations: any;
   nextReservations: any;
 
-
-
   constructor(private route: ActivatedRoute, private location: Location, private _apiservice: ApiserviceService) {
     let params: any = this.location.getState();
   }

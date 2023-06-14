@@ -21,7 +21,6 @@ export class TorneosComponent implements OnInit {
   arrDeportes: any;
   users: any;
   padre: any;
-  formDeporte: FormGroup;
   listOfSelectedDeportes = [];
   openAt = new Date();
   closeAt = new Date();
@@ -29,23 +28,18 @@ export class TorneosComponent implements OnInit {
   constructor(
     private _apiservice: ApiserviceService,
     public formularioTorneo: FormBuilder,
-    public formularioDeporte: FormBuilder,
     private message: NzMessageService
   ) {
     this.formTorneo = this.formularioTorneo.group({
       name: [""],
       evento: [""],
       description: [""],
-      deporte_id: [""],
+      deporte_id: [0],
       location: [""],
       url: [""],
       imagen: [""],
       dates: [""],
       is_active: ["T"],
-    });
-    this.formDeporte = this.formularioDeporte.group({
-      name: [""],
-      imagen: [File],
     });
   }
 
@@ -53,25 +47,11 @@ export class TorneosComponent implements OnInit {
     this._apiservice.getAllActiveTorneos().subscribe((res) => {
       this.arrTorneos = res;
     });
-    this._apiservice.getAllActiveEspacioPadre().subscribe((res) => {
-      this.arrEspacioPadre = res;
-    });
-
-    this._apiservice.getAllDeportes().subscribe((res) => {
-      this.arrDeportes = res;
-    });
   }
 
   refresh() {
     this._apiservice.getAllActiveTorneos().subscribe((res) => {
       this.arrTorneos = res;
-    });
-    this._apiservice.getAllActiveEspacioPadre().subscribe((res) => {
-      this.arrEspacioPadre = res;
-    });
-
-    this._apiservice.getAllDeportes().subscribe((res) => {
-      this.arrDeportes = res;
     });
   }
 
@@ -80,16 +60,12 @@ export class TorneosComponent implements OnInit {
       name: [""],
       evento: [""],
       description: [""],
-      deporte_id: [""],
+      deporte_id: [0],
       location: [""],
       url: [""],
       imagen: [""],
       dates: [""],
       is_active: ["T"],
-    });
-    this.formDeporte = this.formularioDeporte.group({
-      name: [""],
-      imagen: [File],
     });
   }
   showModal(): void {
@@ -102,7 +78,7 @@ export class TorneosComponent implements OnInit {
         this.formTorneo.value.name === "" ||
         this.formTorneo.value.evento === "" ||
         this.formTorneo.value.description === "" ||
-        this.formTorneo.value.deporte_id === "" ||
+        this.formTorneo.value.deporte_id === 0 ||
         this.formTorneo.value.location === "" ||
         this.formTorneo.value.imagen === "" ||
         this.formTorneo.value.dates === ""
@@ -114,6 +90,7 @@ export class TorneosComponent implements OnInit {
       this._apiservice.addTorneo(this.formTorneo.value).subscribe((res) => {
         this.refresh();
         this.resetVars();
+        this.message.create("success", `Torneo creado exitosamente`);
       });
       this.isVisible = false;
       this.resetVars();
@@ -126,47 +103,8 @@ export class TorneosComponent implements OnInit {
     this.isVisible = false;
   }
 
-  handleAddDeporte(): void {
-    try {
-      if (
-        this.formDeporte.value.name === "" ||
-        this.formDeporte.value.imagen.name === "File"
-      ) {
-        this.message.create(
-          "warning",
-          "Para crear un deporte es necesario ingresar nombre y una imágen"
-        );
-        return;
-      }
-      this._apiservice.addDeporte(this.formDeporte.value).subscribe((res) => {
-        this.refresh();
-      });
-      this.formDeporte = this.formularioDeporte.group({
-        name: [""],
-        imagen: [File],
-      });
-      this.message.create("success", `Deporte creado con éxito`);
-    } catch (error) {
-      this.message.create("error", `No fue posible crear el deporte`);
-    }
-  }
-
-  espacioOptions = [];
-
-  onSelectEspacio(val: any) {}
-
-  onSelectDeporte(event: any) {
-  }
-
   addFileTorneo(newItem: string) {
     this.formTorneo.get("imagen")?.setValue(newItem);
-  }
-
-  addFileDeporte(event: any) {
-    let files = event.target.files as FileList;
-    let file: any;
-    file = files.item(0);
-    this.formDeporte.get("imagen")?.setValue(file);
   }
 
   ranges = {
@@ -176,4 +114,16 @@ export class TorneosComponent implements OnInit {
 
   onChange(result: Date[]): void {
   }
+
+  addList(event:any, type:string){
+    if(type=== 'deporte'){
+      this.formTorneo.patchValue({
+        deporte_id: event, 
+      }); 
+    }else if(type ==='espacio-padre'){
+      this.formTorneo.patchValue({
+        location: event.name, 
+      }); 
+    }
+   }
 }

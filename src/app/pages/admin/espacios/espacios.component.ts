@@ -8,6 +8,7 @@ import { Observable } from "rxjs";
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { AnyCatcher } from "rxjs/internal/AnyCatcher";
 import { NzMessageService } from "ng-zorro-antd/message";
+import { ThisReceiver } from "@angular/compiler";
 // import DeporteImage from  '../../../../assets/login_image-jpeg';
 
 @Component({
@@ -27,12 +28,11 @@ export class EspaciosComponent implements OnInit {
   padre: any;
   formEspacioPadre: FormGroup;
   formEspacio: FormGroup;
-  formDeporte: FormGroup;
-  formPuntoImportante: FormGroup;
   listOfSelectedDeportes = [];
   listOfSelectedPuntos = [];
   openAt = new Date();
   closeAt = new Date();
+  first_tab=1;
 
   constructor(
     private _apiservice: ApiserviceService,
@@ -60,28 +60,14 @@ export class EspaciosComponent implements OnInit {
       espacio_padre_id: [0],
       is_active: ["T"],
       imagen: [""],
-      deporte_id: [0],
-      puntos_importantes_ids: [0],
-    });
-    this.formDeporte = this.formularioDeporte.group({
-      name: [""],
-      imagen: [File],
-    });
-    this.formPuntoImportante = this.formularioPuntoImportante.group({
-      name: [""],
+      deportes_ids: [[]],
+      puntos_importantes_ids: [[]],
     });
   }
 
   ngOnInit() {
     this._apiservice.getAllActiveEspacioPadre().subscribe((res) => {
       this.arrEspacioPadre = res;
-    });
-
-    this._apiservice.getAllDeportes().subscribe((res) => {
-      this.arrDeportes = res;
-    });
-    this._apiservice.getAllPuntosImportantes().subscribe((res) => {
-      this.arrPuntosImportantes = res;
     });
   }
 
@@ -130,56 +116,6 @@ export class EspaciosComponent implements OnInit {
     }
   }
 
-  handleAddDeporte(): void {
-    try {
-      if (
-        this.formDeporte.value.name === "" ||
-        this.formDeporte.value.imagen.name === "File"
-      ) {
-        this.message.create(
-          "warning",
-          "Para crear un deporte es necesario ingresar nombre y una imágen"
-        );
-        return;
-      }
-
-      this._apiservice.addDeporte(this.formDeporte.value).subscribe((res) => {
-        this.refresh();
-      });
-      this.formDeporte = this.formularioDeporte.group({
-        name: [""],
-        imagen: [File],
-      });
-      this.message.create("success", `Deporte creado con éxito`);
-    } catch (error) {
-      this.message.create("error", `No fue posible crear el deporte`);
-    }
-  }
-
-  handleAddPuntoImportante(): void {
-    try {
-      if (this.formPuntoImportante.value.name === "") {
-        this.message.create(
-          "warning",
-          "Para crear un punto importante es necesario ingresar un nombre"
-        );
-        return;
-      }
-
-      this._apiservice
-        .addPuntoImportante(this.formPuntoImportante.value)
-        .subscribe((res) => {
-          this.refresh();
-        });
-      this.formPuntoImportante = this.formularioPuntoImportante.group({
-        name: [""],
-      });
-      this.message.create("success", `Punto importante creado con éxito`);
-    } catch (error) {
-      this.message.create("error", `No fue posible crear el punto importante`);
-    }
-  }
-
   handleAddEspacio() {
     try {
       if (
@@ -189,19 +125,55 @@ export class EspaciosComponent implements OnInit {
         this.formEspacio.value.time_max === "" ||
         this.formEspacio.value.details === "" ||
         this.formEspacio.value.espacio_padre_id === 0 ||
-        this.formEspacio.value.imagen === ""
+        this.formEspacio.value.imagen === "" || 
+        this.formEspacio.value.deportes_ids.length < 1 ||
+        this.formEspacio.value.puntos_importantes_ids.length < 1
       ) {
         this.message.create("warning", `Todos los campos deben estar llenos`);
         return;
       }
       this._apiservice.addEspacio(this.formEspacio.value).subscribe((res) => {
+        this.formEspacio.value.deportes_ids.map(async (id: number)=>{
+          await this.addRelDeporte(res.espacio_id, id)
+        });
+        this.formEspacio.value.puntos_importantes_ids.map(async (id: number)=>{
+          await this.addRelPuntoImportante(res.espacio_id, id)
+        })
+
         this.refresh();
       });
+      
       this.isVisibleEspacioModal = false;
       this.resetVars();
       this.message.create("success", `Espacio creado con éxito`);
     } catch (error) {
       this.message.create("error", `No fue posible crear el espacio`);
+    }
+  }
+
+  addRelDeporte(espacio_id:number, deporte_id: number) {
+    try {
+      let body={
+        espacio_id,
+        deporte_id,
+      }
+      this._apiservice.relEspacioDeporte(body).subscribe((res) => {
+      });
+    } catch (error) {
+      this.message.create("error", `No fue posible agregar el deporte`);
+    }
+  }
+
+  addRelPuntoImportante(espacio_id:number, punto_importante_id: number) {
+    try {
+      let body={
+        espacio_id,
+        punto_importante_id,
+      }
+      this._apiservice.relEspacioPuntoImportante(body).subscribe((res) => {
+      });
+    } catch (error) {
+      this.message.create("error", `No fue posible agregar el punto importante`);
     }
   }
 
@@ -231,15 +203,8 @@ export class EspaciosComponent implements OnInit {
       espacio_padre_id: [0],
       is_active: ["T"],
       imagen: [""],
-      deporte_id: [0],
-      puntos_importantes_ids: [0],
-    });
-    this.formDeporte = this.formularioDeporte.group({
-      name: [""],
-      imagen: [File],
-    });
-    this.formPuntoImportante = this.formularioPuntoImportante.group({
-      name: [""],
+      deportes_ids: [[]],
+      puntos_importantes_ids: [[]],
     });
   }
 
@@ -272,4 +237,21 @@ export class EspaciosComponent implements OnInit {
 
   }
 
+  addList(event:any, type:string){
+    if(type=== 'deporte'){
+      this.formEspacio.patchValue({
+        deportes_ids: event, 
+      }); 
+    }else if(type ==='espacio-padre'){
+      this.formEspacio.patchValue({
+        espacio_padre_id: event.espacio_padre_id, 
+      }); 
+    }else if(type ==='punto'){
+      this.formEspacio.patchValue({
+        puntos_importantes_ids: event, 
+      }); 
+    }
+   }
+
 }
+

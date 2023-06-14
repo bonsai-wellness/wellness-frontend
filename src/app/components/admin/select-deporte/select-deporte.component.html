@@ -1,16 +1,12 @@
-<nz-select formControlName="deporte_id" nzShowSearch nzAllowClear [nzDropdownRender]="renderTemplateDeportes"
-    nzPlaceHolder="Deporte" nzSize='large' (ngModelChange)="onSelectDeporte($event)" nzMode="multiple"
-    [(ngModel)]="listOfSelectedDeportes">
+<nz-select nzShowSearch nzAllowClear [nzDropdownRender]="renderTemplateDeportes"
+    nzPlaceHolder="Deporte" nzSize='large'  (ngModelChange)="onSelectDeporte($event)" [nzMode]='multiple'
+    [(ngModel)]="list" >
     <nz-option *ngFor="let item of arrDeportes" nzCustomContent [nzLabel]="item.name" [nzValue]="item.deporte_id">
-        <app-modal-add-anuncio [isVisible]="modalVisible"></app-modal-add-anuncio>
         <div class="box">
             {{item.name}}
-            <a nz-popconfirm nzPopconfirmTitle="¿Estas seguro que deseas borrar el deporte?" nzPopconfirmPlacement="bottom"
-                (nzOnConfirm)="confirmDelete()" (nzOnCancel)="cancelDelete()">
-                <span class='delete' nz-icon nzType="delete" nzTheme="outline"></span>
-            </a>
+            <app-modal-delete size="small" [id_object]="item.deporte_id" type_object="deporte"
+                name_object={{item.name}}></app-modal-delete>
         </div>
-
     </nz-option>
 </nz-select>
 <ng-template #renderTemplateDeportes>

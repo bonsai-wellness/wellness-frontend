@@ -22,7 +22,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this._apiService.getCurrentUser().subscribe((data: any) => {
-      console.log(data);
       this.name = data.name;
       this.imgUrl = data.profile_picture;
     });

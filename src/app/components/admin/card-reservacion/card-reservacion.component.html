@@ -23,7 +23,8 @@
         <div class="reserva-info">
             <h5>A01284186@tec.mx</h5>
             <h5>{{reservation.u_name}}</h5>
-            <button class="btn">Cancelar</button>
+            <app-modal-delete size="small" [id_object]="reservation.reservation_id" type_object="reservation"
+            name_object={{reservation.u_name}}></app-modal-delete>        
         </div>
     </div>
 </div>

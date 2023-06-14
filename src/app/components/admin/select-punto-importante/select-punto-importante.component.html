@@ -1,13 +1,11 @@
 <nz-select nzShowSearch nzAllowClear [nzDropdownRender]="renderTemplate" nzSize='large' nzMode="multiple"
     nzPlaceHolder="Punto Importante" nzSize='large' (ngModelChange)="onSelectPuntoImportante($event)"
-    [(ngModel)]="listOfSelectedPuntos">
-    <nz-option *ngFor="let item of arrPuntosImportantes" nzCustomContent [nzLabel]="item.name" [nzValue]="item">
+    [(ngModel)]="list">
+    <nz-option *ngFor="let item of arrPuntosImportantes" nzCustomContent [nzLabel]="item.name" [nzValue]="item.punto_importante_id">
         <div class="box">
             {{item.name}}
-            <a nz-popconfirm nzPopconfirmTitle="¿Estas seguro que deseas borrar el deporte?" nzPopconfirmPlacement="bottom"
-                (nzOnConfirm)="confirmDelete()" (nzOnCancel)="cancelDelete()">
-                <span class='delete' nz-icon nzType="delete" nzTheme="outline"></span>
-            </a>
+            <app-modal-delete size="small" [id_object]="item.punto_importante_id" type_object="punto importante"
+                name_object={{item.name}}></app-modal-delete>
         </div>
     </nz-option>
 </nz-select>

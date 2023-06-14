@@ -29,6 +29,9 @@ import { AlertsComponent } from "./alerts/alerts.component";
 import { ReservacionCardComponent } from "./mis-reservaciones/reservacion-card/reservacion-card.component";
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { RouterModule } from "@angular/router";
+import { SharedComponentsModule } from "../shared/shared-components.module";
+import { AforoActualComponent } from './home/stats/aforo-actual/aforo-actual.component';
+
 @NgModule({
 	declarations: [
 		StatsComponent,
@@ -47,6 +50,7 @@ import { RouterModule } from "@angular/router";
 		ModalConfirmReservationComponent,
 		AlertsComponent,
 		ReservacionCardComponent,
+		AforoActualComponent,
 	],
 	imports: [
 		CommonModule,
@@ -62,6 +66,7 @@ import { RouterModule } from "@angular/router";
 		NzAlertModule,
 		NzPopconfirmModule,
 		RouterModule,
+		SharedComponentsModule,
 	],
 	exports: [
 		StatsComponent,
@@ -80,7 +85,8 @@ import { RouterModule } from "@angular/router";
 		ModalConfirmReservationComponent,
 		AlertsComponent,
 		ReservacionCardComponent,
+		AforoActualComponent
 	],
 })
 
-export class UserComponentsModule {}
+export class UserComponentsModule { }

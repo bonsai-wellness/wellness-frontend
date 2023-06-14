@@ -28,4 +28,8 @@ export class HeaderEspacioComponent implements OnInit{
   handleEdit(){
     this.openEditModal=true;
   }
+
+  handleCancel(event:any){
+    this.openEditModal=false;
+  }
 }

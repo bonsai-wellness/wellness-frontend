@@ -23,7 +23,6 @@
 
 .trigger {
   color: #004892;
-  align-items: center;
 }
 
 .sidebar-logo {
@@ -33,7 +32,7 @@
   overflow: hidden;
   line-height: 100px;
   background: #fff;
-  align-self: center;
+  text-align: center;
   /* transition: all .3s; */
 }
 
@@ -57,20 +56,6 @@
   vertical-align: middle;
 }
 
-nz-header {
-  padding: 0;
-  width: 100%;
-  z-index: 2;
-}
-
-.app-header {
-  position: relative;
-  height: 100px;
-  padding: 0;
-  background: #fff;
-  box-shadow: 0 1px 4px rgba(255, 255, 255);
-}
-
 nz-content {
   margin: 24px;
   width: 100%;
@@ -78,5 +63,13 @@ nz-content {
 
 .app-layout {
   width: 100%;
+}
+
+span.icon{
+  font-size:1.25rem;
+}
+
+span.menu-item{
+  font-size:1.25rem;
 }
 

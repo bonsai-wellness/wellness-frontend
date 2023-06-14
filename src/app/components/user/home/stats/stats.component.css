@@ -1,126 +1,79 @@
-.aforo-simbolo{
-    width: 75%;
-    margin:auto;
+.aforo-simbolo {
+  width: 75%;
+  margin: auto;
 }
 
-.stats{
-    height: 68vw;
+.stats {
+  height: 68vw;
 }
 
-:host ::ng-deep .carousel{
-    height: 100%;
+:host ::ng-deep .carousel {
+  height: 100%;
 }
 
-.carousel, .carousel-inner{
-    height: 100%;
-}
-#carousel1{
-    height: 100%
+.carousel,
+.carousel-inner {
+  height: 100%;
 }
 
-
-
-/* percentage */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
-
-.circular{
-    height: 100px;
-    width: 100px;
-    position: relative;
-  }
-  .circular .inner, .circular .outer, .circular .circle{
-    position: absolute;
-    z-index: 6;
-    height: 100%;
-    width: 100%;
-    border-radius: 100%;
-    box-shadow: inset 0 1px 0 rgba(0,0,0,0.2);
-  }
-  .circular .inner{
-    top: 50%;
-    left: 50%;
-    height: 80px;
-    width: 80px;
-    margin: -40px 0 0 -40px;
-    background-color: #f8f8f8;
-    border-radius: 100%;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.2);
-  }
-  .circular .circle{
-    z-index: 1;
-    box-shadow: none;
-  }
-  .circular .numb{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    font-size: 18px;
-    font-weight: 500;
-    color: #0a4892;
-  }
-  .circular .bar{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background: #fff;
-    -webkit-border-radius: 100%;
-    clip: rect(0px, 100px, 100px, 50px);
-  }
-  .circle .bar .progress{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    -webkit-border-radius: 100%;
-    clip: rect(0px, 50px, 100px, 0px);
-  }
-  .circle .bar .progress, .dot span{
-    background: #0a4892;
-  }
-  .circle .left .progress{
-    z-index: 1;
-    animation: left 4s linear both;
-  }
-
-:root{
-  --leftRotate: 180deg;
-  --rightRotate: 180deg;
-  --endRotate: 180deg;
+#carousel1 {
+  height: 100%
 }
 
-  @keyframes left {
-    100%{
-      /* --leftRotate: 0deg; */
-      transform: rotate(var(--leftRotate));
-    }
+
+
+@media (max-width:600px) {
+  .aforo-semanal-container {
+    padding-top: 2rem !important;
   }
-  .circle .right{
-    z-index: 3;
-    transform: rotate(180deg);
+
+  .aforo-semanal-texto {
+    margin-top: 2.5rem !important;
   }
-  .circle .right .progress{
-    animation: right 4s linear both;
-    animation-delay: 4s;
+}
+
+/* Tablet */
+@media (min-width:600px) {
+  .stats {
+    height: 38vw;
   }
-  @keyframes right {
-    100%{
-      /* --rightRotate: 0deg; */
-      transform: rotate(var(--rightRotate));
-    }
+
+  .aforo {
+    margin-top: 4rem !important;
   }
-  .circle .dot{
-    z-index: 2;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 50%;
-    height: 10px;
-    margin-top: -5px;
-    animation: dot 8s linear both;
-    transform-origin: 0% 50%;
+
+  .aforo-texto {
+    margin-top: 4rem !important;
   }
-  /* .circle .dot span {
+
+  .aforo-semanal-container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
+  .aforo-semanal-texto {
+    margin-top: 0.5rem !important;
+  }
+}
+
+/* Desktop */
+@media (min-width:900px) {
+  .stats {
+    height: 25vw;
+  }
+
+  .aforo-semanal-container {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+
+  .aforo-semanal-texto {
+    margin-top: 0.5rem !important;
+  }
+
+}
+
+/* .circle .dot span {
     position: absolute;
     right: 0;
     width: 10px;

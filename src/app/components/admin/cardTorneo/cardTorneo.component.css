@@ -30,16 +30,21 @@
   position : relative;
   width : 230px;
   height : 260px;
-  
   top : -40%;
   left: -5px;
   /* box-shadow : 0 5px 20px rgba(0,0,0,0.2); */
   z-index : 1;
 }
 
-.container .card .image img {
-  max-width : 100%;
+.container .card img {
+  position : relative;
+  width : 230px;
+  height : 120px;
+  top : -40%;
+  left: -5px;
+  z-index : 1;
   border-radius : 15px;
+  object-fit: cover;
 }
 
 .container .card .title {
@@ -73,7 +78,7 @@
    transition-delay: 0.2s;
 }
 
-.container .card .content .delete {
+.container .card .content app-modal-delete {
   position : relative;
   color : red;
   margin: 10px;

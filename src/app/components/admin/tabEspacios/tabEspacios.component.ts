@@ -17,6 +17,7 @@ export class TabEspaciosComponent  {
     this._apiservice.getEspaciosByIdPadre(this.espacio_padre_id).subscribe(res => { 
       this.espaciosArray = res; 
     })
+    
   }
 
 }

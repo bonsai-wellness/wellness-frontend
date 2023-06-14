@@ -85,9 +85,19 @@ hr.solid {
   border-radius: 17px;
   padding: 18px;
   border: 1px solid rgb(155, 155, 155);
+  margin-right: 20px;
+  margin-left: 25px;
 }
 
 
+.sectionOne{
+  width: 43vw;
+  margin-right: 35px;
+}
+
+.sectionTwo{
+  width: 25vw;
+}
 
 .customColumn:first-child{
     margin-left: 20px;

@@ -1,3 +1,19 @@
 nz-content {
     margin: 24px;
   }
+
+  /* Tablet */
+@media (min-width:600px) {
+  .nz-content {
+    margin: 28px;
+  }
+}
+
+/* Desktop */
+@media (min-width:900px) {
+  nz-content {
+    margin: 30px;
+    margin-right: 180px;
+    margin-left: 180px;
+  }
+}

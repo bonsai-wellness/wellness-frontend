@@ -1,17 +1,14 @@
 <div class=container>
     <div class=card>
-        <div class=image>
             <img href="#" src={{baseURL+imagen}}>
-        </div>
         <div class="title">
-            <h2>{{evento}}</h2>
+            <h2>{{name}}</h2>
         </div>
         <div class=content>
             <p>{{description}}</p>
-            <span class="delete" nz-icon nzType="delete" nzTheme="fill" (click)="handleOpenDelete()"></span>
-            
+            <app-modal-delete size="small" [id_object]="torneo_id" type_object="torneo"
+            name_object={{name}}></app-modal-delete>
             <a href={{url}} target="_blank"><span  class="redirect"  nz-icon nzType="link" nzTheme="outline"></span></a>
-
         </div>
     </div>
 </div>

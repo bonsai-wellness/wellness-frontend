@@ -9,7 +9,7 @@
 .anuncio-card {
     display: flex;
     flex-direction: column;
-    height: 400px;
+    height: 80vh;
     width: 300px;
     text-align: center;
     align-items: center;
@@ -25,4 +25,16 @@
     padding: 10px;
     height: 50%;
     background-color: white;
+}
+
+.anuncio-card .content-container app-modal-delete {
+    position : relative;
+    color : red;
+    margin: 10px;
+}
+
+.anuncio-card .content-container .redirect {
+    position : relative;
+    color : rgb(73, 125, 193);
+    margin: 10px;
 }

@@ -14,6 +14,7 @@ import { ActivatedRoute } from "@angular/router";
 export class ModalEditEspacioComponent implements OnInit{
   @Input() isVisible = false;
   @Output() answer = new EventEmitter<string>();
+  @Output() cancel = new EventEmitter<boolean>();
 
   espacio: any;
   param_id: any;
@@ -22,6 +23,8 @@ export class ModalEditEspacioComponent implements OnInit{
   closeAt = new Date();
   espacioOptions = [];
   formEspacio!: FormGroup;
+  espacio_id : number = 0;
+  name : string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -31,7 +34,8 @@ export class ModalEditEspacioComponent implements OnInit{
     private message: NzMessageService
   ) {
     let params: any = this.location.getState();
-
+    this.espacio_id = params.espacio_id;
+    this.name = params.name;
     this.formEspacio = this.formularioEspacio.group({
       name: [params?.name],
       code: [params?.code],
@@ -58,11 +62,15 @@ export class ModalEditEspacioComponent implements OnInit{
 
   handleCancel(){
     this.isVisible = false;
+    this.cancel.emit(false);
   }
 
   handleEdit(){
 
   }
 
+  addList(event:any, type:string){
+   console.log(event);
+  }
   
 }

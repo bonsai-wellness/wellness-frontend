@@ -5,5 +5,10 @@
     <div class="content-container">
         <h2>{{name}}</h2>
         <p>{{description}}</p>
+            <app-modal-delete size="small" [id_object]="anuncio_id" type_object="anuncio"
+            name_object={{name}}></app-modal-delete>
+
+            <a href={{url}} target="_blank"><span class="redirect" nz-icon nzType="link" nzTheme="outline"></span></a>
+ 
     </div>
 </div>

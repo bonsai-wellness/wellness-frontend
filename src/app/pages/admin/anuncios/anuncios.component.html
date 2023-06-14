@@ -1,6 +1,6 @@
 <div class="container">
     <!-- <app-modal-add-anuncio></app-modal-add-anuncio> -->
-    <nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleAddAnuncio()">
+    <nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleAddAnuncio()" nzCancelText="Cancelar" nzOkText="Crear">
         <ng-container *nzModalContent>
             <p class="text" style="font-size: 2rem;top: 1%;font-weight: bold;">Agregar anuncio</p>
             <form (ngSubmit)="handleAddAnuncio()" [formGroup]="formAnuncio">
@@ -11,14 +11,14 @@
                     </div>
                     <div class="col col-sm-6">
                         <input formControlName="url" type="text" class="form-control" aria-describedby="helpId"
-                            placeholder="Link" />
+                            placeholder="URL Informativo" />
                     </div>
                     <div class="col col-sm-9">
                         <textarea formControlName="description" type="text" class="form-control"
-                            aria-describedby="helpId" placeholder="Description" rows="5"></textarea>
+                            aria-describedby="helpId" placeholder="Descripción" rows="5"></textarea>
                     </div>
                     <div class="col col-sm-3">
-                        <app-file-upload size="big"></app-file-upload>
+                        <app-file-upload (newItemEvent)="addFileAnuncio($event)" size="big"></app-file-upload>
                     </div>
                 </div>
             </form>
@@ -44,7 +44,7 @@
     </div>
     <div class="row row-cols-auto overflow-x-scroll">
         <div class="col" *ngFor="let anuncio of arrAnuncios">
-            <app-card-anuncio [name]="anuncio.name" [imagen]="anuncio.imagen"
+            <app-card-anuncio [anuncio_id]="anuncio.anuncio_id"[name]="anuncio.name" [imagen]="anuncio.imagen"
                 [description]="anuncio.description"></app-card-anuncio>
         </div>
     </div>

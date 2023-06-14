@@ -18,8 +18,8 @@ export class AdminChartsComponent {
         datasets: [{
           label: 'Entradas esta semana',
           data: [1400, 1200, 1300, 1100, 1000, 900, 800],
-          borderColor: 'white',
-          backgroundColor: '#004892',    
+          borderColor: '#0a4892',
+          backgroundColor: '#0a4892',    
           borderWidth: 1
         }]
       },

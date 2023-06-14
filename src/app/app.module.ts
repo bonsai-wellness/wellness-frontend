@@ -47,6 +47,7 @@ import { SharedComponentsModule } from "./components/shared/shared-components.mo
 
 import { ModalDeleteComponent } from './components/admin/modal-delete/modal-delete.component'
 import { AdminPeopleCardComponent } from "./components/admin/admin-people-card/admin-people-card.component";
+import { ExportButtonComponent } from "./components/admin/export-button/export-button.component"; 
 
 registerLocaleData(en);
 
@@ -76,6 +77,7 @@ registerLocaleData(en);
     ModalEditEspacioComponent,
     ModalDeleteComponent,
     AdminPeopleCardComponent,
+    ExportButtonComponent,
   ],
   imports: [
     BrowserModule,

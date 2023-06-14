@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnDestroy, OnInit } from '@angular/core';
+import { interval, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-admin-people-card',
@@ -10,19 +11,19 @@ import { Component, ViewChild } from '@angular/core';
 export class AdminPeopleCardComponent {
   // API: string = "http://localhost:8000/api";
   API: string = "https://bonsai-rest.azurewebsites.net/api";
-
+  
   constructor(private _http: HttpClient) {}
 
 	authHeader(): HttpHeaders {
 		const token = localStorage.getItem("token");
 		const headers = new HttpHeaders().set("Authorization", `Bearer ${token}`);
-    console.log(headers + "im working! ");
+    // console.log(headers + "im working! ");
 		return headers;
 	}
 
   fetchData() {
     const headers = this.authHeader();
-    return this._http.get(this.API + "/wellness-log", { headers });
+    return this._http.get(this.API + "/wellness-gym/1", { headers });
   }
 
   
@@ -32,48 +33,45 @@ export class AdminPeopleCardComponent {
       this.fetchData().subscribe((data: any) => {
       this.jsonData = data;
       console.log('this is data ' , this.jsonData)
-      this.exportToCsv()
       }); 
 	}
 
-  exportToCsv(): void {
-    const csvContent = this.convertArrayToCsv(this.jsonData);
-    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-    const link = document.createElement('a');
-    const url = URL.createObjectURL(blob);
-
-    link.setAttribute('href', url);
-    link.setAttribute('download', 'data.csv');
-    link.style.visibility = 'hidden';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  ngOnInit(): void {
+    this.getGym();
+    setInterval(() => {
+      this.getGym();
+    }, 5000);
   }
 
-  convertArrayToCsv(data: any[]): string {
-    const csvRows: string[] = [];
-
-    // Get the headers from the first element
-    const headers = Object.keys(data[0]);
-
-    // Add the headers row to the CSV
-    csvRows.push(headers.join(','));
-
-    // Loop through the data and convert each object to a CSV row
-    for (const item of data) {
-      const values = headers.map(header => this.escapeCsvValue(item[header]));
-      csvRows.push(values.join(','));
+  getGym(): void {
+    this.getData();
+    let aforoActual = 0;
+    let aforoMax = 0;
+    if (this.jsonData) {
+      aforoActual = this.jsonData.aforo_actual;
+      aforoMax = this.jsonData.capacidad_max;
     }
 
-    // Join all the rows into a single CSV string
-    return csvRows.join('\n');
+    console.log(aforoActual);
+    
+    let aforoActualHTML:any = document.getElementById("aforoActual");
+    aforoActualHTML.innerHTML = aforoActual.toString();
+
+    let porcentaje = Math.round((aforoActual / aforoMax) * 100);
+    let porcentajeHTML:any = document.getElementById("porcentaje");
+    porcentajeHTML.innerHTML = porcentaje.toString() + "%"; 
   }
 
-  escapeCsvValue(value: any): string {
-    // Escape double quotes and wrap the value in double quotes if necessary
-    const escapedValue = String(value).replace(/"/g, '""');
-    return `"${escapedValue}"`;
-  }
+
+
+
 }
+
+
+ 
+
+
   
+
+
 

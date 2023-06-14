@@ -91,12 +91,13 @@ hr.solid {
 
 
 .sectionOne{
-  width: 43vw;
-  margin-right: 35px;
+  width: 40vw;
+  /* margin-right: 35px; */
 }
 
 .sectionTwo{
   width: 25vw;
+  margin-left: 35px;
 }
 
 .customColumn:first-child{

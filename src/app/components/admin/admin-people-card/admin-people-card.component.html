@@ -1,8 +1,39 @@
 <!DOCTYPE html>
 
-<div class="container">  
-    <button (click)="getData()" class="btn btn-dark">
-        <span nz-icon nzType="download" nzTheme="outline"></span>
-        Descargar reporte
-    </button>
+<div class="custom-container">
+    <div class="row customRow">
+
+        <div class="customColumn">
+            <p>Porcentaje de aforo: 
+                <span nz-icon nzType="smile" nzTheme="outline"></span>
+            </p>
+            <h2>65%</h2>
+            <h5 class="upper">Aumento del 20% con respecto a la última hora</h5>
+        </div>
+        
+        <div class="customColumn">
+            <p>Total de personas: 
+                <span nz-icon nzType="user-add" nzTheme="outline"></span>
+            </p>
+            <h2>165</h2>
+            <h5 class="upper">Aumento del 20% con respecto a la última hora</h5>
+        </div>
+
+        <div class="customColumn">
+            <p >Reservaciones hoy:
+                <span nz-icon nzType="schedule" nzTheme="outline"></span>
+            </p>
+            <h2>26</h2>
+            <h5 class="lower">Decremento del 35% con respecto al último dia</h5>
+        </div>
+
+        <div class="customColumn">
+            <p>Visitas del sitio hoy: 
+                <span nz-icon nzType="usergroup-delete" nzTheme="outline"></span>
+            </p>
+            <h2>3500</h2>
+            <h5 class="upper">Aumento del 200% con respecto a la última hora</h5>
+        </div>
+        
+    </div>
 </div>

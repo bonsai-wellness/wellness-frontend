@@ -1,0 +1,175 @@
+
+.container{
+    width: 95%;
+    margin: 0;  
+    padding-left: 25px;
+} 
+
+.card-title {
+    margin-bottom: 1%;
+    color: black;
+    margin: 5px;
+}
+.card-subtitle {
+    color: gray;
+    margin: 5px;
+}
+.card-image {
+    border-radius: 50%;
+    width: 15vw;
+    height: 15vw;
+    align-self: center ;
+    /* transform: translateY(-100px); */
+    /* position: fixed; */
+}
+
+.card {
+    border-radius: 0px;
+    align-content: center;
+    align-items: center;
+    /* width: 100vh; */
+    height: 100vh;
+    box-shadow: 2px 2px 5px 1px #CFCFCF;
+    border-color: white;
+    text-align: center;
+    /* margin: -24px; */
+}
+
+
+.full-width-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px; /* Adjust the height as needed */
+    background-color: lightgray;
+    z-index: -1;
+  }
+
+.custom-container{
+    position: relative;    
+}
+
+hr.solid {
+    border-top: 3px solid #bbb;
+  }
+
+.last-column{
+    height: 200px;
+}
+
+
+.customRow{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+
+  .customColumn{
+      background-color: rgb(255, 255, 255);
+      width: 24%;
+      margin-bottom: 25px;
+      margin-top: 25px;
+      border-radius: 17px;
+      padding: 18px;
+      border: 1px solid rgb(155, 155, 155);
+  }
+}
+
+
+.cardContainer{
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 25px;
+  margin-top: 25px;
+  border-radius: 17px;
+  padding: 18px;
+  border: 1px solid rgb(155, 155, 155);
+  margin-right: 20px;
+  margin-left: 25px;
+}
+
+
+.sectionOne{
+  width: 43vw;
+  margin-right: 35px;
+}
+
+.sectionTwo{
+  width: 25vw;
+}
+
+.customColumn:first-child{
+    margin-left: 20px;
+}
+
+.custom-container h3{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 45px;
+    font-weight: bold;
+    font-style: oblique;
+}
+
+.customColumn h5 {
+    font-style: oblique;
+    font-size: x-small;
+}
+
+.customColumn p {
+    margin: 0;
+}
+
+.custom-container p span {
+  margin-left: 25px;
+  margin-bottom: 10px;
+}
+
+.custom-container .upper{
+  color: rgb(57, 115, 57);
+}
+
+.custom-container .lower{
+  color: rgb(115, 57, 57);
+}
+
+
+
+
+/* table styles */
+.tableContainer {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 10px;
+  align-items: center;
+}
+
+.tableContainer h4, h5{
+  margin: 0;
+  font-size: small;
+}
+
+.textContainer h4{
+  font-size: 10px;
+  font-weight: 100;
+  margin: 0;
+}
+
+.textContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+}
+
+.imageContainer img {
+  width: 30px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 50%;
+}
+

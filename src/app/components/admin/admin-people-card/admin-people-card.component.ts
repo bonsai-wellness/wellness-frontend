@@ -9,8 +9,8 @@ import { interval, Subscription } from 'rxjs';
 })
 
 export class AdminPeopleCardComponent {
-  API: string = "http://localhost:8000/api";
-  // API: string = "https://bonsai-rest.azurewebsites.net/api";
+  // API: string = "http://localhost:8000/api";
+  API: string = "https://bonsai-rest.azurewebsites.net/api";
   
   constructor(private _http: HttpClient) {}
 

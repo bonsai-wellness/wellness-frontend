@@ -116,7 +116,7 @@ export class EspaciosComponent implements OnInit {
     }
   }
 
-  handleAddEspacio() {
+  async handleAddEspacio() {
     try {
       if (
         this.formEspacio.value.name === "" ||
@@ -132,11 +132,11 @@ export class EspaciosComponent implements OnInit {
         this.message.create("warning", `Todos los campos deben estar llenos`);
         return;
       }
-      this._apiservice.addEspacio(this.formEspacio.value).subscribe((res) => {
-        this.formEspacio.value.deportes_ids.map(async (id: number)=>{
+      this._apiservice.addEspacio(this.formEspacio.value).subscribe(async (res) => {
+        await this.formEspacio.value.deportes_ids.map(async (id: number)=>{
           await this.addRelDeporte(res.espacio_id, id)
         });
-        this.formEspacio.value.puntos_importantes_ids.map(async (id: number)=>{
+        await this.formEspacio.value.puntos_importantes_ids.map(async (id: number)=>{
           await this.addRelPuntoImportante(res.espacio_id, id)
         })
 
@@ -151,7 +151,7 @@ export class EspaciosComponent implements OnInit {
     }
   }
 
-  addRelDeporte(espacio_id:number, deporte_id: number) {
+  async addRelDeporte(espacio_id:number, deporte_id: number) {
     try {
       let body={
         espacio_id,
@@ -164,7 +164,7 @@ export class EspaciosComponent implements OnInit {
     }
   }
 
-  addRelPuntoImportante(espacio_id:number, punto_importante_id: number) {
+  async addRelPuntoImportante(espacio_id:number, punto_importante_id: number) {
     try {
       let body={
         espacio_id,

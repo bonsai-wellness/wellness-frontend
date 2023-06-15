@@ -174,10 +174,11 @@ export class ApiserviceService {
 
 	addAnuncio(anuncio: Anuncio): Observable<any> {
 		const formData = new FormData();
+		console.log(anuncio);
 		formData.append("name", anuncio.name);
 		formData.append("description", anuncio.description);
 		formData.append("url", anuncio.url);
-		formData.append("imagen", anuncio.image, `${anuncio.name}.jpeg`);
+		formData.append("imagen", anuncio.imagen, `${anuncio.name}.jpeg`);
 		const headers = this.authHeader();
 		return this._http.post(this.API + "/anuncio/", formData, { headers });
 	}

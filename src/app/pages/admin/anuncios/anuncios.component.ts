@@ -31,6 +31,7 @@ export class AnunciosComponent implements OnInit {
       name: [""],
       description: [""],
       url: [""],
+      imagen: [""],
     });
   }
 
@@ -51,6 +52,7 @@ export class AnunciosComponent implements OnInit {
       name: [""],
       description: [""],
       url: [""],
+      imagen: [""],
     });
   }
   showModal(): void {
@@ -59,6 +61,7 @@ export class AnunciosComponent implements OnInit {
 
   handleAddAnuncio(): void {
     try {
+      console.log(this.formAnuncio.value);
       if (
         this.formAnuncio.value.name === "" ||
         this.formAnuncio.value.description === "" ||
@@ -74,6 +77,7 @@ export class AnunciosComponent implements OnInit {
       });
       this.resetVars();
     } catch (error) {
+      console.log(error);
       this.message.create("error", `No fue posible crear el Anuncio`);
     }
   }
@@ -81,7 +85,6 @@ export class AnunciosComponent implements OnInit {
   handleCancel(): void {
     this.isVisible = false;
   }
-
   addFileAnuncio(newItem: string) {
     this.formAnuncio.get("imagen")?.setValue(newItem);
   }

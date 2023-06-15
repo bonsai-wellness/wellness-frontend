@@ -4,7 +4,7 @@ export class Anuncio {
   updated_at: string = "";
   name!: string;
   description!: string;
-  image!: string;
+  imagen!: string;
   url: string = "";
   is_active: boolean = true;
 }

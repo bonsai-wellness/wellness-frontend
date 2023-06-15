@@ -30,8 +30,7 @@
         </div>
         <div class="col-sm-6">
             <div class="row">
-                <div class="col-sm-8"> <input type="search" class="form-control" id="searchQuery"
-                        placeholder="Search...">
+                <div class="col-sm-8"> 
                 </div>
                 <div class="col-sm-4">
                     <button class="btn btn-primary" type="button" (click)="showModal()">
@@ -42,7 +41,7 @@
         </div>
 
     </div>
-    <div class="row row-cols-auto overflow-x-scroll">
+    <div class="anuncios-container row">
         <div class="col" *ngFor="let anuncio of arrAnuncios">
             <app-card-anuncio [anuncio_id]="anuncio.anuncio_id"[name]="anuncio.name" [imagen]="anuncio.imagen"
                 [description]="anuncio.description"></app-card-anuncio>

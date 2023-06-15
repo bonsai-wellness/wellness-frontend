@@ -39,6 +39,11 @@ export class ReservarDeporteComponent implements OnInit {
 			this.espaciosPadre = res;
 		});
 
+		// Obtiene deporte
+		this._apiservice.getAllDeportes().subscribe((res) => {
+			this.deporte = res.find((d: Deporte) => d.deporte_id == this.deporte_id);
+		})
+
 		// Obtiene espacios hijo
 		this._apiservice.getEspacioDeporte(this.deporte_id).subscribe((res) => {
 			this.espacioOfDeporte = res;

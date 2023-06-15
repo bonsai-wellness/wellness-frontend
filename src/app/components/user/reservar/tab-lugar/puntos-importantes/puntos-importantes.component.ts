@@ -22,20 +22,25 @@ export class PuntosImportantesComponent implements OnChanges{
 
   ngOnChanges(){
 
+    // Obtiene el punto importante por espacio
     if(this.espacio_id){
       this._apiservice.getPuntosImportantesByEspacio(this.espacio_id).subscribe((res) =>{
         this.puntosImportantes = res;
+
         this.setFormattedPuntosImportantes();
       })
     }
     
   }
 
+  // Define el formato de los puntos importantes para desplegar
   setFormattedPuntosImportantes(){
     this.formattedPuntosImportantes = this.puntosImportantes.map((puntoImportante:any) => `<p>${puntoImportante.name}</p>`).join('');
   }
 
+  // Despliega el pop up de puntos importnates
   info(): void {
+    // Define titulo y contenido
     this.modal.info({
       nzTitle: 'Puntos importantes',
       nzContent: this.formattedPuntosImportantes,

@@ -9,50 +9,32 @@ import { AppConstants } from 'src/app/app-constants';
   styleUrls: ['./reservar-menu.component.css']
 })
 export class ReservarMenuComponent {
-  public title:string = "Reserva";
-  newData:any;
+
+  public title: string = "Reserva";
+  deportes: any;
+  filteredDeportes: any;
   baseURL = AppConstants.baseURL;
-  
-  constructor(private _apiservice: ApiserviceService){}
+  searchText: any;
+
+  constructor(private _apiservice: ApiserviceService) { }
+
 
   ngOnInit() {
+    // Define título de la página
     document.title = this.title;
-    this._apiservice.getAllDeportes().subscribe(res => { 
-      // this.espaciosPadre=res;
-      this.newData = res; 
+
+    // Obtiene lista de deportes
+    this._apiservice.getAllDeportes().subscribe(res => {
+      this.deportes = res;
+      this.filteredDeportes = this.deportes;
     })
-  
+
   }
 
-  deportes: Deporte[]=[
-    {
-      deporte_id: 0,
-      created_at: "",
-      updated_at: "",
-      name: 'Tenis',
-      imagen: "../../../../assets/reservafondo.png",
-    },
-    {
-      deporte_id: 1,
-      created_at: "",
-      updated_at: "",
-      name: 'Futbol',
-      imagen: "../../../../assets/espaciosfondo.png",
-    },
-    {
-      deporte_id: 2,
-      created_at: "",
-      updated_at: "",
-      name: 'Basketball',
-      imagen: "../../../../assets/basket.jpeg",
-    },
-    {
-      deporte_id: 3,
-      created_at: "",
-      updated_at: "",
-      name: 'Volleyball',
-      imagen: "../../../../assets/volley.jpeg",
-    },
-
-  ];
+  // Filtra los deportes por búsqueda
+  Filtrar(search: string): void {
+    this.filteredDeportes = this.deportes.filter((deporte: any) => {
+      return deporte.name.toLowerCase().includes(search.toLowerCase());
+    });
+  }
 }

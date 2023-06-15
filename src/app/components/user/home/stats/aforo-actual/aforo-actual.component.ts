@@ -14,6 +14,7 @@ export class AforoActualComponent {
     private _apiService: ApiserviceService
   ) { }
 
+  // Obtiene aforo actual en el intervalo determinado
   ngOnInit(): void {
     this.getGym();
     setInterval(() => {
@@ -21,18 +22,18 @@ export class AforoActualComponent {
     }, 5000);
   }
 
+  // Funcion que hace get del aforo actual e inicializa la gráfica con el aforo
   getGym(): void {
     this._apiService.getWellnessGym().subscribe((data: any) => {
-      // console.log(data);
-      const acutal = Number(data.aforo_actual);
+      const actual = Number(data.aforo_actual);
       const max = Number(data.capacidad_max)
-      this.runGraph(Math.round((acutal / max) * 100));
+      this.runGraph(Math.round((actual / max) * 100));
     });
   }
 
+  // Funcion que recibe el porcentaje del aforo y ejecuta la gráfica con esos valores
   runGraph(porcentajeNum: number) {
     let porcentajeHTML = document.querySelector('.numb');
-    // let porcentajeNum = 75;
     let degrees = 0;
     let leftPercentage = 0;
 

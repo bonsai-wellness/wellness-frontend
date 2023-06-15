@@ -1,14 +1,15 @@
 <div class="row mis-reservas rounded-3 py-3">
     <div class="col-4 w-100 d-flex justify-content-end">
         <span 
-            nz-icon nzType="delete" nzTheme="outline"
-            
-            nz-popconfirm
-            nzPopconfirmTitle="¿Estas seguro que deseas cancelar la reservación?"
-            nzOkText="Confirmar"
-            nzCancelText="Cancelar"
-            (nzOnConfirm)="confirm()"
-            (nzOnCancel)="cancel()">
+        data-cy="btn-cancelar-reservacion"
+        nz-icon nzType="delete" nzTheme="outline"
+        
+        nz-popconfirm
+        nzPopconfirmTitle="¿Estas seguro que deseas cancelar la reservación?"
+        nzOkText="Confirmar"
+        nzCancelText="Cancelar"
+        (nzOnConfirm)="confirm()"
+        (nzOnCancel)="cancel()">
         </span>
     </div>
     <div class="fecha col-4 text-center">

@@ -6,7 +6,7 @@ import { AppConstants } from 'src/app/app-constants';
   styleUrls: ['./card-anuncio.component.css']
 })
 export class CardAnuncioComponent implements OnInit {
-  @Input() anuncio_id=0;
+  @Input() aviso_id=0;
   @Input() name = '';
   @Input() imagen = '';
   @Input() description = '';

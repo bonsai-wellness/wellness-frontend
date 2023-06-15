@@ -30,8 +30,8 @@ import { ReservacionCardComponent } from "./mis-reservaciones/reservacion-card/r
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { RouterModule } from "@angular/router";
 import { SharedComponentsModule } from "../shared/shared-components.module";
-import { AforoActualComponent } from './home/stats/aforo-actual/aforo-actual.component';
-
+import { AforoActualComponent } from "./home/stats/aforo-actual/aforo-actual.component";
+import { NgOptimizedImage } from "@angular/common"
 @NgModule({
 	declarations: [
 		StatsComponent,
@@ -67,6 +67,7 @@ import { AforoActualComponent } from './home/stats/aforo-actual/aforo-actual.com
 		NzPopconfirmModule,
 		RouterModule,
 		SharedComponentsModule,
+		NgOptimizedImage,
 	],
 	exports: [
 		StatsComponent,

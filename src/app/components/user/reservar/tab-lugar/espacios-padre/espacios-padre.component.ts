@@ -18,14 +18,16 @@ export class EspaciosPadreComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (this.espaciosHijo && this.espaciosPadre) {
-      // Agregar items para acordeon
+      // Agregar items para acordeon que despliega la lista de espacios
       for (let i = 0; i < this.espaciosPadre.length; i++) {
         this.agregarEspacioPadre(this.espaciosPadre[i]);
       }
     }
   }
 
+  // Agrega un espacio padre a la lista
   agregarEspacioPadre(espacioPadre: EspacioPadre): void {
+    // Opciones de cada item
     let itemPanel = {
       active: false,
       espacioPadre: {},
@@ -33,10 +35,16 @@ export class EspaciosPadreComponent implements OnChanges {
       disabled: false
     }
 
+    // Espacios Hijo por cada espacio Padre
     const espaciosHijoPorPadre = this.espaciosHijo.filter((d: any) => d.espacio_padre_id === espacioPadre.espacio_padre_id);
+    
+    // Agrega espacio padre
     itemPanel.espacioPadre = espacioPadre;
+    
+    // Agrega espacio hijo
     itemPanel.espaciosHijo = espaciosHijoPorPadre;
 
+    // Agrega item
     this.panels.push(itemPanel);
 
   }

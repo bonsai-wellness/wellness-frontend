@@ -1,17 +1,23 @@
 
+<!-- Seccion de Estadísticas -->
 <app-stats></app-stats>
 
+<!-- Sección Menu-->
 <div class="container menu-home">
+    <!-- Botón Reservar -->
     <div class="row justify-content-between">
         <div class="col-12 p-0">
             <div nzMatchRouterExact routerLink="./reservar" class="menu-btn my-2 py-4 text-center rounded-3 reserva-fondo ">
                 <h3 class="text-white">Reserva</h3>
                 <span nz-icon nzType="schedule" nzTheme="outline" class="text-white fs-1"></span>
-                <!-- <span nz-icon nzType="schedule" nzTheme="outline" class="text-white fs-1"></span> -->
             </div>
         </div>
     </div>
+
+    <!-- Botón Mis Reservaciones -->
     <app-reservaciones nzMatchRouter routerLink="./mis-reservaciones"></app-reservaciones>
+
+    <!-- Sección Anuncios -->
     <app-anuncios></app-anuncios>
 </div>
 

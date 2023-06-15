@@ -7,27 +7,29 @@
           [nzDisabled]="panel.disabled"
         >
           <div class="card-espacios-padre rounded-3">
+
+            <!-- Lista de espacios padre -->
             <nz-list 
             nzItemLayout="horizontal"
             >
+
               <nz-list-item 
               *ngFor="let espacio of panel.espaciosHijo"
               >
+              <!-- Item de lista -->
                 <nz-list-item-meta
                 nzDescription={{espacio.code}}
                   >
                   <nz-list-item-meta-title>
-
                     <div class="d-flex justify-content-between align-items-center">
-
                       {{ espacio.name }}
                       <app-puntos-importantes [espacio_id]="espacio.espacio_id" ></app-puntos-importantes>
-                      
                     </div>
                   </nz-list-item-meta-title>
                 </nz-list-item-meta>
               </nz-list-item>
-
+              
+              <!-- Componente de ubicación -->
               <app-ubicacion [url]="panel.espacioPadre.map_url"></app-ubicacion>
               
               </nz-list>

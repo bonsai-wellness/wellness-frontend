@@ -1,27 +1,31 @@
-
 <div class="mt-3">
-    <!-- <div class="container mt-3">
-        <img src={{baseURL+deporte.imagen}} alt="">
-    </div> -->
+
+    <!-- Fotografía Deporte -->
     <div class="card text-white my-2 rounded-3 border-0">
-        <img src="{{baseURL+deporte.imagen}}" class="card-img rounded-3" alt="...">
+        <img src="{{baseURL+deporte.imagen}}" class="card-img rounded-3" alt="fotografía de deporte a reservar">
         <div class="card-img-overlay d-flex align-items-end fondo text-white rounded-3">
-          <h4 class="text-white text-center display-5 fw-bold">{{deporte.name}}</h4>
+            <h4 class="text-white text-center display-5 fw-bold">{{deporte.name}}</h4>
         </div>
-      </div>
-      <nz-tabset nzCentered>
-        <!-- <div class="w-100"> -->
-            <nz-tab nzTitle="Lugar">
-                <app-tab-lugar [espaciosPadre]="espaciosPadre" [espaciosHijo]="espacioOfDeporte"></app-tab-lugar>
-            </nz-tab>
-        <!-- </div> -->
+    </div>
+
+    <!-- Tabs -->
+    <nz-tabset nzCentered>
+
+        <!-- Tab Lugar -->
+        <nz-tab nzTitle="Lugar">
+            <app-tab-lugar [espaciosPadre]="espaciosPadre" [espaciosHijo]="espacioOfDeporte"></app-tab-lugar>
+        </nz-tab>
+
+        <!-- Tab Reservar -->
         <nz-tab nzTitle="Reservar">
             <app-tab-reservar [data]="espacioOfDeporte"></app-tab-reservar>
         </nz-tab>
+
+        <!-- Tab Torneos -->
         <nz-tab nzTitle="Torneos">
             <app-tab-torneos></app-tab-torneos>
         </nz-tab>
-        <!-- </div> -->
+
     </nz-tabset>
-    
+
 </div>

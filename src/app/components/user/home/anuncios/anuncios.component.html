@@ -7,12 +7,11 @@
             <div class="card text-white my-2 rounded-3 border-0 w-100 h-40">
               <a href={{anuncio.url}} class="rounded-3">
         
-                <img src="{{baseURL+anuncio.imagen}}" class="card-img rounded-3 anuncios" alt="...">
+                <img ngSrc="{{baseURL+anuncio.imagen}}" class="card-img rounded-3 anuncios" alt="..." height="180" width="342">
                 <div class="fondo rounded-3 w-100 h-100">
                 </div>
                 <div class="card-img-overlay d-flex row align-items-center justify-content-center rounded-3 text-white  p-5">
                   <h5 class="text-white text-center">{{anuncio.name}}</h5>
-                  <!-- <p>{{anuncio.description}}</p> -->
                 </div>
               </a>
             </div>

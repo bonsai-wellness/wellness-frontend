@@ -5,7 +5,7 @@
           <slide *ngFor="let anuncio of arrAnuncios" class="text-center w-80 mx-auto ">
 
             <div class="card text-white my-2 rounded-3 border-0 w-100 h-40">
-              <a href={{anuncio.url}} class="rounded-3">
+              <a href={{anuncio.url}} class="rounded-3" target="_blank">
         
                 <img ngSrc="{{baseURL+anuncio.imagen}}" class="card-img rounded-3 anuncios" alt="..." height="180" width="342">
                 <div class="fondo rounded-3 w-100 h-100">

@@ -64,6 +64,9 @@ export class AdminPeopleCardComponent {
     } else {
       porcentaje = (this.jsonData.aforo_actual / this.jsonData.capacidad_max) * 100;
       porcentaje = Math.round(porcentaje);
+      // with no decimals
+      porcentaje = Math.trunc(porcentaje);
+
     }
 
 

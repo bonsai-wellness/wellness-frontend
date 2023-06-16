@@ -20,9 +20,9 @@
 .textContainer{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   flex-direction: column;
-  width: 90%;
+  width: 12vw;
 }
 
 .textContainer h4{
@@ -31,12 +31,12 @@
   margin: 0;
 }
 
-.imageContainer img {
+.imageContainer  {
   width: 30px;
   margin-right: 5px;
   height: auto;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 20%;
 }
 
 .imageContainer {
@@ -100,8 +100,9 @@
 /* justify to the righ */
 .buttonContainer {
   display: flex;
-  justify-content: flex-end;
   flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
   width: 100%;
   margin-left: 25px;
   padding-bottom: 15px;
@@ -110,12 +111,13 @@
 .imageRounded{
   background-color: #0a4892;
   width: 35px;
-  height: 30px;
+  height: 33px;
   border-radius: 50%;
-  margin-right: 5px;
+  margin-right: 12px;
   color: white;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .imageRounded p {

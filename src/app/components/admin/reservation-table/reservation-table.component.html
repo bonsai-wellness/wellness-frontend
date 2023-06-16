@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<table class="tableContainer" *ngFor="let item of jsonData" style="margin-bottom: 10px">
+    <tr>
+      <td>
+        <div class="imageContainer">
+            <!-- <img
+            src="https://api.dicebear.com/6.x/initials/svg?seed=AS"
+            alt="avatar" /> -->
+            <div class="imageRounded">
+                <!-- put only the firts two words of the item.u_name -->
+                <p>
+                    {{ item.u_name.split(" ")[0][0] }}{{ item.u_name.split(" ")[1][0] }}
+                </p>
+
+            </div>
+         
+        </div>
+      </td>
+      <td>
+        <div class="textContainer">
+            <div class="downText">
+                <h5>
+                    {{ item.u_name }}
+                </h5>
+
+            </div>
+            <div class="upText">
+                <h4>
+                    {{ item.code }}
+                </h4>
+            </div>
+        </div>
+      </td>
+      <td>
+        <div class="buttonContainer">
+                <h5>
+                    {{ item.start_time }}                          
+                </h5>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+

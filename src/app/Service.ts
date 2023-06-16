@@ -34,7 +34,7 @@ export class ApiserviceService {
 		return this._http.get(this.API + "/espacio-padre", { headers });
 	}
 
-	getAllEspaciosHijo(){
+	getAllEspaciosHijo() {
 		const headers = this.authHeader();
 		return this._http.get(this.API + "/espacio/", { headers });
 	}
@@ -51,19 +51,23 @@ export class ApiserviceService {
 		return this._http.get(this.API + `/reservation`, options);
 	}
 
-	getMisReservaciones(){
+	getMisReservaciones() {
 		const headers = this.authHeader();
 		return this._http.get(this.API + `/reservation/user/`, { headers });
 	}
 
 	getEspaciosByIdPadre(id: number) {
 		const headers = this.authHeader();
-		return this._http.get(this.API + `/espacio/espacio-padre/${id}`, { headers});
+		return this._http.get(this.API + `/espacio/espacio-padre/${id}`, {
+			headers,
+		});
 	}
 
-	getEspaciosPadreByDeporteId(id: number){
+	getEspaciosPadreByDeporteId(id: number) {
 		const headers = this.authHeader();
-		return this._http.get(this.API + `/espacio-padre/deporte/${id}`, { headers });
+		return this._http.get(this.API + `/espacio-padre/deporte/${id}`, {
+			headers,
+		});
 	}
 
 	getAllActiveTorneos() {
@@ -81,9 +85,11 @@ export class ApiserviceService {
 		return this._http.get(this.API + "/punto-importante/", { headers });
 	}
 
-	getPuntosImportantesByEspacio(id: number){
+	getPuntosImportantesByEspacio(id: number) {
 		const headers = this.authHeader();
-		return this._http.get(this.API + `/espacio-punto-importante/${id}`, { headers });
+		return this._http.get(this.API + `/espacio-punto-importante/${id}`, {
+			headers,
+		});
 	}
 
 	getAllActiveAnuncios() {
@@ -111,8 +117,8 @@ export class ApiserviceService {
 		return this._http.get(this.API + `/reservation/next/${id}`, { headers });
 	}
 
-  //POST
-  addEspacioPadre(espacioPadre: EspacioPadre): Observable<any> {
+	//POST
+	addEspacioPadre(espacioPadre: EspacioPadre): Observable<any> {
 		const headers = this.authHeader();
 		return this._http.post(this.API + "/espacio-padre/", espacioPadre, {
 			headers,
@@ -189,16 +195,13 @@ export class ApiserviceService {
 		start_time: string;
 		end_time: string;
 	}) {
-		const headers = this.authHeader();		
+		const headers = this.authHeader();
 		const options = { headers };
 		return this._http.post(this.API + `/reservation/`, body, options);
 	}
 
-	relEspacioDeporte(body: {
-		espacio_id: number;
-		deporte_id: number;
-	}) {
-		const headers = this.authHeader();		
+	relEspacioDeporte(body: { espacio_id: number; deporte_id: number }) {
+		const headers = this.authHeader();
 		const options = { headers };
 		return this._http.post(this.API + `/espacio-deporte/`, body, options);
 	}
@@ -207,21 +210,25 @@ export class ApiserviceService {
 		espacio_id: number;
 		punto_importante_id: number;
 	}) {
-		const headers = this.authHeader();		
+		const headers = this.authHeader();
 		const options = { headers };
-		return this._http.post(this.API + `/espacio-punto_importante/`, body, options);
+		return this._http.post(
+			this.API + `/espacio-punto_importante/`,
+			body,
+			options
+		);
 	}
 
 	//Delete
 
-	deleteReservacion(id: number): Observable<any>{
+	deleteReservacion(id: number): Observable<any> {
 		const headers = this.authHeader();
 		return this._http.delete(this.API + `/reservation/${id}`, { headers });
 	}
 
-	deleteObject(id: number, type:string): Observable<any>{
+	deleteObject(id: number, type: string): Observable<any> {
 		const headers = this.authHeader();
-		const path = type.replace(/\s+/g, '-').toLowerCase();
+		const path = type.replace(/\s+/g, "-").toLowerCase();
 		return this._http.delete(this.API + `/${path}/${id}`, { headers });
 	}
 

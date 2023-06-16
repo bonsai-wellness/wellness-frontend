@@ -13,11 +13,24 @@ export class ModalConfirmReservationComponent {
 	isReservationCreated: boolean = false;
 	reservationCreatedAlertValues: any = {};
 	confirmModal?: NzModalRef; // For testing by now
+	timeSlots: any = [];
 
 	constructor(
 		private _apiservice: ApiserviceService,
 		private modal: NzModalService
 	) {}
+
+	ngOnInit() {
+		const date = new Date();
+		const currentTime = `${date.getHours()}:${date.getMinutes()}`;
+		const helperArr = this.availableTimes[0].timeSlots;
+
+		this.timeSlots = helperArr.filter((time: any) => {
+			const startTime = time.start_time.replace(/\D/g, "");
+
+			return startTime > currentTime;
+		});
+	}
 
 	formatDate(date: Date) {
 		const year = date.getFullYear();
@@ -29,7 +42,7 @@ export class ModalConfirmReservationComponent {
 	}
 
 	handleClick(timeReserva: any) {
-		const formattedDate = this.formatDate(this.selectedDate);		
+		const formattedDate = this.formatDate(this.selectedDate);
 		const body = {
 			espacio_id: this.espacioId,
 			date: formattedDate,

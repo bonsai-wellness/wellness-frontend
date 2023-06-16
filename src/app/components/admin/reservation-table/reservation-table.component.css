@@ -1,0 +1,126 @@
+
+/* table styles */
+.tableContainer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 25vw;
+}
+
+.tableContainer h4, h5{
+  margin: 0;
+  font-size: small;
+}
+
+.upText{
+  margin-top: 5px;
+}
+
+.textContainer{
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+  flex-direction: column;
+  width: 12vw;
+}
+
+.textContainer h4{
+  font-size: 10px;
+  font-weight: 100;
+  margin: 0;
+}
+
+.imageContainer  {
+  width: 30px;
+  margin-right: 5px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 20%;
+}
+
+.imageContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 15%;
+} 
+
+
+
+/* new */
+.container {
+  display: flex;
+  height: 6vh;
+}
+
+.column {
+  height: fit-content;
+  flex: 1;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.column-1 {
+  height: max-content;
+  flex-basis: 10%;
+  background-color: #f2f2f2;
+}
+
+.column-2-3 {
+  height: fit-content;
+  flex-basis: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.column-2, .column-3 {
+  height: fit-content;
+  flex: 1;
+  background-color: #f2f2f2;
+}
+
+.column-4 {
+  flex: 1;
+  background-color: #f2f2f2;
+}
+
+.nameCustom h3 {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.placeCustom h3{
+  font-size: 10px;
+  font-weight: thin;
+  font-style: oblique;
+}
+
+/* justify to the righ */
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+  margin-left: 25px;
+  padding-bottom: 15px;
+}
+
+.imageRounded{
+  background-color: #0a4892;
+  width: 35px;
+  height: 33px;
+  border-radius: 50%;
+  margin-right: 12px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageRounded p {
+  margin: 0;
+  font-size: 15px;
+}

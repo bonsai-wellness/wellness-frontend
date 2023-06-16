@@ -1,4 +1,10 @@
-import { Component, Input } from "@angular/core";
+import {
+	Component,
+	Input,
+	OnInit,
+	OnChanges,
+	SimpleChanges,
+} from "@angular/core";
 import { ApiserviceService } from "src/app/Service";
 import { NzModalRef, NzModalService } from "ng-zorro-antd/modal";
 
@@ -6,7 +12,7 @@ import { NzModalRef, NzModalService } from "ng-zorro-antd/modal";
 	selector: "app-modal-confirm-reservation",
 	templateUrl: "./modal-confirm-reservation.component.html",
 })
-export class ModalConfirmReservationComponent {
+export class ModalConfirmReservationComponent implements OnInit, OnChanges {
 	@Input() availableTimes: any = [];
 	@Input() selectedDate: Date = new Date();
 	@Input() espacioId!: number;
@@ -20,16 +26,32 @@ export class ModalConfirmReservationComponent {
 		private modal: NzModalService
 	) {}
 
-	ngOnInit() {
+	ngOnInit(): void {
+		this.filterTimeSlots();
+	}
+
+	ngOnChanges(changes: SimpleChanges): void {
+		console.log("Enters changes");
+		if ("availableTimes" in changes) {
+			console.log("available changes");
+			this.filterTimeSlots();
+		}
+	}
+
+	private filterTimeSlots(): void {
 		const date = new Date();
 		const currentTime = `${date.getHours()}:${date.getMinutes()}`;
-		const helperArr = this.availableTimes[0].timeSlots;
+		const helperArr = this["availableTimes"][0].timeSlots;
 
-		this.timeSlots = helperArr.filter((time: any) => {
-			const startTime = time.start_time.replace(/\D/g, "");
+		if (this.formatDate(this.selectedDate) === this.formatDate(date)) {
+			this.timeSlots = helperArr.filter((time: any) => {
+				const startTime = time.start_time.replace(/\D/g, "");
 
-			return startTime > currentTime;
-		});
+				return startTime > currentTime;
+			});
+		} else {
+			this.timeSlots = this.availableTimes[0].timeSlots;
+		}
 	}
 
 	formatDate(date: Date) {

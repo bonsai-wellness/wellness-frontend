@@ -55,6 +55,13 @@ export class ModalDeleteComponent implements OnInit {
     } catch (error) {
       this.message.create("error", `No fue posible cancelar la reservación`);
     }
+    this.refresh();
+  }
+
+  refresh() :void {
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
   }
 
   cancelDelete() {}

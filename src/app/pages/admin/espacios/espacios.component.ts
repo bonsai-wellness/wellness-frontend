@@ -132,12 +132,13 @@ export class EspaciosComponent implements OnInit {
         this.message.create("warning", `Todos los campos deben estar llenos`);
         return;
       }
-      this._apiservice.addEspacio(this.formEspacio.value).subscribe(async (res) => {
-        await this.formEspacio.value.deportes_ids.map(async (id: number)=>{
-          await this.addRelDeporte(res.espacio_id, id)
+      const formValue = this.formEspacio.value;
+      this._apiservice.addEspacio(formValue).subscribe( (res) => {
+        formValue.deportes_ids.map( (id: number)=>{
+          this.addRelDeporte(res.espacio_id, id)
         });
-        await this.formEspacio.value.puntos_importantes_ids.map(async (id: number)=>{
-          await this.addRelPuntoImportante(res.espacio_id, id)
+        formValue.puntos_importantes_ids.map( (id: number)=>{
+          this.addRelPuntoImportante(res.espacio_id, id)
         })
 
         this.refresh();

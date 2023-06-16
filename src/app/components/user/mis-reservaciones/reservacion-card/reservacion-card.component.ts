@@ -61,5 +61,12 @@ export class ReservacionCardComponent {
   confirm(): void {
     this._apiservice.deleteReservacion(this.reservacion_id).subscribe(() => { });
     this.nzMessageService.info('Reservación Cancelada Correctamente');
+    this.refresh();
+  }
+
+  refresh() :void {
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
   }
 }

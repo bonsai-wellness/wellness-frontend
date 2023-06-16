@@ -32,7 +32,6 @@ export class ReservationTableComponent {
   getData(): void {
       this.fetchData().subscribe((data: any) => {
       this.jsonData = data;
-      // console.log('this is data aaaaaa' , this.jsonData);
       }); 
 	}
 
@@ -45,33 +44,6 @@ export class ReservationTableComponent {
 
   getReservations(): void {
     this.getData();
-    console.log('OUTSIDE JSON DATA' , this.jsonData);
-
-    // let userNames = [];
-
-
-    // if (this.jsonData) {
-    //   for (let i = 0; i < this.jsonData.length; i++) {
-    //     userNames.push(this.jsonData[i].u_name);
-    //   }
-    // }  
-    
-    // for (let i = 0; i < userNames.length; i++) {
-    //  console.log('this is user name' , userNames[i]);
-    // }
-
-    // now we have the user names in the array userNames
-    // lets put it into the html table
-    // let table = document.getElementById("reservation-table");
-    // let tableBody = document.getElementById("reservation-table-body");
-    // tableBody.innerHTML = "";
-    // for (let i = 0; i < userNames.length; i++) {
-    //   let row = tableBody.insertRow(i);
-    //   let cell1 = row.insertCell(0);
-    //   let cell2 = row.insertCell(1);
-    //   cell1.innerHTML = userNames[i];
-    //   cell2.innerHTML = "Not yet";
-    // }
   }
 
 

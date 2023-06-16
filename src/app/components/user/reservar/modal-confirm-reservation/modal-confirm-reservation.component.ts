@@ -47,7 +47,7 @@ export class ModalConfirmReservationComponent implements OnInit, OnChanges {
 			this.timeSlots = helperArr.filter((time: any) => {
 				const startTime = time.start_time.replace(/\D/g, "");
 
-				return startTime > currentTime;
+				return startTime >= currentTime;
 			});
 		} else {
 			this.timeSlots = this.availableTimes[0].timeSlots;

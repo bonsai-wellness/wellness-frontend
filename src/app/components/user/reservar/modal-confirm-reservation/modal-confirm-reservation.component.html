@@ -1,4 +1,7 @@
-<app-alerts *ngIf="reservationCreatedAlertValues.message" [reservationCreatedAlertValues]="reservationCreatedAlertValues"></app-alerts>
+<app-alerts
+	*ngIf="reservationCreatedAlertValues.message"
+	[reservationCreatedAlertValues]="reservationCreatedAlertValues"
+></app-alerts>
 <button
 	data-cy="reservation-slot"
 	style="
@@ -9,7 +12,7 @@
 		display: block;
 		width: 100%;
 	"
-	*ngFor="let time of availableTimes[0].timeSlots"
+	*ngFor="let time of timeSlots"
 	nz-button
 	nzType="default"
 	(click)="showConfirm(time)"

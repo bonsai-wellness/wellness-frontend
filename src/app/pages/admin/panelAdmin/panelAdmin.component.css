@@ -96,8 +96,8 @@ hr.solid {
 }
 
 .sectionTwo{
-  width: 25vw;
-  margin-left: 35px;
+  width: 26vw;
+  margin-left: 25px;
 }
 
 .customColumn:first-child{
@@ -135,42 +135,4 @@ hr.solid {
 }
 
 
-
-
-/* table styles */
-.tableContainer {
-  margin-top: 25px;
-  margin-bottom: 25px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  grid-gap: 10px;
-  align-items: center;
-}
-
-.tableContainer h4, h5{
-  margin: 0;
-  font-size: small;
-}
-
-.textContainer h4{
-  font-size: 10px;
-  font-weight: 100;
-  margin: 0;
-}
-
-.textContainer{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  flex-direction: column;
-  width: 100%;
-}
-
-.imageContainer img {
-  width: 30px;
-  height: auto;
-  object-fit: cover;
-  border-radius: 50%;
-}
 

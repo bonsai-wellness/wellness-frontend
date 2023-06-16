@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 
-<div class="custom-container">
+<div class="custom-container" >
     <div class="row customRow">
 
-        <div class="customColumn">
+        <div class="customColumn" *ngFor="let item of jsonDataArray" >
             <p>Porcentaje de aforo: 
                 <span nz-icon nzType="smile" nzTheme="outline"></span>
             </p>
-            <h2 id="porcentaje"></h2>
+            <h2>
+                {{ item.porcentaje }} %
+            </h2>
             <h5 class="upper">Aumento del 20% con respecto a la última hora</h5>
         </div>
         
-        <div class="customColumn">
+        <div class="customColumn" *ngFor="let item of jsonDataArray">
             <p>Total de personas: 
                 <span nz-icon nzType="user-add" nzTheme="outline"></span>
             </p>
-            <h2 id="aforoActual"></h2>
+            <h2 id="aforoActual">
+               {{ item.aforo_actual }} 
+            </h2>
             <h5 class="upper">Aumento del 20% con respecto a la última hora</h5>
         </div>
 
-        <div class="customColumn">
+        <div class="customColumn" *ngFor="let item of jsonDataResArray">
             <p >Reservaciones hoy:
                 <span nz-icon nzType="schedule" nzTheme="outline"></span>
             </p>
-            <h2>26</h2>
+            <h2>
+                {{ item.reservaciones }}
+            </h2>
             <h5 class="lower">Decremento del 35% con respecto al último dia</h5>
         </div>
 

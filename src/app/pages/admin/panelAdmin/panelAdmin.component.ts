@@ -1,3 +1,6 @@
+// panelAdmin.component.ts
+// Componente de la pantalla de panel de administrador
+// Declara la plantilla de componentes html y estilos css
 import { Component, OnInit } from '@angular/core';
 import { NzMarks } from 'ng-zorro-antd/slider';
 import { ModuleAdmin } from 'src/app/models/admin/moduleAdmin/moduleAdmin';

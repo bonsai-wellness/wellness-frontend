@@ -1,3 +1,5 @@
+// app-admin.component.spec.ts
+// Archivo de pruebas unitarias para los componentes de administrador
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppAdminComponent } from './app-admin.component';

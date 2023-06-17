@@ -1,3 +1,7 @@
+// card-anuncios.component.ts
+// Componente de la tarjeta de anuncios
+// Define las plantillas de componentes html y de estilos css para el modulo de administrador 
+// Se asigna el nombre 'app-card-anuncios'
 import { Component, Input, OnInit } from '@angular/core';
 import { AppConstants } from 'src/app/app-constants';
 @Component({

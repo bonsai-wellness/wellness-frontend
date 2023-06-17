@@ -1,3 +1,6 @@
+// torneos.component.spec.ts
+// Archivo de pruebas unitarias para la pagina de torneos
+// Comprueba que todos los componentes html se esten cargando e importando correctamente
 import { ComponentFixture, TestBed, inject } from '@angular/core/testing';
 import {
   HttpClientTestingModule,
@@ -7,6 +10,8 @@ import { TorneosComponent } from './torneos.component';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { NzModalComponent } from 'ng-zorro-antd/modal';
 import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzMessageService } from 'ng-zorro-antd/message';
+
 describe('TorneosComponent', () => {
   let component: TorneosComponent;
   let fixture: ComponentFixture<TorneosComponent>;
@@ -15,7 +20,7 @@ describe('TorneosComponent', () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, NzModalModule],
       declarations: [ TorneosComponent ],
-      providers: [NzModalService],
+      providers: [NzModalService, NzMessageService],
     })
     .compileComponents();
 

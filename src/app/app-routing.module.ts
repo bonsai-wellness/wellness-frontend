@@ -1,3 +1,7 @@
+// app-routing.module.ts
+// archivo principal de rutas
+// iniciliza al sistema en el modulo de auth con LOGIN
+// Redirige al la app de administrador o usuario dependiendo de la autorizacion realizada en AuthModule
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { 

@@ -1,3 +1,7 @@
+// admin-charts.component.ts
+// Componente de graficaas del panel de administrador 
+// define las plantillas de componentes html y de estilos css para el modulo de administrador 
+// Se asigna el nombre 'app-admin-charts'
 import { Component } from '@angular/core';
 import Chart from 'chart.js/auto';
 

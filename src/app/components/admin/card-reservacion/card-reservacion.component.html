@@ -6,7 +6,7 @@
                     <span nz-icon nzType="clock-circle" nzTheme="outline"></span>
                 </div>
                 <div class="col-9">
-                    <p>{{reservation.start_time}} - {{reservation.end_time}}</p>
+                    <p>{{reservation?.start_time}} - {{reservation?.end_time}}</p>
                 </div>
             </div>
             <div class="row">
@@ -14,17 +14,17 @@
                     <span nz-icon nzType="calendar" nzTheme="outline"></span>
                 </div>
                 <div class="col-9">
-                    <p>{{reservation.date}}</p>
+                    <p>{{reservation?.date}}</p>
                 </div>
             </div>
 
-            <a>{{reservation.booked_time}} min <i class="fas fa-chevron-right"></i></a>
+            <a>{{reservation?.booked_time}} min <i class="fas fa-chevron-right"></i></a>
         </div>
         <div class="reserva-info">
             <h5>A01284186@tec.mx</h5>
-            <h5>{{reservation.u_name}}</h5>
-            <app-modal-delete size="small" [id_object]="reservation.reservation_id" type_object="reservation"
-            name_object={{reservation.u_name}}></app-modal-delete>        
+            <h5>{{reservation?.u_name}}</h5>
+            <app-modal-delete size="small" [id_object]="reservation?.reservation_id" type_object="reservation"
+            name_object={{reservation?.u_name}}></app-modal-delete>        
         </div>
     </div>
 </div>

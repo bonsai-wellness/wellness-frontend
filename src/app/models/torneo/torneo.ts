@@ -1,3 +1,5 @@
+// torneo.ts
+// Modelo Torneo con todos sus atributos inicializados con tipo
 export class Torneo {
     torneo_id=0;
     name!: string;

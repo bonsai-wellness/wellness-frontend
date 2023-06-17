@@ -1,3 +1,7 @@
+// cardTorneo.component.ts
+// Componente de la tarjeta  de torneo
+// define las plantillas de componentes html y de estilos css para el modulo de administrador 
+// Se asigna el nombre 'app-cardTorneo' al componente
 import { Component, Input, NgIterable, OnInit } from '@angular/core';
 import { ModuleAdmin } from 'src/app/models/admin/moduleAdmin/moduleAdmin';
 import { AppConstants } from 'src/app/app-constants';

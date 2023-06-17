@@ -1,14 +1,14 @@
-<a class="torneo-card-link" href="{{ torneo.url }}" target="_blank">
+<a class="torneo-card-link" href="{{ torneo?.url }}" target="_blank">
 	<div class="torneo-card">
 		<div class="img-container">
 			<img
-				src="{{ baseURL + torneo.imagen }}"
+				src="{{ baseURL + torneo?.imagen }}"
 				alt="Imagen relacionada del deporte"
 			/>
 		</div>
 		<div class="card-description">
-			<span class="torneo-type">{{ torneo.evento }}</span>
-			<h5 class="torneo-title">{{ torneo.name }}</h5>
+			<span class="torneo-type">{{ torneo?.evento }}</span>
+			<h5 class="torneo-title">{{ torneo?.name }}</h5>
 		</div>
 	</div>
 </a>

@@ -1,15 +1,14 @@
+// espacios.component.ts
+// Archivo de la pantalla de espacios
+// Manipula los modales, las pestañas de espacios padre y las tarjetas de espacio 
 import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
-import { NzMarks } from "ng-zorro-antd/slider";
 import { EspacioPadre } from "src/app/models/espacioPadre/espacioPadre";
 import { ApiserviceService } from "src/app/Service";
 import { NzModalService } from "ng-zorro-antd/modal";
 import { NzTabsCanDeactivateFn } from "ng-zorro-antd/tabs";
 import { Observable } from "rxjs";
 import { FormGroup, FormBuilder } from "@angular/forms";
-import { AnyCatcher } from "rxjs/internal/AnyCatcher";
 import { NzMessageService } from "ng-zorro-antd/message";
-import { ThisReceiver } from "@angular/compiler";
-// import DeporteImage from  '../../../../assets/login_image-jpeg';
 
 @Component({
   selector: "app-espacios",
@@ -34,13 +33,13 @@ export class EspaciosComponent implements OnInit {
   closeAt = new Date();
   first_tab=1;
 
+  // Metodo constructor donnde se declaran todos los formularios a usar en la pantalla,
+  // el servico de API, modales y mensajes de validación
   constructor(
     private _apiservice: ApiserviceService,
     private modal: NzModalService,
     public formularioEspacioPadre: FormBuilder,
     public formularioEspacio: FormBuilder,
-    public formularioDeporte: FormBuilder,
-    public formularioPuntoImportante: FormBuilder,
     private message: NzMessageService
   ) {
     this.formEspacioPadre = this.formularioEspacioPadre.group({
@@ -65,12 +64,15 @@ export class EspaciosComponent implements OnInit {
     });
   }
 
+  // Se inicializa la pantalla llamando a todos los espacios padre existentes
   ngOnInit() {
     this._apiservice.getAllActiveEspacioPadre().subscribe((res) => {
       this.arrEspacioPadre = res;
     });
   }
 
+  // Cada vez que se realiza un cambio se llama el método rrefresh() para volver a realizar las llamadas
+  // y actualizar los datos
   refresh() {
     this._apiservice.getAllActiveEspacioPadre().subscribe((res) => {
       this.arrEspacioPadre = res;
@@ -84,16 +86,19 @@ export class EspaciosComponent implements OnInit {
     });
   }
 
+  // Manipula la visualización del modal de espacio padre
   showEspacioPadreModal(): void {
     this.isVisibleEspacioPadreModal = true;
   }
-
+  // Manipula la visualización del modal de espacio 
   showEspacioModal(): void {
     this.isVisibleEspacioModal = true;
   }
 
+  //Manipula la creación de espacios padre, manejo de errores y validacionees
   handleAddEspacioPadre(): void {
     try {
+      //Valida que todos los campos esten completos
       if (
         this.formEspacioPadre.value.name === "" ||
         this.formEspacioPadre.value.code === "" ||
@@ -116,8 +121,11 @@ export class EspaciosComponent implements OnInit {
     }
   }
 
+  //Manipula la creación de espacios, manejo de errores y validaciones
+  // Asi mismo, se hacen las llamadas a las APIs para crear las relaciones EspacioDeporte y EspacioPuntoImportante
   async handleAddEspacio() {
     try {
+      //Valida que todos los campos esten completos
       if (
         this.formEspacio.value.name === "" ||
         this.formEspacio.value.code === "" ||
@@ -152,6 +160,7 @@ export class EspaciosComponent implements OnInit {
     }
   }
 
+  // Relacion entre espacio y deporte, se manda el espacio id y el deporte id seleccionado
   async addRelDeporte(espacio_id:number, deporte_id: number) {
     try {
       let body={
@@ -165,6 +174,7 @@ export class EspaciosComponent implements OnInit {
     }
   }
 
+   // Relacion entre espacio y punto, se manda el espacio id y el deporte id seleccionado
   async addRelPuntoImportante(espacio_id:number, punto_importante_id: number) {
     try {
       let body={
@@ -178,12 +188,14 @@ export class EspaciosComponent implements OnInit {
     }
   }
 
+  // Maneja cuando se cierran los modales
   handleCancel(): void {
     this.isVisibleEspacioPadreModal = false;
     this.isVisibleEspacioModal = false;
     this.resetVars();
   }
 
+  //Resetea los valores de los formularios a vacio
   resetVars(): void {
     this.listOfSelectedDeportes = [];
     this.listOfSelectedPuntos = [];
@@ -209,7 +221,7 @@ export class EspaciosComponent implements OnInit {
     });
   }
 
-  //Espacio Padre modal
+  //abre el espacio Padre modal
   openEspacioPadreModal: NzTabsCanDeactivateFn = (
     fromIndex: number,
     toIndex: number
@@ -229,7 +241,7 @@ export class EspaciosComponent implements OnInit {
 
   espacioOptions = [];
 
-
+  // Función de apoyo para el componente app-file-upload, guarda el archivo subido por el usuario en el formulario de espacio
   addFileEspacio(newItem: string) {
     this.formEspacio.get("imagen")?.setValue(newItem);
   }
@@ -238,6 +250,7 @@ export class EspaciosComponent implements OnInit {
 
   }
 
+  // Agrega los deportes, puntos y espacio padre seleccionados de la lista al formulario de espacio 
   addList(event:any, type:string){
     if(type=== 'deporte'){
       this.formEspacio.patchValue({

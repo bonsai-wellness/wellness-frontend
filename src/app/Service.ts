@@ -1,3 +1,6 @@
+// Service.ts
+// El archivo de servicio mantiene todas las llamadas y conexiones al API
+// Se dividen primero todas las funciones GET despues POST, DELET y por ultimo AUTH
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";

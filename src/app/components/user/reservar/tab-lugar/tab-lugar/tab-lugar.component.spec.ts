@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TabLugarComponent } from './tab-lugar.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { EspaciosPadreComponent } from '../espacios-padre/espacios-padre.component';
+import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 
 describe('TabLugarComponent', () => {
   let component: TabLugarComponent;
@@ -8,7 +12,8 @@ describe('TabLugarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TabLugarComponent ]
+      imports:[ HttpClientTestingModule, RouterTestingModule, NzCollapseModule],
+      declarations: [ TabLugarComponent, EspaciosPadreComponent, ]
     })
     .compileComponents();
 

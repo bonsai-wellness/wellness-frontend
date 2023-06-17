@@ -1,3 +1,7 @@
+// modal-delete.component.ts
+// Componente del modal para borrar objetos
+// define las plantillas de componentes html y de estilos css para el modulo de administrador 
+// Se asigna el nombre 'app-modal-delete' al componente
 import { Component, Input, OnInit } from "@angular/core";
 import { NzMessageService } from "ng-zorro-antd/message";
 import { NzModalService } from "ng-zorro-antd/modal";

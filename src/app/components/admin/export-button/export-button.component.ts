@@ -1,3 +1,7 @@
+// export-button.component.ts
+// Componente del boton de exportar
+// define las plantillas de componentes html y de estilos css para el modulo de administrador 
+// Se asigna el nombre 'app-export-button' al componente
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Component, ViewChild } from '@angular/core';
 

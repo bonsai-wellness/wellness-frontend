@@ -1,3 +1,7 @@
+// admin-people-card.component.ts
+// Componente de tarjeta administrador persona
+// define las plantillas de componentes html y de estilos css para el modulo de administrador 
+// Se asigna el nombre 'app-admin-people-card'
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Component, ViewChild, OnDestroy, OnInit } from '@angular/core';
 import { interval, Subscription } from 'rxjs';

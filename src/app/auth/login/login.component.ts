@@ -1,3 +1,8 @@
+// login.component.ts
+// Pantalla de login
+// define las plantillas de componentes html y de estilos css para el modulo de administrador 
+// Se asigna el nombre 'app-login' al componente
+//Manipula las rutas para que se valide el usuario y se redirige al sistema de administrador o alumno
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiserviceService } from "src/app/Service";

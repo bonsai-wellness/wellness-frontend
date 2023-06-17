@@ -1,6 +1,8 @@
+// torneos.component.ts
+// Define las plantillas de componentes html y estilos css de la pantalla de torneos
+// Controla la lógica de todas las variables y funciones de dicha pantalla
 import { Component, OnInit } from "@angular/core";
 import { NzMarks } from "ng-zorro-antd/slider";
-// import { EspacioPadre } from 'src/app/models/espacioPadre/espacioPadre';
 import { ApiserviceService } from "src/app/Service";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { endOfMonth } from "date-fns";
@@ -25,6 +27,11 @@ export class TorneosComponent implements OnInit {
   openAt = new Date();
   closeAt = new Date();
 
+  //Constructor torneos se declara:
+  // El servicio para realizar llamadas HTTP al API
+  // Formulario de torneos para crear torneos
+  // Servicio Message de la libreria NG ZORRO para mostrar mensajes 
+  // de validación (warning, error y exito) al momento de realizar acciones
   constructor(
     private _apiservice: ApiserviceService,
     public formularioTorneo: FormBuilder,
@@ -43,18 +50,21 @@ export class TorneosComponent implements OnInit {
     });
   }
 
+  //Inicializador de torneos realiza una llamada GET para traer todos los torneos
   ngOnInit() {
     this._apiservice.getAllActiveTorneos().subscribe((res) => {
       this.arrTorneos = res;
     });
   }
 
+  // Realiza una llamada GET cada vez que se crea un torneo para una actualización automática 
   refresh() {
     this._apiservice.getAllActiveTorneos().subscribe((res) => {
       this.arrTorneos = res;
     });
   }
 
+  // Resetea las variables del formulario al momento de cerrar el modal
   resetVars() {
     this.formTorneo = this.formularioTorneo.group({
       name: [""],
@@ -68,10 +78,13 @@ export class TorneosComponent implements OnInit {
       is_active: ["T"],
     });
   }
+
+  // Manipula el control de la visualización del modal para agregar torneos
   showModal(): void {
     this.isVisible = true;
   }
 
+  // Función que se encarga de la correcta creación de torneos
   handleAddTorneo(): void {
     try {
       if (
@@ -99,22 +112,27 @@ export class TorneosComponent implements OnInit {
     }
   }
 
+  // Manipula el modal aal momento de cancelar la creación de torneos
   handleCancel(): void {
     this.isVisible = false;
   }
 
+  // Función de apoyo para el componente app-file-upload, guarda el archivo subido por el usuario en el formulario de torneos
   addFileTorneo(newItem: string) {
     this.formTorneo.get("imagen")?.setValue(newItem);
   }
 
+  //Rango de fechas de torneo
   ranges = {
     Today: [new Date(), new Date()],
     "This Month": [new Date(), endOfMonth(new Date())],
   };
 
+  //Manipula el cambio en las fechas del formulario de torneos
   onChange(result: Date[]): void {
   }
 
+  // Agrega el deporte y espacio padre seleccionado de la lista al formulario de torneo 
   addList(event:any, type:string){
     if(type=== 'deporte'){
       this.formTorneo.patchValue({

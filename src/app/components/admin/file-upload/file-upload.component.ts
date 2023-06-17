@@ -1,3 +1,7 @@
+// file-upload.component.ts
+// Componente de la subir archivos
+// define las plantillas de componentes html y de estilos css para el modulo de administrador 
+// Se asigna el nombre 'app-file-upload' al componente
 import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
 import { NzMarks } from "ng-zorro-antd/slider";
 // import { EspacioPadre } from 'src/app/models/espacioPadre/espacioPadre';

@@ -5,6 +5,7 @@ import { UserAppComponent } from './user-app.component';
 import { HeaderModule } from 'src/app/components/user/header/header.module';
 import { UserComponentsModule } from '../../../components/user/user-components.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { ApiserviceService } from 'src/app/Service';
 
 
 
@@ -18,6 +19,9 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
     HeaderModule,
     UserComponentsModule,
     NzLayoutModule,
-  ]
+  ],
+  providers: [
+    ApiserviceService,
+  ],
 })
 export class UserAppModule { }

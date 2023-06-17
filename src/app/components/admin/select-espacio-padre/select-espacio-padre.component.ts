@@ -1,3 +1,7 @@
+// select-espacio-padre.component.ts
+// Componente de la lista seleccionable de espacios padre
+// define las plantillas de componentes html y de estilos css para el modulo de administrador 
+// Se asigna el nombre 'app-select-espacio-padre' al componente
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ApiserviceService } from 'src/app/Service';
 import { NzMessageService } from 'ng-zorro-antd/message';

@@ -2,6 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AnunciosComponent } from './anuncios.component';
 import { CarouselComponent, CarouselModule } from 'ngx-bootstrap/carousel';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ApiserviceService } from 'src/app/Service';
 
 describe('AnunciosComponent', () => {
   let component: AnunciosComponent;
@@ -9,8 +12,9 @@ describe('AnunciosComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CarouselModule],
-      declarations: [ AnunciosComponent ]
+      imports:[CarouselModule, HttpClientTestingModule, RouterTestingModule, ],
+      declarations: [ AnunciosComponent ],
+      providers: [ApiserviceService,]
     })
     .compileComponents();
 

@@ -1,3 +1,5 @@
+// espacio.ts
+// Modelo espacio con todos sus atributos inicializados con tipo
 export class Espacio {
     espacio_id=0;
     name!: string;

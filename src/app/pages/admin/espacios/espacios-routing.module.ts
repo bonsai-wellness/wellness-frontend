@@ -1,3 +1,5 @@
+//espacios-routing.module.ts
+//Define las rutas dentro de la pantalla de espcaios a la pantalla de detalles
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { EspaciosComponent } from "./espacios.component";

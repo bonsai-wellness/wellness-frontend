@@ -1,3 +1,5 @@
+// moduleAdmin.ts
+// Modelo moduleAdmin con todos sus atributos inicializados con tipo
 export class ModuleAdmin {
     name!: string;
     image!: string;

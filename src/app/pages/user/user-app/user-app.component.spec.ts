@@ -8,15 +8,18 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzHeaderComponent } from 'ng-zorro-antd/layout';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { HeaderComponent } from 'src/app/components/user/header/header.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { NzDrawerModule } from 'ng-zorro-antd/drawer';
 describe('UserAppComponent', () => {
   let component: UserAppComponent;
   let fixture: ComponentFixture<UserAppComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      declarations: [ UserAppComponent, NzContentComponent, NzHeaderComponent ],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+      imports: [RouterTestingModule, HttpClientTestingModule, NzDrawerModule],
+      declarations: [ UserAppComponent, NzContentComponent, NzHeaderComponent, HeaderComponent ],
+      // schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
     .compileComponents();
 

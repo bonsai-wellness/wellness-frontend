@@ -1,3 +1,7 @@
+// modal-edit-espacio.component.ts
+// Componente del modal para editar espacio
+// define las plantillas de componentes html y de estilos css para el modulo de administrador 
+// Se asigna el nombre 'app-modal-edit-espacio' al componente
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd/message';
@@ -34,8 +38,8 @@ export class ModalEditEspacioComponent implements OnInit{
     private message: NzMessageService
   ) {
     let params: any = this.location.getState();
-    this.espacio_id = params.espacio_id;
-    this.name = params.name;
+    this.espacio_id = params?.espacio_id;
+    this.name = params?.name;
     this.formEspacio = this.formularioEspacio.group({
       name: [params?.name],
       code: [params?.code],

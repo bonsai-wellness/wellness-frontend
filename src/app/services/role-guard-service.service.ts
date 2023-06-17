@@ -1,3 +1,5 @@
+// role-guard-service.service.ts
+// Archivo que define el rol del usuario y redirige al sistema de administrador o usuario con ruta protegida
 import { Injectable } from '@angular/core';
 import { 
   Router,

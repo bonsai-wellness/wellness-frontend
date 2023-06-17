@@ -1,3 +1,7 @@
+// admin-login.component.ts
+// Componente de admin-login
+// define las plantillas de componentes html y de estilos css para el modulo de administrador 
+// Se asigna el nombre 'app-admin-login'
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiserviceService } from "src/app/Service";

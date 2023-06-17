@@ -1,3 +1,7 @@
+// drawer.component.ts
+// Componente de la barra de navegación admin
+// define las plantillas de componentes html y de estilos css para el modulo de administrador 
+// Se asigna el nombre 'app-drawer' al componente
 import { Component } from '@angular/core';
 
 @Component({

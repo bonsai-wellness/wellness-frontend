@@ -1,3 +1,7 @@
+// select-deporte.component.ts
+// Componente de la lista seleccionable de deportes
+// define las plantillas de componentes html y de estilos css para el modulo de administrador 
+// Se asigna el nombre 'app-select-deporte' al componente
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ApiserviceService } from 'src/app/Service';

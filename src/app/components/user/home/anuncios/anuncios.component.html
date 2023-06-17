@@ -1,10 +1,13 @@
 <div class="row ">
     <div class="col-12 my-2 rounded-3 p-0 anuncios">
-        
+        <!-- Carrusel de anuncios -->
         <carousel  class="h-100 d-block " [interval]="0 " >
+          
+          <!-- Item anuncio -->
           <slide *ngFor="let anuncio of arrAnuncios" class="text-center w-80 mx-auto ">
 
             <div class="card text-white my-2 rounded-3 border-0 w-100 h-40">
+              <!-- Link para navegar a anuncio -->
               <a href={{anuncio.url}} class="rounded-3" target="_blank">
         
                 <img ngSrc="{{baseURL+anuncio.imagen}}" class="card-img rounded-3 anuncios" alt="..." height="180" width="342">
@@ -14,6 +17,7 @@
                   <h5 class="text-white text-center">{{anuncio.name}}</h5>
                 </div>
               </a>
+
             </div>
           </slide>
           </carousel>

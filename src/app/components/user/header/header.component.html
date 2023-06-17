@@ -1,6 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-2 p-0">
+
+      <!-- Botón de abrir menu -->
       <a>
         <img
           class="logo-tec"
@@ -10,12 +12,15 @@
         />
       </a>
     </div>
-    <div class="col">
 
+    <!-- Titulo de página -->
+    <div class="col">
       <ng-content [titulo]></ng-content>
     </div>
+
   </div>
 
+  <!-- Footer del menu -->
   <ng-template #footerTemplate>
     <div class="profile">
       <img [src]="imgUrl" alt="" />
@@ -25,6 +30,7 @@
     </div>
   </ng-template>
 
+  <!-- Menu desplegable -->
   <nz-drawer
     [nzClosable]="false"
     [nzVisible]="visible"
@@ -37,10 +43,14 @@
     <ng-container *nzDrawerContent>
 
       <ul nz-menu nzTheme="light" nzMode="inline">
+
+        <!-- Boton Home -->
         <li nz-menu-item nzMatchRouterExact routerLink="./" (click)="close()">
           <span nz-icon nzType="home" nzTheme="outline"></span>
           <span>Home</span>
         </li>
+
+        <!-- Boton Reservar -->
         <li
           nz-menu-item
           nzMatchRouterExact
@@ -50,6 +60,8 @@
           <span nz-icon nzType="schedule" nzTheme="outline"></span>
           <span>Reserva</span>
         </li>
+
+        <!-- Boton Mis reservaciones -->
         <li
           nz-menu-item
           nzMatchRouterExact
@@ -59,15 +71,6 @@
           <span nz-icon nzType="calendar"></span>
           <span>Mis reservaciones</span>
         </li>
-        <!-- <li
-          nz-menu-item
-          nzMatchRouterExact
-          routerLink="/anuncios"
-          (click)="close()"
-        >
-          <span nz-icon nzType="notification"></span>
-          <span>Anuncios</span>
-        </li> -->
       </ul>
     </ng-container>
   </nz-drawer>

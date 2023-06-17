@@ -25,11 +25,13 @@ export class ReservacionCardComponent {
   reservacion_id: any;
 
   ngOnChanges() {
+    // Si recibe los datos de la reservacion llama setDisplayData
     if (this.displayReservacion) {
       this.setDisplayData();
     }
   }
 
+  // Da formato a los datos de reservacion para mostrarlos
   setDisplayData() {
     this.fecha = this.formatoFecha(this.displayReservacion.date);
     this.hora_inicio = this.displayReservacion.start_time.slice(0, 5);
@@ -39,6 +41,7 @@ export class ReservacionCardComponent {
     this.reservacion_id = this.displayReservacion.reservation_id;
   }
 
+  // Da formato a la fecha
   formatoFecha(fecha: string): string {
     const [year, month, day] = fecha.split('-');
     const parsedMonth = parseInt(month);
@@ -47,6 +50,7 @@ export class ReservacionCardComponent {
     return `${day} ${abbreviatedMonth}`;
   }
 
+  // Obtiene el mes abreviado
   getMesAbreviado(numeroMes: number): string {
     const date = new Date(0, numeroMes - 1);
     const nombreMes = date.toLocaleString('es-ES', { month: 'short' });
@@ -54,16 +58,19 @@ export class ReservacionCardComponent {
     return nombreMayusMes;
   }
 
+  // Accion de no confirmar reservacion
   cancel(): void {
     this.nzMessageService.info('Cancelación no confirmada');
   }
 
+  // Accion de confirmar la cancelacion de reservacion
   confirm(): void {
     this._apiservice.deleteReservacion(this.reservacion_id).subscribe(() => { });
     this.nzMessageService.info('Reservación Cancelada Correctamente');
     this.refresh();
   }
 
+  // Actualiza la pagina despues de cancelar reservacion
   refresh() :void {
     setTimeout(() => {
       window.location.reload();

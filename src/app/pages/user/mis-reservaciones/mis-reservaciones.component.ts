@@ -15,6 +15,7 @@ export class MisReservacionesComponent implements OnInit{
   ngOnInit() {
     document.title = this.title;
 
+    // Obtiene las reservaciones del usuario
     this._apiservice.getMisReservaciones().subscribe( (res) =>{
       this.reservaciones = res;
     })

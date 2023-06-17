@@ -15,6 +15,7 @@ export class UserAppComponent{
   }
   constructor(private cdRef:ChangeDetectorRef) {}
 
+  // Cambiar titulo por cada pagina
   ngAfterViewChecked(){
     this.titulo = document.title;
     this.cdRef.detectChanges();

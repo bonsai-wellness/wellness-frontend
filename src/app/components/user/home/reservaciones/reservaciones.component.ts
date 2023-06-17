@@ -30,13 +30,14 @@ export class ReservacionesComponent {
   constructor(private _apiservice: ApiserviceService){}
   
   ngOnInit() {
-
+    // Obtiene reservaciones del usuario
     this._apiservice.getMisReservaciones().subscribe( (res) =>{
       this.reservaciones = res;
       this.agregarDisplayReservas();
     })
   }
 
+    // Da formato a los datos de reservacion para mostrarlos
   setDisplayData() {
     this.fecha = this.formatoFecha(this.displayReservacion.date);
     this.hora_inicio = this.displayReservacion.start_time.slice(0, 5);
@@ -45,6 +46,7 @@ export class ReservacionesComponent {
     this.nombre_espacio = this.displayReservacion.ename;
   }
 
+    // Da formato a la fecha
   formatoFecha(fecha: string): string {
     const [year, month, day] = fecha.split('-');
     const parsedMonth = parseInt(month);
@@ -53,6 +55,7 @@ export class ReservacionesComponent {
     return `${day} ${abbreviatedMonth}`;
   }
 
+    // Obtiene el mes abreviado
   getMesAbreviado(numeroMes: number): string {
     const date = new Date(0, numeroMes - 1);
 
@@ -62,6 +65,7 @@ export class ReservacionesComponent {
     return nombreMayusMes;
   }
 
+  // Agrega la reservacion mas cercana para mostrarla
   agregarDisplayReservas(){
     if(this.reservaciones.length >0){
       this.displayReservacion = this.reservaciones[0];

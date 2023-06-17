@@ -1,13 +1,17 @@
 <div class="mt-3">
+    <!-- Contendedor lista -->
     <div class="card-lista-reservaciones rounded-3">
         <nz-list 
             nzItemLayout="horizontal"
             >
+            <!-- Item de reservacion -->
               <nz-list-item 
               *ngFor="let reservacion of reservaciones"
               >
+              <!-- Tarjeta de reservacion -->
               <app-reservacion-card class="w-100" [displayReservacion]="reservacion"></app-reservacion-card>
               </nz-list-item>
+              <!-- Mostrar en casio de no tener reservaciones -->
               <nz-list-empty *ngIf="reservaciones.length === 0"></nz-list-empty>
               </nz-list>
     </div>

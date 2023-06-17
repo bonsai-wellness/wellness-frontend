@@ -21,6 +21,11 @@ Run `npx cypress open` to perform the testing.
 
 https://github.com/bonsai-wellness/wellness-frontend/assets/69658875/d3418b3a-1541-455e-bd07-f4f698d6e975
 
+## Sprint 2 and 3 - Cypress Testing
+
+Run `npx cypress open` to perform the testing.
+
+https://github.com/bonsai-wellness/wellness-frontend/assets/69658875/c28e2264-af63-422d-88e3-39df2b3d7b27
 
 ## Demo
 

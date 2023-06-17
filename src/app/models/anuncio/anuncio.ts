@@ -1,3 +1,5 @@
+// anuncio.ts
+// Modelo anuncio con todos sus atributos inicializados con tipo
 export class Anuncio {
   aviso_id: number = 0;
   created_at: string = "";

@@ -1,10 +1,11 @@
 <a nz-popconfirm *ngIf='type_object!="reservation"' nzPopconfirmTitle="¿Estas seguro que deseas borrar el {{type_object}}: {{name_object}}?" nzPopconfirmPlacement="bottom"
-        (nzOnConfirm)="confirmDeleteObject()" (nzOnCancel)="cancelDelete()">
-        <span  *ngIf='mode=="trash_button"' class='delete' nz-icon nzType="delete" nzTheme="outline"></span>
-        <button  class="delete_button" *ngIf='mode=="delete_button"' nz-button nzType="primary" nzDanger="true">Borrar</button>
+(nzOnConfirm)="confirmDeleteObject()" (nzOnCancel)="cancelDelete()">
+<span  *ngIf='mode=="trash_button"' class='delete' nz-icon nzType="delete" nzTheme="outline"></span>
+<button  class="delete_button" *ngIf='mode=="delete_button"' nz-button nzType="primary" nzDanger="true">Borrar</button>
 </a>
 
 <a nz-popconfirm *ngIf='type_object=="reservation"' nzPopconfirmTitle="¿Estas seguro que deseas cancelar la reservación de {{name_object}}?" nzPopconfirmPlacement="bottom"
         (nzOnConfirm)="confirmDeleteReservation()" (nzOnCancel)="cancelDelete()">
         <button  class="cancel_button" >Cancelar</button>
 </a>
+

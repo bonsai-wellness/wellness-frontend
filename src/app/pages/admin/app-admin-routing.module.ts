@@ -1,3 +1,5 @@
+// app-admin-routing.module.ts
+// Archivo de rutas para el sistema de administrador
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AnunciosComponent } from "./anuncios/anuncios.component";
@@ -17,12 +19,8 @@ const routes: Routes = [
     children: [
       { path: '', component: PanelAdminComponent}, 
       { path: 'panel-admin', component: PanelAdminComponent}, 
-      { path: 'espacios', component: EspaciosComponent, children: [
-        // {
-        //   path: 'espacios/:espacio_id/espacio-details', 
-        //   component: EspacioDetailsComponent, 
-        // },
-      ],}, 
+      { path: 'espacios', component: EspaciosComponent,}, 
+      // { path: 'espacios', loadChildren: () => import('./espacios/espacios.module').then(m => m.EspaciosModule) },
       { path: 'torneos', component: TorneosComponent}, 
       { path: 'anuncios', component: AnunciosComponent}, 
       {

@@ -21,10 +21,13 @@
                 nzDescription={{espacio.code}}
                   >
                   <nz-list-item-meta-title>
+
+                    <!-- Contenido principal del item -->
                     <div class="d-flex justify-content-between align-items-center">
                       {{ espacio.name }}
                       <app-puntos-importantes [espacio_id]="espacio.espacio_id" ></app-puntos-importantes>
                     </div>
+                    
                   </nz-list-item-meta-title>
                 </nz-list-item-meta>
               </nz-list-item>

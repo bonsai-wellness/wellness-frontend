@@ -15,7 +15,7 @@ export class ReservarDeporteComponent implements OnInit {
 	constructor(
 		private route: ActivatedRoute,
 		private router: Router,
-		private _apiservice: ApiserviceService
+		private _apiservice: ApiserviceService,
 	) {
 	}
 
@@ -28,7 +28,6 @@ export class ReservarDeporteComponent implements OnInit {
 	ngOnInit(): void {
 
 		document.title = "";
-
 		// Obtiene id de deporte
 		this.route.params.subscribe((params) => {
 			this.deporte_id = params["id"];

@@ -1,3 +1,7 @@
+// tabEspacios.component.ts
+// Componente de pestaña de espacios
+// define las plantillas de componentes html y de estilos css para el modulo de administrador 
+// Se asigna el nombre 'app-tabEspacios' al componente
 import { Component, Input, NgIterable } from '@angular/core';
 import { ModuleAdmin } from 'src/app/models/admin/moduleAdmin/moduleAdmin';
 import { ApiserviceService } from 'src/app/Service';

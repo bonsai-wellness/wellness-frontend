@@ -1,3 +1,5 @@
+// auth.module.ts
+// Integra todos los modulos y componentes necesarios para importar del login
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 

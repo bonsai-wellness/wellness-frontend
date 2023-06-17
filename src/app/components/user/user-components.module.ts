@@ -1,9 +1,8 @@
-import { NgModule } from "@angular/core";
+import { LOCALE_ID, NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { StatsComponent } from "./home/stats/stats.component";
 import { ReservacionesComponent } from "./home/reservaciones/reservaciones.component";
 import { AnunciosComponent } from "./home/anuncios/anuncios.component";
-
 import { CarouselModule } from "ngx-bootstrap/carousel";
 import { CardDeporteComponent } from "./reservar/card-deporte/card-deporte.component";
 import { TabReservarComponent } from "./reservar/tab-reservar/tab-reservar/tab-reservar.component";
@@ -32,7 +31,14 @@ import { RouterModule } from "@angular/router";
 import { SharedComponentsModule } from "../shared/shared-components.module";
 import { AforoActualComponent } from "./home/stats/aforo-actual/aforo-actual.component";
 import { NgOptimizedImage } from "@angular/common"
+import { ApiserviceService } from "src/app/Service";
+import { HttpClientModule } from "@angular/common/http";
+import { registerLocaleData } from '@angular/common';
+import localeZH from '@angular/common/locales/zh';
+registerLocaleData(localeZH);
+
 @NgModule({
+	// Declaracion de componentes de usuario
 	declarations: [
 		StatsComponent,
 		ReservacionesComponent,
@@ -52,6 +58,8 @@ import { NgOptimizedImage } from "@angular/common"
 		ReservacionCardComponent,
 		AforoActualComponent,
 	],
+
+	// Modulos a importar para usar en los componentes
 	imports: [
 		CommonModule,
 		CarouselModule,
@@ -68,7 +76,9 @@ import { NgOptimizedImage } from "@angular/common"
 		RouterModule,
 		SharedComponentsModule,
 		NgOptimizedImage,
+		HttpClientModule,
 	],
+	// Exportar componentes declarados
 	exports: [
 		StatsComponent,
 		ReservacionesComponent,
@@ -88,6 +98,10 @@ import { NgOptimizedImage } from "@angular/common"
 		ReservacionCardComponent,
 		AforoActualComponent
 	],
+	providers: [
+		ApiserviceService,
+		{ provide: LOCALE_ID, useValue: 'zh-cn'},
+    ]
 })
 
 export class UserComponentsModule { }

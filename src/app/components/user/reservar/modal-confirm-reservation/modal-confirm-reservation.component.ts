@@ -42,10 +42,10 @@ export class ModalConfirmReservationComponent implements OnInit, OnChanges {
 		const minutes = String(date.getMinutes()).padStart(2, "0");
 		const currentTime: string = `${hours}:${minutes}`;
 
-		const helperArr = this["availableTimes"][0].timeSlots;
+		const helperArr = this["availableTimes"][0]?.timeSlots;
 
 		if (this.formatDate(this.selectedDate) === this.formatDate(date)) {
-			this.timeSlots = helperArr.filter((time: any) => {
+			this.timeSlots = helperArr?.filter((time: any) => {
 				const startTime = time.start_time;
 				const date1 = new Date(`2000-01-01T${startTime}`);
 				const date2 = new Date(`2000-01-01T${currentTime}`);
@@ -53,7 +53,7 @@ export class ModalConfirmReservationComponent implements OnInit, OnChanges {
 				return date1 >= date2;
 			});
 		} else {
-			this.timeSlots = this.availableTimes[0].timeSlots;
+			this.timeSlots = this.availableTimes[0]?.timeSlots;
 		}
 	}
 

@@ -1,5 +1,6 @@
 <div class="row mis-reservas rounded-3 py-3">
     <div class="col-4 w-100 d-flex justify-content-end">
+        <!-- Botón de cancelar reservacion -->
         <span 
         data-cy="btn-cancelar-reservacion"
         nz-icon nzType="delete" nzTheme="outline"
@@ -12,16 +13,20 @@
         (nzOnCancel)="cancel()">
         </span>
     </div>
+
+    <!-- Fecha -->
     <div class="fecha col-4 text-center">
         <h1>{{fecha}}</h1>
     </div>
+
     <div class="col-8 p-0">
         <div class="rounded-3 text-left">
             <div class="px-4 border-start border-black">
+                <!-- Titulo reservacion -->
                 <div class="titulo-reserva">
                     <h4 class="">{{nombre_espacio}}</h4>
                 </div>
-
+                <!-- Horario -->
                 <div class="horario-reserva">
                     <p class="m-0">{{hora_inicio}} - {{hora_final}}</p>
                 </div>

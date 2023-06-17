@@ -1,3 +1,6 @@
+// espacios.component.spec.ts
+// Archivo de pruebas unitarias de la pantalla de espacios
+// Comprueba que todos los elementos html y de la libreria ng zorro esten importados y rendericen correctamente
 import { ComponentFixture, TestBed, inject } from '@angular/core/testing';
 import {
   HttpClientTestingModule,
@@ -10,6 +13,7 @@ import { NzTabComponent } from 'ng-zorro-antd/tabs';
 import { NzTabSetComponent } from 'ng-zorro-antd/tabs';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 describe('EspaciosComponent', () => {
   let component: EspaciosComponent;
@@ -19,7 +23,7 @@ describe('EspaciosComponent', () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, NzModalModule, NzTabsModule],
       declarations: [ EspaciosComponent],
-      providers: [NzModalService]
+      providers: [NzModalService, NzMessageService]
     })
     .compileComponents();
 

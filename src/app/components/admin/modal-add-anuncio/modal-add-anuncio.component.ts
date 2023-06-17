@@ -1,7 +1,11 @@
+// modal-add-anuncio.component.ts
+// Componente del modal para agregar anuncios
+// define las plantillas de componentes html y de estilos css para el modulo de administrador 
+// Se asigna el nombre 'app-modal-add-anuncio' al componente
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { ApiserviceService } from 'src/app/Service';
+
 @Component({
   selector: 'app-modal-add-anuncio',
   templateUrl: './modal-add-anuncio.component.html',
@@ -15,7 +19,6 @@ export class ModalAddAnuncioComponent implements OnInit {
   arrAnuncios: any;
 
   constructor(
-    private _apiservice: ApiserviceService,
     public formularioAnuncio: FormBuilder,
     private message: NzMessageService
   ) {

@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PuntosImportantesComponent } from './puntos-importantes.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
 
 describe('PuntosImportantesComponent', () => {
   let component: PuntosImportantesComponent;
@@ -8,7 +11,9 @@ describe('PuntosImportantesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PuntosImportantesComponent ]
+      imports:[ HttpClientTestingModule, RouterTestingModule, NzModalModule],
+      declarations: [ PuntosImportantesComponent ],
+      providers: [NzModalService]
     })
     .compileComponents();
 

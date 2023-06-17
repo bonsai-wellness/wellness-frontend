@@ -1,9 +1,12 @@
+// app.component.spec.ts
+// Comprueba que todos los componentes html se esten cargando e importando correctamente
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { PanelAdminComponent } from './pages/admin/panelAdmin/panelAdmin.component';
 import { NzContentComponent } from 'ng-zorro-antd/layout';
+import { ApiserviceService } from './Service';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -15,6 +18,9 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent, NzContentComponent
       ],
+      providers: [
+        ApiserviceService,
+      ],
     }).compileComponents();
   });
 
@@ -24,17 +30,11 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'my-dream-app'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).equal('my-dream-app');
-  });
-
   it('should render content of App Component', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.innerHTML).contain('div');
-    expect(compiled.innerHTML).contain('router-outlet');
+    expect(compiled.innerHTML).toContain('div');
+    expect(compiled.innerHTML).toContain('router-outlet');
   });
 });

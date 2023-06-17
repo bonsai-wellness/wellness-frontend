@@ -21,16 +21,19 @@ export class HeaderComponent implements OnInit {
   imgUrl = "";
 
   ngOnInit() {
+    // Obtiene  informacion del usuario
     this._apiService.getCurrentUser().subscribe((data: any) => {
       this.name = data.name;
       this.imgUrl = data.profile_picture;
     });
   }
 
+  // Abrir menu
   open(): void {
     this.visible = true;
   }
 
+  // Cerrar menu
   close(): void {
     this.visible = false;
   }

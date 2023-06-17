@@ -16,6 +16,7 @@ export class AnunciosComponent {
   arrAnuncios: any = [];
 
   ngOnInit(){
+    // Obtiene anuncios activos
     this._apiservice.getAllActiveAnuncios().subscribe( (res) =>{
       this.arrAnuncios = res;
         });

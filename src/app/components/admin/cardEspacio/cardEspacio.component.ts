@@ -1,3 +1,7 @@
+// cardEspacio.component.ts
+// Componente de la tarjeta  de espacio
+// define las plantillas de componentes html y de estilos css para el modulo de administrador 
+// Se asigna el nombre 'app-cardEspacio' al componente
 import { Component, Input, NgIterable, OnInit } from '@angular/core';
 import { ModuleAdmin } from 'src/app/models/admin/moduleAdmin/moduleAdmin';
 import { ActivatedRoute } from '@angular/router';

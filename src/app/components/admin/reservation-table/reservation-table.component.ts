@@ -1,3 +1,7 @@
+// reservation-table.component.ts
+// Componente de la tarjeta  de espacio
+// define las plantillas de componentes html y de estilos css para el modulo de administrador 
+// Se asigna el nombre 'app-reservation-table' al componente
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Component, ViewChild, OnDestroy, OnInit } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
@@ -45,12 +49,6 @@ export class ReservationTableComponent {
   getReservations(): void {
     this.getData();
   }
-
-
-
-
-
-
 
 }
 

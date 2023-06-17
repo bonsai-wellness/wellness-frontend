@@ -1,3 +1,5 @@
+// auth.service.ts
+// Archivo que define si el usuario acctual ya esta autenticado
 import { Injectable } from "@angular/core";
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { Router } from '@angular/router';

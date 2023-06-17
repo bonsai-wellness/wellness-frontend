@@ -9,11 +9,18 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 * Karma
 * Jasmine
 
+## Sprint 1 - Unit Testing
+
 Run `ng test` to perform the testing.
 
-
-
 https://github.com/bonsai-wellness/wellness-frontend/assets/69658875/165f625e-8d35-4a90-b7a8-148366eba058
+
+## Sprint 1 - Cypress Testing
+
+Run `npx cypress open` to perform the testing.
+
+https://github.com/bonsai-wellness/wellness-frontend/assets/69658875/d3418b3a-1541-455e-bd07-f4f698d6e975
+
 
 ## Demo
 

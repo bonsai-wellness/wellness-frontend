@@ -13,7 +13,8 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 Run `ng test` to perform the testing.
 
-https://github.com/bonsai-wellness/wellness-frontend/assets/69658875/165f625e-8d35-4a90-b7a8-148366eba058
+
+https://github.com/bonsai-wellness/wellness-frontend/assets/65806675/a899beb0-e3f8-499d-8a69-3de66a368735
 
 ## Sprint 1 - Cypress Testing
 

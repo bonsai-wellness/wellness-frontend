@@ -3,7 +3,6 @@ import { CommonModule } from "@angular/common";
 import { StatsComponent } from "./home/stats/stats.component";
 import { ReservacionesComponent } from "./home/reservaciones/reservaciones.component";
 import { AnunciosComponent } from "./home/anuncios/anuncios.component";
-
 import { CarouselModule } from "ngx-bootstrap/carousel";
 import { CardDeporteComponent } from "./reservar/card-deporte/card-deporte.component";
 import { TabReservarComponent } from "./reservar/tab-reservar/tab-reservar/tab-reservar.component";
@@ -32,7 +31,10 @@ import { RouterModule } from "@angular/router";
 import { SharedComponentsModule } from "../shared/shared-components.module";
 import { AforoActualComponent } from "./home/stats/aforo-actual/aforo-actual.component";
 import { NgOptimizedImage } from "@angular/common"
+
+
 @NgModule({
+	// Declaracion de componentes de usuario
 	declarations: [
 		StatsComponent,
 		ReservacionesComponent,
@@ -52,6 +54,8 @@ import { NgOptimizedImage } from "@angular/common"
 		ReservacionCardComponent,
 		AforoActualComponent,
 	],
+
+	// Modulos a importar para usar en los componentes
 	imports: [
 		CommonModule,
 		CarouselModule,
@@ -69,6 +73,7 @@ import { NgOptimizedImage } from "@angular/common"
 		SharedComponentsModule,
 		NgOptimizedImage,
 	],
+	// Exportar componentes declarados
 	exports: [
 		StatsComponent,
 		ReservacionesComponent,

@@ -15,8 +15,10 @@ export class EspaciosPadreComponent implements OnChanges {
   @Input() espaciosPadre: any;
   @Input() espaciosHijo: any;
   panels: any[] = [];
-
+  
+  // Funcion que se implementa cuando recibe los valores el componente
   ngOnChanges(changes: SimpleChanges): void {
+    
     if (this.espaciosHijo && this.espaciosPadre) {
       // Agregar items para acordeon que despliega la lista de espacios
       for (let i = 0; i < this.espaciosPadre.length; i++) {
